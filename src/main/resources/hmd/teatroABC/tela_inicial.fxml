@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmd.teatroABC.controller.TelaInicialController">
+    <children>
+      <HBox alignment="CENTER">
+         <children>
+              <Label alignment="CENTER" text="BEM VINDO AO TEATRO ABC" textAlignment="CENTER">
+                  <font>
+                      <Font name="System Bold" size="18.0" />
+                  </font>
+              </Label>
+         </children>
+      </HBox>
+        <HBox spacing="25.0">
+            <children>
+                <ImageView fitHeight="386.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/placeholder_poster.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="386.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/placeholder_poster.jpg" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="386.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../images/placeholder_poster.jpg" />
+                    </image>
+                </ImageView>
+            </children>
+            <padding>
+                <Insets top="20.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER" spacing="25.0">
+            <children>
+                <Button mnemonicParsing="false" text="Manhã" />
+                <Button mnemonicParsing="false" text="Tarde" />
+                <Button mnemonicParsing="false" text="Noite" />
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+    </padding>
+</VBox>
