@@ -11,42 +11,54 @@
 
 <VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmd.teatroABC.controller.TelaInicialController">
     <children>
-      <HBox alignment="CENTER">
+      <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
          <children>
-              <Label alignment="CENTER" text="BEM VINDO AO TEATRO ABC" textAlignment="CENTER">
+              <Label alignment="CENTER" text="BEM VINDO AO TEATRO ABC" textAlignment="CENTER" HBox.hgrow="ALWAYS">
                   <font>
                       <Font name="System Bold" size="18.0" />
                   </font>
               </Label>
          </children>
       </HBox>
-        <HBox spacing="25.0">
+        <HBox alignment="CENTER" spacing="25.0" VBox.vgrow="ALWAYS">
             <children>
-                <ImageView fitHeight="386.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/placeholder_poster.jpg" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="386.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/placeholder_poster.jpg" />
-                    </image>
-                </ImageView>
-                <ImageView fitHeight="386.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../images/placeholder_poster.jpg" />
-                    </image>
-                </ImageView>
+            <Button fx:id="peca1Botao" alignment="CENTER" mnemonicParsing="false" onAction="#turnoClicado" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+               <graphic>
+                      <ImageView fx:id="imagem1" fitHeight="386.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../images/placeholder_poster.jpg" />
+                          </image>
+                      </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="peca2Botao" alignment="CENTER" mnemonicParsing="false" onAction="#turnoClicado" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+               <graphic>
+                      <ImageView fitHeight="386.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../images/placeholder_poster.jpg" />
+                          </image>
+                      </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="peca3Botao" alignment="CENTER" mnemonicParsing="false" onAction="#turnoClicado" style="-fx-background-color: transparent;" HBox.hgrow="ALWAYS">
+               <graphic>
+                      <ImageView fitHeight="386.0" fitWidth="257.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@../../images/placeholder_poster.jpg" />
+                          </image>
+                      </ImageView>
+               </graphic>
+            </Button>
             </children>
             <padding>
                 <Insets top="20.0" />
             </padding>
         </HBox>
-        <HBox alignment="CENTER" spacing="25.0">
+        <HBox fx:id="botoesBox" alignment="CENTER" spacing="25.0" VBox.vgrow="ALWAYS">
             <children>
-                <Button mnemonicParsing="false" text="Manhã" />
-                <Button mnemonicParsing="false" text="Tarde" />
-                <Button mnemonicParsing="false" text="Noite" />
+                <Button fx:id="botaoManha" mnemonicParsing="false" onAction="#botaoTurnoClicado" text="Manhã" HBox.hgrow="ALWAYS" />
+                <Button fx:id="botaoTarde" mnemonicParsing="false" onAction="#botaoTurnoClicado" text="Tarde" HBox.hgrow="ALWAYS" />
+                <Button fx:id="botaoNoite" mnemonicParsing="false" onAction="#botaoTurnoClicado" text="Noite" HBox.hgrow="ALWAYS" />
             </children>
         </HBox>
     </children>
