@@ -1,34 +1,25 @@
 package hmd.teatroABC.controller;
 
 import hmd.teatroABC.model.Peca;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class TelaInicialController {
-    @FXML
-    private Button peca1Botao, peca2Botao, peca3Botao;
+    public Button botaoManha, botaoTarde, botaoNoite;
 
-    @FXML
-    private HBox botoesBox;
+    public HBox botoesBox, postersBox;
 
-    @FXML
-    private Button botaoManha, botaoTarde, botaoNoite;
+    public ImageView imagem1, imagem2;
 
-    @FXML
-    public ImageView imagem1;
+    public ToggleButton peca1Botao, peca2Botao, peca3Botao;
 
     static Peca peca1 = new Peca(new File("src/main/resources/images/wicked_poster.jpg"));
 
@@ -42,7 +33,7 @@ public class TelaInicialController {
         });
     }
 
-    public void turnoClicado() throws IOException {
+    public void pecaSelecionada() {
         botoesBox.setVisible(true);
     }
 
