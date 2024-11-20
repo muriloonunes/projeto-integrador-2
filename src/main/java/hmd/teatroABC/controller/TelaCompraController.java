@@ -19,7 +19,7 @@ public class TelaCompraController {
 
     public void voltarClicado() throws IOException {
         FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1020, 700);
+        Scene telaInicialScene = new Scene(telaInicialLoader.load());
         Stage telaInicialStage = (Stage) botaoVoltar.getScene().getWindow();
         telaInicialStage.setScene(telaInicialScene);
         telaInicialStage.show();

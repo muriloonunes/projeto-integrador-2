@@ -48,7 +48,7 @@ public class TelaInicialController {
 
     public void botaoTurnoClicado() throws IOException {
         FXMLLoader compraSceneLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_compra.fxml"));
-        Scene compraScene = new Scene(compraSceneLoader.load(), 1020, 700);
+        Scene compraScene = new Scene(compraSceneLoader.load());
         Stage compraStage = (Stage) peca1Botao.getScene().getWindow();
         compraStage.setScene(compraScene);
         compraStage.show();
