@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -15,40 +15,33 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.control.Button?>
-<HBox alignment="CENTER" spacing="15.0" stylesheets="@../../styles/tela_ingressos.css"
-      xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="hmd.teatroABC.controller.TelaCompraController">
-   <VBox alignment="CENTER" spacing="5.0">
+<HBox alignment="CENTER" spacing="15.0" stylesheets="@../../styles/tela_ingressos.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmd.teatroABC.controller.TelaCompraController">
+   <VBox alignment="CENTER" spacing="5.0" HBox.hgrow="SOMETIMES">
       <padding>
-         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
       </padding>
       <HBox spacing="70.0">
          <padding>
-            <Insets right="100.0"/>
+            <Insets right="100.0" />
          </padding>
-         <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltarClicado" prefHeight="27.0"
-                 prefWidth="31.0" style="-fx-background-color: black;">
+         <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltarClicado" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: black;">
             <graphic>
                <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
-                  <Image url="@../../images/voltar.png"/>
+                  <Image url="@../../images/voltar.png" />
                </ImageView>
             </graphic>
          </Button>
          <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
             <Label alignment="CENTER" text="Selecione seu assento:" textAlignment="CENTER" textFill="#fff9f9">
                <font>
-                  <Font name="System Bold" size="18.0"/>
+                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <StackPane>
-               <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#717579" height="76.0" stroke="TRANSPARENT"
-                          strokeLineCap="ROUND" strokeType="INSIDE" width="579.0"/>
-               <Label alignment="CENTER" text="PALCO" textAlignment="CENTER" textFill="WHITE"
-                      StackPane.alignment="BOTTOM_CENTER">
+               <Rectangle arcHeight="15.0" arcWidth="15.0" fill="#717579" height="76.0" stroke="TRANSPARENT" strokeLineCap="ROUND" strokeType="INSIDE" width="579.0" />
+               <Label alignment="CENTER" text="PALCO" textAlignment="CENTER" textFill="WHITE" StackPane.alignment="BOTTOM_CENTER">
                   <font>
-                     <Font name="System Bold" size="36.0"/>
+                     <Font name="System Bold" size="36.0" />
                   </font>
                </Label>
             </StackPane>
@@ -58,36 +51,34 @@
          <VBox alignment="CENTER" prefHeight="372.0" spacing="5.0">
             <VBox alignment="CENTER" prefHeight="200.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
                <Label text="FRISA 01">
                   <font>
-                     <Font name="System Bold" size="14.0"/>
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Label>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0"
-                  styleClass="vbox-frisa">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
                <Label text="FRISA 02">
                   <font>
-                     <Font name="System Bold" size="14.0"/>
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Label>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0"
-                  styleClass="vbox-frisa">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
                <Label text="FRISA 03">
                   <font>
-                     <Font name="System Bold" size="14.0"/>
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Label>
             </VBox>
@@ -96,353 +87,227 @@
             <VBox alignment="CENTER" styleClass="vbox-plateiaA" VBox.vgrow="NEVER">
                <GridPane hgap="10.0" vgap="5.0">
                   <columnConstraints>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0"/>
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
                   </columnConstraints>
                   <rowConstraints>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <padding>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                </GridPane>
                <Label text="PLATEIA A">
                   <font>
-                     <Font name="System Bold" size="14.0"/>
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Label>
             </VBox>
             <VBox alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" styleClass="vbox-plateiaB">
                <GridPane hgap="10.0" vgap="5.0" VBox.vgrow="ALWAYS">
                   <columnConstraints>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
-                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0"/>
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
+                     <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
                   </columnConstraints>
                   <rowConstraints>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+                     <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
                   </rowConstraints>
                   <padding>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="5"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="6"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="7"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="8"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="9"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="10"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="11"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="12"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="13"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="14"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="15"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="16"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="17"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="18"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="19"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="1" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="2" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="3" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="4" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="5" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="5" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="5" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="5" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="6" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="6" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="6" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="6" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="7" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="7" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="7" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="7" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="8" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="8" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="8" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="8" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="9" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="9" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="9" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="9" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="10" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="10" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="10" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="10" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="11" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="11" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="11" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="11" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="12" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="12" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="12" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="12" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="13" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="13" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="13" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="13" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="14" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="14" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="14" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="14" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="15" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="15" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="15" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="15" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="16" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="16" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="16" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="16" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="17" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="17" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="17" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="17" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="18" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="18" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="18" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="18" GridPane.rowIndex="4"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="19" GridPane.rowIndex="1"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="19" GridPane.rowIndex="2"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="19" GridPane.rowIndex="3"/>
-                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.columnIndex="19" GridPane.rowIndex="4"/>
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="10" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="11" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="12" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="13" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="14" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="15" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="16" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="17" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="18" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="19" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="10" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="10" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="10" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="10" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="11" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="11" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="11" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="11" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="12" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="12" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="12" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="12" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="13" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="13" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="13" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="13" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="14" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="14" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="14" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="14" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="15" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="15" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="15" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="15" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="16" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="16" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="16" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="16" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="17" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="17" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="17" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="17" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="18" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="18" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="18" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="18" GridPane.rowIndex="4" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="19" GridPane.rowIndex="1" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="19" GridPane.rowIndex="2" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="19" GridPane.rowIndex="3" />
+                  <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="19" GridPane.rowIndex="4" />
                </GridPane>
                <Label text="PLATEIA B">
                   <font>
-                     <Font name="System Bold" size="14.0"/>
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Label>
             </VBox>
          </VBox>
          <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="372.0" spacing="5.0">
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0"
-                  styleClass="vbox-frisa">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
                <Label text="FRISA 04">
                   <font>
-                     <Font name="System Bold" size="14.0"/>
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Label>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0"
-                  styleClass="vbox-frisa">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
                <Label text="FRISA 05">
                   <font>
-                     <Font name="System Bold" size="14.0"/>
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Label>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0"
-                  styleClass="vbox-frisa">
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
                <Label text="FRISA 06">
                   <font>
-                     <Font name="System Bold" size="14.0"/>
+                     <Font name="System Bold" size="14.0" />
                   </font>
                </Label>
             </VBox>
@@ -452,95 +317,95 @@
          <VBox alignment="CENTER" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
             <GridPane>
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES"/>
+                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
             <Label text="CAMAROTE 01">
                <font>
-                  <Font name="System Bold" size="14.0"/>
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
          </VBox>
          <VBox alignment="CENTER" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
             <GridPane>
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES"/>
+                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
             <Label text="CAMAROTE 02">
                <font>
-                  <Font name="System Bold" size="14.0"/>
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
          </VBox>
          <VBox alignment="CENTER" layoutX="193.0" layoutY="10.0" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
             <GridPane>
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES"/>
+                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
             <Label text="CAMAROTE 03">
                <font>
-                  <Font name="System Bold" size="14.0"/>
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
          </VBox>
          <VBox alignment="CENTER" layoutX="372.0" layoutY="10.0" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
             <GridPane>
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES"/>
+                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
             <Label text="CAMAROTE 04">
                <font>
-                  <Font name="System Bold" size="14.0"/>
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
          </VBox>
          <VBox alignment="CENTER" layoutX="552.0" layoutY="10.0" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
             <GridPane>
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"/>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
                <rowConstraints>
-                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES"/>
+                  <RowConstraints percentHeight="100.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
+               <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
             <Label text="CAMAROTE 05">
                <font>
-                  <Font name="System Bold" size="14.0"/>
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
          </VBox>
@@ -548,204 +413,185 @@
       <VBox alignment="CENTER" styleClass="vbox-balcao">
          <GridPane alignment="CENTER" hgap="10.0" prefHeight="158.0" prefWidth="901.0" vgap="5.0">
             <columnConstraints>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
-               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0"/>
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
+               <ColumnConstraints hgrow="SOMETIMES" percentWidth="10.0" />
             </columnConstraints>
             <rowConstraints>
-               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
-               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES"/>
+               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
+               <RowConstraints percentHeight="20.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <padding>
-               <Insets bottom="5.0" left="15.0" right="15.0" top="15.0"/>
+               <Insets bottom="5.0" left="15.0" right="15.0" top="15.0" />
             </padding>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"
-                          GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1"
-                    GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1"
-                    GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1"
-                    GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1"
-                    GridPane.rowIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2"
-                    GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2"
-                    GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2"
-                    GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2"
-                    GridPane.rowIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3"
-                    GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3"
-                    GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3"
-                    GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3"
-                    GridPane.rowIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4"
-                    GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4"
-                    GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4"
-                    GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4"
-                    GridPane.rowIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5"
-                    GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5"
-                    GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5"
-                    GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5"
-                    GridPane.rowIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6"
-                    GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6"
-                    GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6"
-                    GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6"
-                    GridPane.rowIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7"
-                    GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7"
-                    GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7"
-                    GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7"
-                    GridPane.rowIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8"
-                    GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8"
-                    GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8"
-                    GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8"
-                    GridPane.rowIndex="4"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9"
-                    GridPane.rowIndex="1"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9"
-                    GridPane.rowIndex="2"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9"
-                    GridPane.rowIndex="3"/>
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9"
-                    GridPane.rowIndex="4"/>
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.rowIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="6" GridPane.rowIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="7" GridPane.rowIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="8" GridPane.rowIndex="4" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="1" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="2" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="3" />
+            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="4" />
          </GridPane>
          <Label text="BALCÃO NOBRE">
             <font>
-               <Font name="System Bold" size="14.0"/>
+               <Font name="System Bold" size="14.0" />
             </font>
          </Label>
       </VBox>
    </VBox>
-   <VBox alignment="BOTTOM_LEFT" spacing="15.0">
+   <VBox alignment="BOTTOM_LEFT" HBox.hgrow="NEVER">
       <padding>
-         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
       </padding>
       <Label text="VALORES:" textFill="WHITE">
          <font>
-            <Font size="24.0"/>
+            <Font size="24.0" />
          </font>
       </Label>
-      <VBox layoutX="25.0" layoutY="582.0">
-         <Label text="PLATEIA A" textFill="WHITE">
+      <VBox layoutX="25.0" layoutY="582.0" styleClass="vbox-valores-cima">
+         <Label styleClass="label-valores" text="PLATEIA A">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
-         <Label text="R$ 40,00" textFill="WHITE">
+         <Label styleClass="label-valores" text="R$ 40,00">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </VBox>
-      <VBox layoutX="25.0" layoutY="624.0">
-         <Label text="PLATEIA B" textFill="WHITE">
+      <VBox layoutX="25.0" layoutY="624.0" styleClass="vbox-valores-meio">
+         <Label styleClass="label-valores" text="PLATEIA B">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
-         <Label text="R$ 60,00" textFill="WHITE">
+         <Label styleClass="label-valores" text="R$ 60,00">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </VBox>
-      <VBox layoutX="25.0" layoutY="665.0">
-         <Label text="CAMAROTE" textFill="WHITE">
+      <VBox layoutX="25.0" layoutY="665.0" styleClass="vbox-valores-meio">
+         <Label styleClass="label-valores" text="CAMAROTE">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
-         <Label text="R$ 80,00" textFill="WHITE">
+         <Label styleClass="label-valores" text="R$ 80,00">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </VBox>
-      <VBox layoutX="25.0" layoutY="707.0">
-         <Label text="FRISA" textFill="WHITE">
+      <VBox layoutX="25.0" layoutY="707.0" styleClass="vbox-valores-meio">
+         <Label styleClass="label-valores" text="FRISA">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
-         <Label text="R$ 120,00" textFill="WHITE">
+         <Label styleClass="label-valores" text="R$ 120,00">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </VBox>
-      <VBox>
-         <Label text="BALCÃO NOBRE" textFill="WHITE">
+      <VBox styleClass="vbox-valores-baixo">
+         <Label text="BALCÃO NOBRE">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
-         <Label text="R$ 250,00" textFill="WHITE">
+         <Label styleClass="label-valores" text="R$ 250,00">
             <font>
-               <Font size="18.0"/>
+               <Font size="18.0" />
             </font>
          </Label>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </VBox>
-      <AnchorPane layoutX="25.0" layoutY="749.0" prefWidth="200.0">
-         <Label text="VALOR TOTAL:" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
-                AnchorPane.rightAnchor="108.0" AnchorPane.topAnchor="0.0">
-            <font>
-               <Font size="14.0"/>
-            </font>
-         </Label>
-         <Label text="R$ XX" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="160.0"
-                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <font>
-               <Font size="14.0"/>
-            </font>
-         </Label>
-      </AnchorPane>
+      <HBox spacing="20.0" styleClass="anchor-valores">
+         <children>
+            <Label text="VALOR TOTAL:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label text="R$ XX">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
    </VBox>
 </HBox>
