@@ -1,63 +1,77 @@
 .root {
-    -fx-background-color: radial-gradient(radius 130%, #0b542d, #144021, #152e17, #111c0e, #020700);
+    -fx-background-color: radial-gradient(radius 105%, #0b542d, #144021, #152e17, #111c0e, #020700);
     /*-fx-background-color: linear-gradient(to right top, rgba(4, 28, 69, 1) 0%, rgba(24, 27, 36, 1) 35%, rgba(78, 4, 174, 1) 100%);*/
     /*-fx-background-color: linear-gradient(to right top, #428f83, #339aa3, #3da3c3, #65a8dd, #98aaec);*/
 }
 
+.botao-voltar {
+    -fx-background-color: #111c0e;
+}
+
 .toggle-button {
-    -fx-background-color: #cfcae3;
+    -fx-background-color: white;
     -fx-background-radius: 10;
 }
 
 .toggle-button:selected {
-    -fx-background-color: #866de8;
+    -fx-background-color: #a8a7a7;
 }
 
 .vbox-balcao {
-    -fx-background-color: #b1555e;
-    -fx-background-radius: 10;
+    -fx-border-color: #005900;
+    -fx-border-width: 4;
+    -fx-border-radius: 10;
 }
 
 .vbox-camarote {
-    -fx-background-color: #52a57e;
-    -fx-background-radius: 10;
+    -fx-border-color: #2D8D00;
+    -fx-border-width: 4;
+    -fx-border-radius: 10;
 }
 
 .vbox-frisa {
-    -fx-background-color: #c35950;
-    -fx-background-radius: 10;
+    -fx-border-color: #499302;
+    -fx-border-width: 4;
+    -fx-border-radius: 10;
 }
 
 .vbox-plateiaB {
-    -fx-background-color: #62b342;
-    -fx-background-radius: 10;
+    -fx-border-color: #499a29;
+    -fx-border-width: 4;
+    -fx-border-radius: 10;
 }
 
 .vbox-plateiaA {
-    -fx-background-color: #8d9a13;
-    -fx-background-radius: 10;
+    -fx-border-color: #008300;
+    -fx-border-width: 4;
+    -fx-border-radius: 10;
 }
 
 .vbox-valores-cima {
-    -fx-background-color: white;
-    -fx-background-radius: 10 10 0 0;
+    -fx-border-style: solid solid dashed solid;
+    -fx-border-radius: 10 10 0 0;
+    -fx-border-color: gray;
 }
 
 .vbox-valores-baixo {
-    -fx-background-color: white;
-    -fx-border-style: segments(10, 15, 10, 10) line-cap round;
-    -fx-border-color: gray transparent transparent transparent;
-    -fx-background-radius: 0 0 10 10;
+    -fx-border-style: dashed solid solid solid;
+    -fx-border-color: gray;
+    -fx-border-radius: 0 0 10 10;
 }
 
 .vbox-valores-meio {
-    -fx-background-color: white;
-    -fx-border-style: segments(10, 15, 10, 10) line-cap round;
-    -fx-border-color: gray transparent transparent transparent;
+    -fx-border-style: dashed solid dashed solid;
+    -fx-border-color: gray;
 }
 
 .anchor-valores {
     -fx-background-radius: 5;
     -fx-background-color: #e4e4e4;
+}
+
+.vbox-total {
+    -fx-border-style: solid;
+    -fx-border-color: gray;
+    -fx-border-radius: 10;
 }
 

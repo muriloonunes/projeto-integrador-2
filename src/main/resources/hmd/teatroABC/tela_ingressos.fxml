@@ -24,7 +24,7 @@
          <padding>
             <Insets right="100.0" />
          </padding>
-         <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltarClicado" prefHeight="27.0" prefWidth="31.0" style="-fx-background-color: black;">
+         <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltarClicado" prefHeight="27.0" prefWidth="31.0" styleClass="botao-voltar">
             <graphic>
                <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../../images/voltar.png" />
@@ -54,7 +54,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
-               <Label text="FRISA 01">
+               <Label text="FRISA 01" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="14.0" />
                   </font>
@@ -65,7 +65,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
-               <Label text="FRISA 02">
+               <Label text="FRISA 02" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="14.0" />
                   </font>
@@ -76,7 +76,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
-               <Label text="FRISA 03">
+               <Label text="FRISA 03" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="14.0" />
                   </font>
@@ -129,7 +129,7 @@
                   <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
                   <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
                </GridPane>
-               <Label text="PLATEIA A">
+               <Label text="PLATEIA A" textFill="#f3f3f3">
                   <font>
                      <Font name="System Bold" size="14.0" />
                   </font>
@@ -270,7 +270,7 @@
                   <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="19" GridPane.rowIndex="3" />
                   <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="19" GridPane.rowIndex="4" />
                </GridPane>
-               <Label text="PLATEIA B">
+               <Label text="PLATEIA B" textFill="#f3f3f3">
                   <font>
                      <Font name="System Bold" size="14.0" />
                   </font>
@@ -283,7 +283,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
-               <Label text="FRISA 04">
+               <Label text="FRISA 04" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="14.0" />
                   </font>
@@ -294,7 +294,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
-               <Label text="FRISA 05">
+               <Label text="FRISA 05" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="14.0" />
                   </font>
@@ -305,7 +305,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
-               <Label text="FRISA 06">
+               <Label text="FRISA 06" textFill="WHITE">
                   <font>
                      <Font name="System Bold" size="14.0" />
                   </font>
@@ -327,7 +327,7 @@
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
-            <Label text="CAMAROTE 01">
+            <Label text="CAMAROTE 01" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -346,7 +346,7 @@
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
-            <Label text="CAMAROTE 02">
+            <Label text="CAMAROTE 02" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -365,7 +365,7 @@
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
-            <Label text="CAMAROTE 03">
+            <Label text="CAMAROTE 03" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -384,7 +384,7 @@
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
-            <Label text="CAMAROTE 04">
+            <Label text="CAMAROTE 04" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -403,7 +403,7 @@
                </padding>
                <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             </GridPane>
-            <Label text="CAMAROTE 05">
+            <Label text="CAMAROTE 05" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -485,113 +485,119 @@
             <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="3" />
             <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="9" GridPane.rowIndex="4" />
          </GridPane>
-         <Label text="BALCÃO NOBRE">
+         <Label text="BALCÃO NOBRE" textFill="WHITE">
             <font>
                <Font name="System Bold" size="14.0" />
             </font>
          </Label>
       </VBox>
    </VBox>
-   <VBox alignment="BOTTOM_LEFT" HBox.hgrow="NEVER">
+   <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="5.0">
       <padding>
          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
       </padding>
-      <Label text="VALORES:" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Label>
-      <VBox layoutX="25.0" layoutY="582.0" styleClass="vbox-valores-cima">
-         <Label styleClass="label-valores" text="PLATEIA A">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <Label styleClass="label-valores" text="R$ 40,00">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </VBox>
-      <VBox layoutX="25.0" layoutY="624.0" styleClass="vbox-valores-meio">
-         <Label styleClass="label-valores" text="PLATEIA B">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <Label styleClass="label-valores" text="R$ 60,00">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </VBox>
-      <VBox layoutX="25.0" layoutY="665.0" styleClass="vbox-valores-meio">
-         <Label styleClass="label-valores" text="CAMAROTE">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <Label styleClass="label-valores" text="R$ 80,00">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </VBox>
-      <VBox layoutX="25.0" layoutY="707.0" styleClass="vbox-valores-meio">
-         <Label styleClass="label-valores" text="FRISA">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <Label styleClass="label-valores" text="R$ 120,00">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </VBox>
-      <VBox styleClass="vbox-valores-baixo">
-         <Label text="BALCÃO NOBRE">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <Label styleClass="label-valores" text="R$ 250,00">
-            <font>
-               <Font size="18.0" />
-            </font>
-         </Label>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </VBox>
-      <HBox spacing="20.0" styleClass="anchor-valores">
-         <children>
-            <Label text="VALOR TOTAL:">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label text="R$ XX">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </HBox>
+      <children>
+         <VBox>
+            <children>
+               <Label text="VALORES:" textFill="WHITE">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Label>
+               <VBox styleClass="vbox-valores-cima">
+                  <Label styleClass="label-valores" text="PLATEIA A" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="label-valores" text="R$ 40,00" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </VBox>
+               <VBox styleClass="vbox-valores-meio">
+                  <Label styleClass="label-valores" text="PLATEIA B" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="label-valores" text="R$ 60,00" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </VBox>
+               <VBox styleClass="vbox-valores-meio">
+                  <Label styleClass="label-valores" text="CAMAROTE" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="label-valores" text="R$ 80,00" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </VBox>
+               <VBox styleClass="vbox-valores-meio">
+                  <Label styleClass="label-valores" text="FRISA" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="label-valores" text="R$ 120,00" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </VBox>
+               <VBox styleClass="vbox-valores-baixo">
+                  <Label text="BALCÃO NOBRE" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label styleClass="label-valores" text="R$ 250,00" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <padding>
+                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </padding>
+               </VBox>
+            </children>
+         </VBox>
+         <VBox styleClass="vbox-total">
+            <children>
+               <Label text="VALOR TOTAL:" textFill="WHITE">
+                  <font>
+                     <Font size="24.0" />
+                  </font>
+               </Label>
+               <Label text="R$ XX" textFill="WHITE">
+                  <font>
+                     <Font size="36.0" />
+                  </font>
+               </Label>
+            </children>
+            <padding>
+               <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+            </padding>
+         </VBox>
+      </children>
    </VBox>
 </HBox>
