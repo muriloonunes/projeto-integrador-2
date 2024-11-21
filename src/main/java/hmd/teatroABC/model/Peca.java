@@ -1,8 +1,10 @@
 package hmd.teatroABC.model;
 
+import hmd.teatroABC.controller.Sessao;
 import javafx.scene.image.Image;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  * @author Murilo Nunes <murilo_no@outlook.com>
@@ -10,8 +12,12 @@ import java.io.File;
  * @brief Class Peca
  */
 public class Peca {
-    File poster;
-    Image posterImg;
+    private Sessao sessao;
+    private String nome;
+
+    ArrayList<Boolean> assentos = new ArrayList<>();
+    private File poster;
+    private Image posterImg;
 
     public Peca(File poster) {
         this.poster = poster;
