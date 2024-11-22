@@ -2,10 +2,10 @@ package hmd.teatroABC.controller;
 
 import hmd.teatroABC.model.Peca;
 
-/*
- * @created 21/11/2024 - 19:53
- * @project projeto-integrador-2
- * @autor Aluno
+/**
+ * @author Davy Lopes, Murilo Nunes, Hartur Sales
+ * @date 21/11/2024
+ * @brief Class Ingresso
  */
 public class Ingresso {
     private Area area;

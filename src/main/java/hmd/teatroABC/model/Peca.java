@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 /**
- * @author Murilo Nunes <murilo_no@outlook.com>
+ * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 19/11/2024
  * @brief Class Peca
  */

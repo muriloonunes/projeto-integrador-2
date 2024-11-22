@@ -12,6 +12,11 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * @author Davy Lopes, Murilo Nunes, Hartur Sales
+ * @date 21/11/2024
+ * @brief class TelaInicialController
+ */
 public class TelaInicialController {
     public Button botaoManha, botaoTarde, botaoNoite;
 

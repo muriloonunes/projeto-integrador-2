@@ -3,7 +3,7 @@ package hmd.teatroABC;
 import hmd.teatroABC.view.TeatroView;
 
 /**
- * @author Murilo Nunes <murilo_no@outlook.com>
+ * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 18/11/2024
  * @brief Class Main
  */

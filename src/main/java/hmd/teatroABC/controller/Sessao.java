@@ -1,9 +1,9 @@
 package hmd.teatroABC.controller;
 
-/*
- * @created 21/11/2024 - 19:03
- * @project projeto-integrador-2
- * @autor Aluno
+/**
+ * @author Davy Lopes, Murilo Nunes, Hartur Sales
+ * @date 21/11/2024
+ * @brief Enum Sessao
  */
 public enum Sessao {
     MANHA("Manha"),
