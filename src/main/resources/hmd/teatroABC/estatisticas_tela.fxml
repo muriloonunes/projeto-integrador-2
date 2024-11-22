@@ -12,27 +12,24 @@
 <VBox spacing="10.0" stylesheets="@../../styles/estatisticas_tela.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmd.teatroABC.controller.TelaEstatisticasController">
     <children>
         <HBox spacing="70.0">
-            <children>
-                <Button fx:id="voltarBotao" mnemonicParsing="false" onAction="#telaInicialTrigger" prefHeight="11.0" prefWidth="16.0" styleClass="botao-voltar">
-                    <graphic>
-                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-                            <Image url="@../../images/voltar.png" />
-                        </ImageView>
-                    </graphic>
-                </Button>
+            <VBox.margin>
+                <Insets right="100.0"/>
+            </VBox.margin>
+            <Button fx:id="voltarBotao" mnemonicParsing="false" onAction="#telaInicialTrigger" prefHeight="11.0"
+                    prefWidth="16.0" styleClass="botao-voltar">
+                <graphic>
+                    <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../images/voltar.png"/>
+                    </ImageView>
+                </graphic>
+            </Button>
             <VBox alignment="CENTER">
-               <children>
-                      <Label text="Estatísticas de Venda:">
-                          <font>
-                              <Font name="System Bold" size="18.0" />
-                          </font>
-                      </Label>
-               </children>
+                <Label text="Estatísticas de Venda:">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
             </VBox>
-            </children>
-         <VBox.margin>
-            <Insets right="100.0" />
-         </VBox.margin>
         </HBox>
         <Label fx:id="totalVendasLabel" layoutX="10.0" layoutY="10.0" text="Total de Vendas:" />
         <Label fx:id="pecaMaisVendidaLabel" layoutX="10.0" layoutY="28.0" text="Peça com mais ingressos vendidos: " />
@@ -48,6 +45,7 @@
         <Label fx:id="sessaoMenos2Label" layoutX="10.0" layoutY="212.0" text="Sessão menos lucrativa da peça 2: " />
         <Label fx:id="sessaoMais3Label" layoutX="25.0" layoutY="25.0" text="Sessão mais lucrativa da peça 3: " />
       <Label fx:id="sessaoMenos3Label" layoutX="25.0" layoutY="338.0" text="Sessão menos lucrativa da peça 3: " />
+      <Button fx:id="botaoExportar" mnemonicParsing="false" onAction="#exportarCsv" styleClass="botao-imprimir" text="Exportar para CSV" />
     </children>
     <padding>
         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />

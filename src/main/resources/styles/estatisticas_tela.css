@@ -19,3 +19,16 @@
 .label {
     -fx-text-fill: white;
 }
+
+.botao-imprimir {
+    -fx-background-color: #144021;
+    -fx-text-fill: white;
+}
+
+.botao-imprimir:hover {
+    -fx-background-color: #324939;
+}
+
+.botao-imprimir:pressed {
+    -fx-background-color: #4b6e56;
+}

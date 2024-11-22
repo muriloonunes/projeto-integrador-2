@@ -597,7 +597,7 @@
          </Label>
       </VBox>
       <Button fx:id="continuarBotao" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-              mnemonicParsing="false" onAction="#finalizarCompraTrigger" styleClass="botao-continuar" text="CONTINUAR">
+              mnemonicParsing="false" onAction="#finalizarCompraTrigger" styleClass="botao-imprimir" text="CONTINUAR">
          <font>
             <Font size="14.0"/>
          </font>

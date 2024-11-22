@@ -18,7 +18,7 @@ public class TelaEstatisticasController {
     public Label totalVendasLabel, pecaMaisVendidaLabel, pecaMenosVendidaLabel, sessaoMaisOcupadaLabel, sessaoMenosOcupadaLabel,
             lucroMedioLabel1, lucroMedioLabel2, lucroMedioLabel3, sessaoMais1Label, sessaoMenos1Label, sessaoMais2Label, sessaoMenos2Label, sessaoMais3Label, sessaoMenos3Label;
 
-    public Button voltarBotao;
+    public Button voltarBotao, botaoExportar;
 
     public void telaInicialTrigger() throws IOException {
         FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
@@ -26,5 +26,9 @@ public class TelaEstatisticasController {
         Stage telaInicialStage = (Stage) voltarBotao.getScene().getWindow();
         telaInicialStage.setScene(telaInicialScene);
         telaInicialStage.show();
+    }
+
+    private void exportarCsv() {
+        //TODO
     }
 }

@@ -15,104 +15,92 @@
 <?import javafx.scene.text.Font?>
 
 
-<HBox stylesheets="@../../styles/tela_inicial.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmd.teatroABC.controller.TelaInicialController">
-   <children>
-      <VBox alignment="CENTER" spacing="10.0">
-          <children>
-              <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
-                  <children>
-                      <Label text="BEM VINDO AO TEATRO ABC">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-                  </children>
-              </HBox>
-            <Label text="Selecione a peça que deseja assistir:">
-               <font>
-                  <Font size="14.0" />
-               </font>
+<HBox stylesheets="@../../styles/tela_inicial.css" xmlns="http://javafx.com/javafx/23"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmd.teatroABC.controller.TelaInicialController">
+    <VBox alignment="CENTER" spacing="10.0">
+        <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+        </padding>
+        <HBox alignment="CENTER" VBox.vgrow="ALWAYS">
+            <Label text="BEM VINDO AO TEATRO ABC">
+                <font>
+                    <Font name="System Bold" size="18.0"/>
+                </font>
             </Label>
-            <HBox fx:id="postersBox" alignment="CENTER" spacing="25.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <ToggleButton fx:id="peca1Botao" mnemonicParsing="false" onAction="#pecaSelecionada">
-                     <graphic>
-                        <ImageView fx:id="imagem1" fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/placeholder_poster.jpg" />
-                           </image>
-                           <viewport>
-                              <Rectangle2D />
-                           </viewport>
-                        </ImageView>
-                     </graphic>
-                     <toggleGroup>
-                        <ToggleGroup fx:id="pecaSelecionada" />
-                     </toggleGroup>
-                  </ToggleButton>
-                  <ToggleButton fx:id="peca2Botao" mnemonicParsing="false" onAction="#pecaSelecionada" toggleGroup="$pecaSelecionada">
-                     <graphic>
-                        <ImageView fx:id="imagem2" fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/placeholder_poster.jpg" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </ToggleButton>
-                  <ToggleButton fx:id="peca3Botao" mnemonicParsing="false" onAction="#pecaSelecionada" toggleGroup="$pecaSelecionada">
-                     <graphic>
-                        <ImageView fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../images/placeholder_poster.jpg" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </ToggleButton>
-               </children>
-            </HBox>
-              <HBox fx:id="botoesBox" alignment="CENTER" spacing="15.0" VBox.vgrow="SOMETIMES">
-                  <children>
-                      <Button fx:id="botaoManha" mnemonicParsing="false" onAction="#comprarIngressoTrigger" text="Manhã" HBox.hgrow="SOMETIMES">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                      <Button fx:id="botaoTarde" mnemonicParsing="false" onAction="#comprarIngressoTrigger" text="Tarde" HBox.hgrow="SOMETIMES">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                      <Button fx:id="botaoNoite" mnemonicParsing="false" onAction="#comprarIngressoTrigger" text="Noite" HBox.hgrow="SOMETIMES">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  </children>
-              </HBox>
-          </children>
-          <padding>
-              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-          </padding>
-      </VBox>
-      <Accordion>
-        <panes>
+        </HBox>
+        <Label text="Selecione a peça que deseja assistir:">
+            <font>
+                <Font size="14.0"/>
+            </font>
+        </Label>
+        <HBox fx:id="postersBox" alignment="CENTER" spacing="25.0" VBox.vgrow="ALWAYS">
+            <ToggleButton fx:id="peca1Botao" mnemonicParsing="false" onAction="#pecaSelecionada">
+                <graphic>
+                    <ImageView fx:id="imagem1" fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
+                        <viewport>
+                            <Rectangle2D/>
+                        </viewport>
+                        <Image url="@../../images/placeholder_poster.jpg"/>
+                    </ImageView>
+                </graphic>
+                <toggleGroup>
+                    <ToggleGroup fx:id="pecaSelecionada"/>
+                </toggleGroup>
+            </ToggleButton>
+            <ToggleButton fx:id="peca2Botao" mnemonicParsing="false" onAction="#pecaSelecionada"
+                          toggleGroup="$pecaSelecionada">
+                <graphic>
+                    <ImageView fx:id="imagem2" fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../images/placeholder_poster.jpg"/>
+                    </ImageView>
+                </graphic>
+            </ToggleButton>
+            <ToggleButton fx:id="peca3Botao" mnemonicParsing="false" onAction="#pecaSelecionada"
+                          toggleGroup="$pecaSelecionada">
+                <graphic>
+                    <ImageView fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../images/placeholder_poster.jpg"/>
+                    </ImageView>
+                </graphic>
+            </ToggleButton>
+        </HBox>
+        <HBox fx:id="botoesBox" alignment="CENTER" spacing="15.0" VBox.vgrow="SOMETIMES">
+            <Button fx:id="botaoManha" mnemonicParsing="false" onAction="#comprarIngressoTrigger" text="Manhã"
+                    HBox.hgrow="SOMETIMES">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Button>
+            <Button fx:id="botaoTarde" mnemonicParsing="false" onAction="#comprarIngressoTrigger" text="Tarde"
+                    HBox.hgrow="SOMETIMES">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Button>
+            <Button fx:id="botaoNoite" mnemonicParsing="false" onAction="#comprarIngressoTrigger" text="Noite"
+                    HBox.hgrow="SOMETIMES">
+                <font>
+                    <Font size="14.0"/>
+                </font>
+            </Button>
+        </HBox>
+    </VBox>
+    <Accordion>
+      <panes>
           <TitledPane animated="false" text="Mais opções">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <content>
-                  <VBox spacing="5.0">
-                     <children>
-                        <Button fx:id="imprimirBotao" mnemonicParsing="false" onAction="#imprimirIngressoTrigger" text="Imprimir Ingresso" />
-                        <Button fx:id="estatisticasBotao" layoutX="21.0" layoutY="21.0" mnemonicParsing="false" onAction="#verEstatisticasTrigger" text="Estatísticas" />
-                     </children>
-                  </VBox>
-               </content>
+              <font>
+                  <Font size="14.0"/>
+              </font>
+              <VBox spacing="5.0">
+                  <Button fx:id="imprimirBotao" mnemonicParsing="false" onAction="#imprimirIngressoTrigger"
+                          text="Imprimir Ingresso"/>
+                  <Button fx:id="estatisticasBotao" layoutX="21.0" layoutY="21.0" mnemonicParsing="false"
+                          onAction="#verEstatisticasTrigger" text="Estatísticas"/>
+              </VBox>
           </TitledPane>
-        </panes>
-         <HBox.margin>
-            <Insets bottom="15.0" right="15.0" top="15.0" />
-         </HBox.margin>
-      </Accordion>
-   </children>
+      </panes>
+        <HBox.margin>
+          <Insets bottom="15.0" right="15.0" top="15.0"/>
+        </HBox.margin>
+    </Accordion>
 </HBox>
