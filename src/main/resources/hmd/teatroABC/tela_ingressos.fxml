@@ -492,7 +492,7 @@
          </Label>
       </VBox>
    </VBox>
-   <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" spacing="5.0">
+   <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" spacing="15.0">
       <padding>
          <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
       </padding>
@@ -598,6 +598,14 @@
                <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
             </padding>
          </VBox>
+         <Button fx:id="continuarButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finalizarCompraTrigger" styleClass="botao-continuar" text="CONTINUAR">
+            <font>
+               <Font size="14.0" />
+            </font>
+         </Button>
       </children>
+      <HBox.margin>
+         <Insets bottom="5.0" />
+      </HBox.margin>
    </VBox>
 </HBox>

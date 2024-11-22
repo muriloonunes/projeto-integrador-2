@@ -15,7 +15,7 @@ import java.io.IOException;
  */
 public class TelaCompraController {
     @FXML
-    private Button botaoVoltar;
+    private Button botaoVoltar, botaoContinuar;
 
     public void voltarClicado() throws IOException {
         FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
@@ -23,5 +23,9 @@ public class TelaCompraController {
         Stage telaInicialStage = (Stage) botaoVoltar.getScene().getWindow();
         telaInicialStage.setScene(telaInicialScene);
         telaInicialStage.show();
+    }
+
+    public void finalizarCompraTrigger() throws IOException {
+        //TODO: Implementar a lógica de finalização da compra
     }
 }
