@@ -13,7 +13,7 @@ import java.io.IOException;
  * @date 21/11/2024
  * @brief Class TelaCompraController
  */
-public class TelaCompraController {
+public class TelaIngressoController {
     @FXML
     private Button voltarBotao, continuarBotao;
 

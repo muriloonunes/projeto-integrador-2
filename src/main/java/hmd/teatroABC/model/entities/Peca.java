@@ -1,6 +1,5 @@
-package hmd.teatroABC.model;
+package hmd.teatroABC.model.entities;
 
-import hmd.teatroABC.controller.Sessao;
 import javafx.scene.image.Image;
 
 import java.io.File;

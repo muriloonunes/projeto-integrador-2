@@ -1,6 +1,4 @@
-package hmd.teatroABC.controller;
-
-import hmd.teatroABC.model.Peca;
+package hmd.teatroABC.model.entities;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales

@@ -1,4 +1,4 @@
-package hmd.teatroABC.controller;
+package hmd.teatroABC.model.entities;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales

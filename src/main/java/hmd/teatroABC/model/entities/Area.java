@@ -1,11 +1,12 @@
-package hmd.teatroABC.controller;
+package hmd.teatroABC.model.entities;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 21/11/2024
  * @brief Enum Area
  */
-public enum Area {
+public enum
+Area {
     PLATEIA_A("Plateia A", 40.00, 25),
     PLATEIA_B("Plateia B", 60.00, 100),
     CAMAROTE1("Camarote1", 80.00, 10),

@@ -1,6 +1,6 @@
 package hmd.teatroABC.controller;
 
-import hmd.teatroABC.model.Peca;
+import hmd.teatroABC.model.entities.Peca;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -17,6 +17,7 @@ import java.io.IOException;
  * @date 21/11/2024
  * @brief class TelaInicialController
  */
+
 public class TelaInicialController {
     public Button botaoManha, botaoTarde, botaoNoite, imprimirBotao, estatisticasBotao;
 
@@ -50,26 +51,30 @@ public class TelaInicialController {
 
     public void imprimirIngressoTrigger() throws IOException {
         FXMLLoader digitarCpf = new FXMLLoader(getClass().getResource("/hmd/teatroABC/digitar_cpf_tela.fxml"));
-        DigitarCpfController controllerCpf = digitarCpf.getController();
         Scene digitarCpfScene = new Scene(digitarCpf.load());
+        DigitarCpfController controllerCpf = digitarCpf.getController();
         Stage digitarCpfStage = new Stage();
         digitarCpfStage.initOwner(imprimirBotao.getScene().getWindow());
         digitarCpfStage.initModality(Modality.WINDOW_MODAL);
         digitarCpfStage.setScene(digitarCpfScene);
         digitarCpfStage.showAndWait();
 
-        String cpfDigitado = controllerCpf.botaoClicado();
-        //TODO: Implementar a lógica de impressão do ingresso
-    }
-
-    public void verEstatisticasTrigger() {
-        //TODO: Implementar a lógica de visualização de estatísticas
-    }
-
-    private boolean isValidCPF(String input) {
-        if (input != null && input.matches("\\d{11}")) {
-            return false; // Retorna o CPF válido
+        String cpfDigitado = controllerCpf.pegarCpf();
+        if (cpfDigitado!= null) {
+            abrirImprimir();
         }
-        return input == null || !input.equalsIgnoreCase("admin");
     }
+
+    public void verEstatisticasTrigger() throws IOException {
+        FXMLLoader estatisticaLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/estatisticas_tela.fxml"));
+        Scene estatisticasScene = new Scene(estatisticaLoader.load(), estatisticasBotao.getScene().getWidth(), estatisticasBotao.getScene().getHeight());
+        Stage estatisticasTelaStage = (Stage) estatisticasBotao.getScene().getWindow();
+        estatisticasTelaStage.setScene(estatisticasScene);
+        estatisticasTelaStage.show();
+    }
+
+    private void abrirImprimir() {
+        //todo
+    }
+
 }
