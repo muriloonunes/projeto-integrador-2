@@ -1,0 +1,29 @@
+.root {
+    -fx-background-color: radial-gradient(radius 105%, #0b542d, #144021, #152e17, #111c0e, #020700);
+}
+
+.button {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-background-radius: 5;
+}
+
+.button:hover {
+    -fx-background-color: #d2d1d1;
+}
+
+.button:pressed {
+    -fx-background-color: #b0b0b0;
+}
+
+.label {
+    -fx-text-fill: white;
+}
+
+.label-erro {
+    -fx-text-fill: red;
+}
+
+.text-field {
+    -fx-background-radius: 10;
+}
