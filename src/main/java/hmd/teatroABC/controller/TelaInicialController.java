@@ -1,17 +1,16 @@
 package hmd.teatroABC.controller;
 
 import hmd.teatroABC.model.Peca;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Optional;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
@@ -50,31 +49,16 @@ public class TelaInicialController {
     }
 
     public void imprimirIngressoTrigger() throws IOException {
-        TextInputDialog dialog = new TextInputDialog("");
-        dialog.setTitle("Digite seu CPF");
-        dialog.setHeaderText("Por favor, insira seu CPF para continuar.");
-        dialog.setGraphic(null);
-        dialog.setContentText("CPF:");
+        FXMLLoader digitarCpf = new FXMLLoader(getClass().getResource("/hmd/teatroABC/digitar_cpf_tela.fxml"));
+        DigitarCpfController controllerCpf = digitarCpf.getController();
+        Scene digitarCpfScene = new Scene(digitarCpf.load());
+        Stage digitarCpfStage = new Stage();
+        digitarCpfStage.initOwner(imprimirBotao.getScene().getWindow());
+        digitarCpfStage.initModality(Modality.WINDOW_MODAL);
+        digitarCpfStage.setScene(digitarCpfScene);
+        digitarCpfStage.showAndWait();
 
-        Optional<String> result = dialog.showAndWait();
-
-        final Button okButton = (Button) dialog.getDialogPane().lookupButton(ButtonType.OK);
-        okButton.addEventFilter(ActionEvent.ACTION, ae -> {
-            String input = dialog.getEditor().getText();
-            System.out.println("evento");
-            if (!isInvalid(input)) {
-                ae.consume(); //not valid
-            }
-        });
-
-        if (result.isPresent()) {
-            String cpf = result.get();
-            System.out.println("CPF digitado: " + cpf);
-
-            //imprimirIngresso(cpf);
-        } else {
-            System.out.println("Operação cancelada.");
-        }
+        String cpfDigitado = controllerCpf.botaoClicado();
         //TODO: Implementar a lógica de impressão do ingresso
     }
 
@@ -82,7 +66,7 @@ public class TelaInicialController {
         //TODO: Implementar a lógica de visualização de estatísticas
     }
 
-    private boolean isInvalid(String input) {
+    private boolean isValidCPF(String input) {
         if (input != null && input.matches("\\d{11}")) {
             return false; // Retorna o CPF válido
         }
