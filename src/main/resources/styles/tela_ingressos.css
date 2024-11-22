@@ -8,6 +8,14 @@
     -fx-background-color: #111c0e;
 }
 
+.botao-voltar:hover {
+    -fx-background-color: #373d37;
+}
+
+.botao-voltar:pressed {
+    -fx-background-color: #212521;
+}
+
 .toggle-button {
     -fx-background-color: white;
     -fx-background-radius: 10;
@@ -73,5 +81,18 @@
     -fx-border-style: solid;
     -fx-border-color: gray;
     -fx-border-radius: 10;
+}
+
+.botao-continuar {
+    -fx-background-color: #144021;
+    -fx-text-fill: white;
+}
+
+.botao-continuar:hover {
+    -fx-background-color: #324939;
+}
+
+.botao-continuar:pressed {
+    -fx-background-color: #4b6e56;
 }
 
