@@ -14,8 +14,8 @@
       <Label fx:id="erroLabel" styleClass="label-erro" text="erro" visible="false" />
       <HBox alignment="CENTER" spacing="10.0">
          <children>
-          <Button fx:id="okBotao" defaultButton="true" mnemonicParsing="false" onAction="#botaoClicado" text="OK" />
-            <Button fx:id="cancelarBotao" cancelButton="true" mnemonicParsing="false" onAction="#botaoClicado" text="Cancelar" />
+          <Button fx:id="okBotao" defaultButton="true" mnemonicParsing="false" onAction="#botaoOkClicado" text="OK" />
+            <Button fx:id="cancelarBotao" cancelButton="true" mnemonicParsing="false" onAction="#botaoCancelarClicado" text="Cancelar" />
          </children>
       </HBox>
    </children>

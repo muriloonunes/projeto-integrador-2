@@ -1,5 +1,6 @@
 package hmd.teatroABC.controller;
 
+import hmd.teatroABC.model.entities.Pessoa;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -17,6 +18,8 @@ public class DigitarCpfController {
 
     public Button okBotao, cancelarBotao;
 
+    private boolean okClicado = false;
+
     public void initialize() {
         okBotao.setDisable(true);
         cpfField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -24,8 +27,35 @@ public class DigitarCpfController {
         });
     }
 
-    public String botaoClicado() {
-        //TODO: implementar logica do retorno para botao ok e botao cancelar
-        return null;
+    public void botaoOkClicado() {
+        if (!verificarCpf(cpfField.getText())) {
+            erroLabel.setVisible(true);
+            erroLabel.setText("CPF inválido");
+            return;
+        }
+        okClicado = true;
+        Stage stage = (Stage) okBotao.getScene().getWindow();
+        stage.close();
+    }
+
+    public void botaoCancelarClicado() {
+        okClicado = false;
+        Stage stage = (Stage) cancelarBotao.getScene().getWindow();
+        stage.close();
+    }
+
+    public String pegarCpf() {
+        if (okClicado) {
+            return cpfField.getText();
+        } else {
+            return null;
+        }
+    }
+
+    private boolean verificarCpf(String cpfString) {
+        long cpf = Long.parseLong(cpfString);
+        return Pessoa.validarCPF(cpf);
     }
 }
+
+
