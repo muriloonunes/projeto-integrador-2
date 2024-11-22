@@ -7,8 +7,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Objects;
-import java.util.Optional;
+
+/**
+ * @author Davy Lopes, Murilo Nunes, Hartur Sales
+ * @date 19/11/2024
+ * @brief Class TeatroView
+ */
 
 public class TeatroView extends Application {
     @Override

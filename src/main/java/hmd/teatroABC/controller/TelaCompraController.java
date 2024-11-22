@@ -9,8 +9,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * @author Murilo Nunes <murilo_no@outlook.com>
- * @date 19/11/2024
+ * @author Davy Lopes, Murilo Nunes, Hartur Sales
+ * @date 21/11/2024
  * @brief Class TelaCompraController
  */
 public class TelaCompraController {
