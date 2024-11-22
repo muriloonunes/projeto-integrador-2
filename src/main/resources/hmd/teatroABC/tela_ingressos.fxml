@@ -24,7 +24,7 @@
          <padding>
             <Insets right="100.0" />
          </padding>
-         <Button fx:id="botaoVoltar" mnemonicParsing="false" onAction="#voltarClicado" prefHeight="27.0" prefWidth="31.0" styleClass="botao-voltar">
+         <Button fx:id="voltarBotao" mnemonicParsing="false" onAction="#telaInicialTrigger" prefHeight="27.0" prefWidth="31.0" styleClass="botao-voltar">
             <graphic>
                <ImageView fitHeight="34.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                   <Image url="@../../images/voltar.png" />
@@ -494,118 +494,113 @@
    </VBox>
    <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" spacing="15.0">
       <padding>
-         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
       </padding>
-      <children>
-         <VBox>
-            <children>
-               <Label text="VALORES:" textFill="WHITE">
-                  <font>
-                     <Font size="24.0" />
-                  </font>
-               </Label>
-               <VBox styleClass="vbox-valores-cima">
-                  <Label styleClass="label-valores" text="PLATEIA A" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label styleClass="label-valores" text="R$ 40,00" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <padding>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                  </padding>
-               </VBox>
-               <VBox styleClass="vbox-valores-meio">
-                  <Label styleClass="label-valores" text="PLATEIA B" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label styleClass="label-valores" text="R$ 60,00" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <padding>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                  </padding>
-               </VBox>
-               <VBox styleClass="vbox-valores-meio">
-                  <Label styleClass="label-valores" text="CAMAROTE" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label styleClass="label-valores" text="R$ 80,00" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <padding>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                  </padding>
-               </VBox>
-               <VBox styleClass="vbox-valores-meio">
-                  <Label styleClass="label-valores" text="FRISA" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label styleClass="label-valores" text="R$ 120,00" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <padding>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                  </padding>
-               </VBox>
-               <VBox styleClass="vbox-valores-baixo">
-                  <Label text="BALCÃO NOBRE" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label styleClass="label-valores" text="R$ 250,00" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <padding>
-                     <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                  </padding>
-               </VBox>
-            </children>
-         </VBox>
-         <VBox styleClass="vbox-total">
-            <children>
-               <Label text="VALOR TOTAL:" textFill="WHITE">
-                  <font>
-                     <Font size="24.0" />
-                  </font>
-               </Label>
-               <Label text="R$ XX" textFill="WHITE">
-                  <font>
-                     <Font size="36.0" />
-                  </font>
-               </Label>
-            </children>
+      <HBox.margin>
+         <Insets bottom="5.0"/>
+      </HBox.margin>
+      <VBox>
+         <Label text="VALORES:" textFill="WHITE">
+            <font>
+               <Font size="24.0"/>
+            </font>
+         </Label>
+         <VBox styleClass="vbox-valores-cima">
+            <Label text="PLATEIA A" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
+            <Label text="R$ 40,00" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
             <padding>
-               <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
             </padding>
          </VBox>
-         <Button fx:id="continuarButton" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finalizarCompraTrigger" styleClass="botao-continuar" text="CONTINUAR">
+         <VBox styleClass="vbox-valores-meio">
+            <Label text="PLATEIA B" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
+            <Label text="R$ 60,00" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+         </VBox>
+         <VBox styleClass="vbox-valores-meio">
+            <Label text="CAMAROTE" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
+            <Label text="R$ 80,00" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+         </VBox>
+         <VBox styleClass="vbox-valores-meio">
+            <Label text="FRISA" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
+            <Label text="R$ 120,00" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+         </VBox>
+         <VBox styleClass="vbox-valores-baixo">
+            <Label text="BALCÃO NOBRE" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
+            <Label text="R$ 250,00" textFill="WHITE">
+               <font>
+                  <Font size="18.0"/>
+               </font>
+            </Label>
+            <padding>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+         </VBox>
+      </VBox>
+      <VBox styleClass="vbox-total">
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+         </padding>
+         <Label text="VALOR TOTAL:" textFill="WHITE">
             <font>
-               <Font size="14.0" />
+               <Font size="24.0"/>
             </font>
-         </Button>
-      </children>
-      <HBox.margin>
-         <Insets bottom="5.0" />
-      </HBox.margin>
+         </Label>
+         <Label text="R$ XX" textFill="WHITE">
+            <font>
+               <Font size="36.0"/>
+            </font>
+         </Label>
+      </VBox>
+      <Button fx:id="continuarBotao" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+              mnemonicParsing="false" onAction="#finalizarCompraTrigger" styleClass="botao-continuar" text="CONTINUAR">
+         <font>
+            <Font size="14.0"/>
+         </font>
+      </Button>
    </VBox>
 </HBox>

@@ -18,7 +18,7 @@ import java.io.IOException;
  * @brief class TelaInicialController
  */
 public class TelaInicialController {
-    public Button botaoManha, botaoTarde, botaoNoite;
+    public Button botaoManha, botaoTarde, botaoNoite, imprimirBotao, estatisticasBotao;
 
     public HBox botoesBox, postersBox;
 
@@ -42,11 +42,19 @@ public class TelaInicialController {
         botoesBox.setVisible(true);
     }
 
-    public void botaoTurnoClicado() throws IOException {
+    public void comprarIngressoTrigger() throws IOException {
         FXMLLoader compraSceneLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_ingressos.fxml"));
         Scene compraScene = new Scene(compraSceneLoader.load());
         Stage compraStage = (Stage) peca1Botao.getScene().getWindow();
         compraStage.setScene(compraScene);
         compraStage.show();
+    }
+
+    public void imprimirIngressoTrigger() {
+        //TODO: Implementar a lógica de impressão do ingresso
+    }
+
+    public void verEstatisticasTrigger() {
+        //TODO: Implementar a lógica de visualização de estatísticas
     }
 }

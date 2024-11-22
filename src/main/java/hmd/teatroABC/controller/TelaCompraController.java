@@ -15,12 +15,12 @@ import java.io.IOException;
  */
 public class TelaCompraController {
     @FXML
-    private Button botaoVoltar, botaoContinuar;
+    private Button voltarBotao, continuarBotao;
 
-    public void voltarClicado() throws IOException {
+    public void telaInicialTrigger() throws IOException {
         FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
         Scene telaInicialScene = new Scene(telaInicialLoader.load());
-        Stage telaInicialStage = (Stage) botaoVoltar.getScene().getWindow();
+        Stage telaInicialStage = (Stage) voltarBotao.getScene().getWindow();
         telaInicialStage.setScene(telaInicialScene);
         telaInicialStage.show();
     }
