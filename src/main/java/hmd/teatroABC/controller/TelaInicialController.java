@@ -28,18 +28,12 @@ public class TelaInicialController {
 
     public ToggleButton peca1Botao, peca2Botao, peca3Botao;
 
-    //static Peca peca1 = new Peca(new File("src/main/resources/images/wicked_poster.jpg"));
-
     public void initialize() {
         botoesBox.setVisible(false);
         imagem1.setImage(Teatro.getPecas().get(0).getPosterImg());
         imagem2.setImage(Teatro.getPecas().get(3).getPosterImg());
         imagem3.setImage(Teatro.getPecas().get(6).getPosterImg());
     }
-
-//    public void addImagens(Stage stage) {
-//        stage.getScene().getWindow().setOnShowing(event -> imagem1.setImage(peca1.getPosterImg()));
-//    }
 
     public void pecaSelecionada() {
         botoesBox.setVisible(true);
