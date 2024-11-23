@@ -21,9 +21,10 @@ public class TeatroView extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        teatro.carregarPecas();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
         Scene scene = new Scene(fxmlLoader.load()); //950, 810
-        teatro.carregarPecas();
+        TelaInicialController controller = fxmlLoader.getController();
 
         stage.setTitle("Teatro ABC");
         stage.setScene(scene);
