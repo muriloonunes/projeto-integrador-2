@@ -19,9 +19,34 @@ public class Peca {
     private ArrayList<String> assentos = new ArrayList<>();
     private int ingressosVendidos;
 
-    public Peca(Sessao sessao, String nome) {
+    private File poster;
+    private Image posterImg;
+
+    public Peca(File poster, Sessao sessao, String nome) {
+        this.poster = poster;
         this.sessao = sessao;
         this.nome = nome;
+        configurarPoster();
+    }
+
+    public File getPoster() {
+        return poster;
+    }
+
+    public void setPoster(File poster) {
+        this.poster = poster;
+    }
+
+    public Image getPosterImg() {
+        return posterImg;
+    }
+
+    public void setPosterImg(Image posterImg) {
+        this.posterImg = posterImg;
+    }
+
+    public void configurarPoster() {
+        this.posterImg = new Image(poster.toURI().toString());
     }
 
     public Sessao getSessao() {
@@ -58,5 +83,17 @@ public class Peca {
 
     public void setIngressosVendidos(int ingressosVendidos) {
         this.ingressosVendidos = ingressosVendidos;
+    }
+
+    @Override
+    public String toString() {
+        return "Peca{" +
+                "sessao=" + sessao +
+                ", nome='" + nome + '\'' +
+                ", assentos=" + assentos +
+                ", ingressosVendidos=" + ingressosVendidos +
+                ", poster=" + poster +
+                ", posterImg=" + posterImg +
+                '}';
     }
 }

@@ -24,7 +24,8 @@ public class Teatro {
                 List<String> assentosOcupados = partes[3].isEmpty()
                         ? new ArrayList<>()
                         : List.of(partes[3].split(";"));
-                Peca peca = new Peca(turno, nome);
+                File poster = new File(partes[4]);
+                Peca peca = new Peca(poster, turno, nome);
                 peca.adicionarAssentos(assentosOcupados);
                 pecas.add(peca);
             }
