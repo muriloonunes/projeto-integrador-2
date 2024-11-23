@@ -40,7 +40,7 @@
                         <viewport>
                             <Rectangle2D/>
                         </viewport>
-                        <Image url="@../../images/placeholder_poster.jpg"/>
+<!--                        <Image url="@../../images/placeholder_poster.jpg"/>-->
                     </ImageView>
                 </graphic>
                 <toggleGroup>
@@ -51,15 +51,15 @@
                           toggleGroup="$pecaSelecionada">
                 <graphic>
                     <ImageView fx:id="imagem2" fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../images/placeholder_poster.jpg"/>
+<!--                        <Image url="@../../images/placeholder_poster.jpg"/>-->
                     </ImageView>
                 </graphic>
             </ToggleButton>
             <ToggleButton fx:id="peca3Botao" mnemonicParsing="false" onAction="#pecaSelecionada"
                           toggleGroup="$pecaSelecionada">
                 <graphic>
-                    <ImageView fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../images/placeholder_poster.jpg"/>
+                    <ImageView fx:id="imagem3" fitHeight="400.0" pickOnBounds="true" preserveRatio="true">
+<!--                        <Image url="@../../images/placeholder_poster.jpg"/>-->
                     </ImageView>
                 </graphic>
             </ToggleButton>

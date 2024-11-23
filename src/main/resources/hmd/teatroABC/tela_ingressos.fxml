@@ -49,7 +49,7 @@
       </HBox>
       <HBox alignment="CENTER" spacing="5.0">
          <VBox alignment="CENTER" prefHeight="372.0" spacing="5.0">
-            <VBox alignment="CENTER" prefHeight="200.0" spacing="15.0" styleClass="vbox-frisa">
+            <VBox fx:id="frisa1Box" alignment="CENTER" prefHeight="200.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -60,7 +60,7 @@
                   </font>
                </Label>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
+            <VBox fx:id="frisa2Box" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -71,7 +71,7 @@
                   </font>
                </Label>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
+            <VBox fx:id="frisa3Box" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -85,7 +85,7 @@
          </VBox>
          <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
             <VBox alignment="CENTER" styleClass="vbox-plateiaA" VBox.vgrow="NEVER">
-               <GridPane hgap="10.0" vgap="5.0">
+               <GridPane fx:id="plateiaAGrid" hgap="10.0" vgap="5.0">
                   <columnConstraints>
                      <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
                      <ColumnConstraints hgrow="SOMETIMES" percentWidth="20.0" />
@@ -103,7 +103,7 @@
                   <padding>
                      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                   </padding>
-                  <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <ToggleButton fx:id="A1" maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
                   <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                   <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
                   <ToggleButton maxHeight="Infinity" mnemonicParsing="false" prefWidth="35.0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
@@ -136,7 +136,7 @@
                </Label>
             </VBox>
             <VBox alignment="CENTER" maxHeight="Infinity" maxWidth="Infinity" styleClass="vbox-plateiaB">
-               <GridPane hgap="10.0" vgap="5.0" VBox.vgrow="ALWAYS">
+               <GridPane fx:id="plateiaBGrid" hgap="10.0" vgap="5.0" VBox.vgrow="ALWAYS">
                   <columnConstraints>
                      <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
                      <ColumnConstraints hgrow="SOMETIMES" percentWidth="5.0" />
@@ -278,7 +278,7 @@
             </VBox>
          </VBox>
          <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="372.0" spacing="5.0">
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
+            <VBox fx:id="frisa4Box" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -289,7 +289,7 @@
                   </font>
                </Label>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
+            <VBox fx:id="frisa5Box" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -300,7 +300,7 @@
                   </font>
                </Label>
             </VBox>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
+            <VBox fx:id="frisa6Box" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="15.0" styleClass="vbox-frisa">
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
@@ -315,7 +315,7 @@
       </HBox>
       <HBox alignment="CENTER" spacing="5.0">
          <VBox alignment="CENTER" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
-            <GridPane>
+            <GridPane fx:id="camarote1Grid">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
@@ -334,7 +334,7 @@
             </Label>
          </VBox>
          <VBox alignment="CENTER" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
-            <GridPane>
+            <GridPane fx:id="camarote2Grid">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
@@ -353,7 +353,7 @@
             </Label>
          </VBox>
          <VBox alignment="CENTER" layoutX="193.0" layoutY="10.0" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
-            <GridPane>
+            <GridPane fx:id="camarote3Grid">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
@@ -372,7 +372,7 @@
             </Label>
          </VBox>
          <VBox alignment="CENTER" layoutX="372.0" layoutY="10.0" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
-            <GridPane>
+            <GridPane fx:id="camarote4Grid">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
@@ -391,7 +391,7 @@
             </Label>
          </VBox>
          <VBox alignment="CENTER" layoutX="552.0" layoutY="10.0" styleClass="vbox-camarote" HBox.hgrow="ALWAYS">
-            <GridPane>
+            <GridPane fx:id="camarote5Grid">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
                </columnConstraints>
@@ -443,7 +443,7 @@
             <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
+            <ToggleButton fx:id="balcaoGrid" maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" />
             <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" />
             <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <ToggleButton maxHeight="Infinity" maxWidth="Infinity" mnemonicParsing="false" GridPane.columnIndex="2" GridPane.rowIndex="2" />
@@ -494,112 +494,111 @@
    </VBox>
    <VBox alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="10.0" spacing="15.0">
       <padding>
-         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
       </padding>
       <HBox.margin>
-         <Insets bottom="5.0"/>
+         <Insets bottom="5.0" />
       </HBox.margin>
       <VBox>
          <Label text="VALORES:" textFill="WHITE">
             <font>
-               <Font size="24.0"/>
+               <Font size="24.0" />
             </font>
          </Label>
          <VBox styleClass="vbox-valores-cima">
             <Label text="PLATEIA A" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label text="R$ 40,00" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
          </VBox>
          <VBox styleClass="vbox-valores-meio">
             <Label text="PLATEIA B" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label text="R$ 60,00" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
          </VBox>
          <VBox styleClass="vbox-valores-meio">
             <Label text="CAMAROTE" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label text="R$ 80,00" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
          </VBox>
          <VBox styleClass="vbox-valores-meio">
             <Label text="FRISA" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label text="R$ 120,00" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
          </VBox>
          <VBox styleClass="vbox-valores-baixo">
             <Label text="BALCÃO NOBRE" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <Label text="R$ 250,00" textFill="WHITE">
                <font>
-                  <Font size="18.0"/>
+                  <Font size="18.0" />
                </font>
             </Label>
             <padding>
-               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
             </padding>
          </VBox>
       </VBox>
       <VBox styleClass="vbox-total">
          <padding>
-            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
          </padding>
          <Label text="VALOR TOTAL:" textFill="WHITE">
             <font>
-               <Font size="24.0"/>
+               <Font size="24.0" />
             </font>
          </Label>
          <Label text="R$ XX" textFill="WHITE">
             <font>
-               <Font size="36.0"/>
+               <Font size="36.0" />
             </font>
          </Label>
       </VBox>
-      <Button fx:id="continuarBotao" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-              mnemonicParsing="false" onAction="#finalizarCompraTrigger" styleClass="botao-imprimir" text="CONTINUAR">
+      <Button fx:id="continuarBotao" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#finalizarCompraTrigger" styleClass="botao-imprimir" text="CONTINUAR">
          <font>
-            <Font size="14.0"/>
+            <Font size="14.0" />
          </font>
       </Button>
    </VBox>
