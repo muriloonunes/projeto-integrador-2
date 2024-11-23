@@ -13,11 +13,20 @@ public class Pessoa {
     private Boolean ehFidelidade;
     private ArrayList<Ingresso> ingressos = new ArrayList<>();
 
+    public Pessoa(Long cpf, Boolean ehFidelidade, ArrayList<Ingresso> ingressos) {
+        this.cpf = cpf;
+        this.ehFidelidade = ehFidelidade;
+        this.ingressos = ingressos;
+    }
+
+    public Pessoa() {
+    }
+
     public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 
-    public Long getCpf(Long cpf) {
+    public Long getCpf() {
         return cpf;
     }
 
