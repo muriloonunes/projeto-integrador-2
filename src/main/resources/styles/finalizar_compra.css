@@ -1,0 +1,34 @@
+.root {
+    -fx-background-color: radial-gradient(radius 105%, #0b542d, #144021, #152e17, #111c0e, #020700);
+}
+
+.radio-button > .text {
+    -fx-fill: white;
+}
+
+.choice-box {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+}
+
+.choice-box > .label {
+    -fx-text-fill: black;
+}
+
+.text-field {
+    -fx-background-radius: 10;
+}
+
+.botao-finalizar {
+    -fx-background-color: #144021;
+    -fx-text-fill: white;
+    -fx-background-radius: 10;
+}
+
+.botao-finalizar:hover {
+    -fx-background-color: #324939;
+}
+
+.botao-finalizar:pressed {
+    -fx-background-color: #4b6e56;
+}
