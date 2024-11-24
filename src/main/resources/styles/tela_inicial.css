@@ -7,7 +7,7 @@
 .button {
     -fx-background-color: white;
     -fx-text-fill: black;
-    -fx-background-radius: 5;
+    -fx-background-radius: 10;
 }
 
 .button:hover {

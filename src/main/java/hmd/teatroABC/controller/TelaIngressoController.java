@@ -5,7 +5,6 @@ import hmd.teatroABC.model.entities.Sessao;
 import hmd.teatroABC.model.entities.Teatro;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
@@ -13,12 +12,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
 /**
@@ -63,6 +57,11 @@ public class TelaIngressoController {
     }
 
     public void finalizarCompraTrigger() throws IOException {
+        FXMLLoader finalizarCompraLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/finalizar_compra.fxml"));
+        Scene finalizarCompraScene = new Scene(finalizarCompraLoader.load());
+        Stage finalizarCompraStage = (Stage) continuarBotao.getScene().getWindow();
+        finalizarCompraStage.setScene(finalizarCompraScene);
+        finalizarCompraStage.show();
         //TODO: Implementar a lógica de finalização da compra
     }
 }

@@ -86,6 +86,7 @@
 .botao-continuar {
     -fx-background-color: #144021;
     -fx-text-fill: white;
+    -fx-background-radius: 10;
 }
 
 .botao-continuar:hover {
