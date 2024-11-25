@@ -5,6 +5,7 @@ import hmd.teatroABC.model.entities.Sessao;
 import hmd.teatroABC.model.entities.Teatro;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ToggleButton;
@@ -12,7 +13,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -30,9 +35,19 @@ public class TelaIngressoController {
 
     public ToggleButton A1;
 
+    // Lista de assentos sem IDs, baseada na ordem de carregamento
+    private static List<ToggleButton> assentos = new ArrayList<>();
+    private static List<Integer> assentosOcupadosIndices = new ArrayList<>(); // Guardar os índices ocupados
+    private static List<Integer> assentosSelecionadosIndices = new ArrayList<>(); // Índices dos assentos selecionados
+    private double total = 0.0; // Valor total das seleções
+    private static String pecaSelecionada;
+    private static Sessao sessaoSelecionada;
+
     public void initialize() {
-//        System.out.println(A1.getParent().getId());
-//        System.out.println(GridPane.getColumnIndex(A1));
+        carregarAssentosDaTela();
+        carregarAssentosOcupados(); // Ler do arquivo os índices ocupados
+        atualizarInterface(); // Atualizar estados (ocupado, disponível)
+        configurarEventosDeToggle(); // Configurar cliques nos botões
     }
 
     public static void configurarAssentos(String pecaSelecionada, Sessao sessaoSelecionada) {
@@ -46,7 +61,115 @@ public class TelaIngressoController {
         } else {
             System.out.println("Nenhuma peça encontrada para a seleção do usuário.");
         }
+        carregarAssentosOcupados();
+        atualizarInterface();
     }
+
+    // Carregar os ToggleButtons da interface em ordem
+    private void carregarAssentosDaTela() {
+        adicionarAssentosDoContainer(plateiaAGrid);
+        adicionarAssentosDoContainer(plateiaBGrid);
+        adicionarAssentosDoContainer(camarote1Grid);
+        adicionarAssentosDoContainer(camarote2Grid);
+        adicionarAssentosDoContainer(camarote3Grid);
+        adicionarAssentosDoContainer(camarote4Grid);
+        adicionarAssentosDoContainer(camarote5Grid);
+        adicionarAssentosDoContainer(frisa1Box);
+        adicionarAssentosDoContainer(frisa2Box);
+        adicionarAssentosDoContainer(frisa3Box);
+        adicionarAssentosDoContainer(frisa4Box);
+        adicionarAssentosDoContainer(frisa5Box);
+    }
+
+    // Adiciona ToggleButtons ao ArrayList na ordem de carregamento
+    private void adicionarAssentosDoContainer(Node container) {
+        if (container instanceof GridPane || container instanceof VBox) {
+            for (Node node : ((javafx.scene.layout.Pane) container).getChildren()) {
+                if (node instanceof ToggleButton) {
+                    assentos.add((ToggleButton) node); // Adicionar na lista
+                }
+            }
+        }
+    }
+
+    // Ler os índices ocupados do arquivo
+    private static void carregarAssentosOcupados() {
+        try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/hmd/teatroABC/model/database/pecas.txt"))) {
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                String[] partes = linha.split(",");
+                if (partes[0].equals(pecaSelecionada) && partes[1].equals(sessaoSelecionada.name())) {
+                    // Dividir os assentos ocupados em índices e adicionar à lista
+                    String[] assentosOcupadosStr = partes[3].split(";");
+                    for (String assento : assentosOcupadosStr) {
+                        int index = encontrarIndicePorNome(assento);
+                        if (index != -1) {
+                            assentosOcupadosIndices.add(index);
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Atualizar estados da interface com base nos índices ocupados
+    private static void atualizarInterface() {
+        for (int i = 0; i < assentos.size(); i++) {
+            ToggleButton assento = assentos.get(i);
+            if (assentosOcupadosIndices.contains(i)) {
+                assento.setDisable(true); // Ocupado
+                assento.setSelected(true); // Visualmente selecionado
+            }
+        }
+    }
+
+    // Configurar eventos para selecionar/deselecionar assentos
+    private void configurarEventosDeToggle() {
+        for (int i = 0; i < assentos.size(); i++) {
+            int index = i; // Final necessário para usar no evento
+            ToggleButton assento = assentos.get(index);
+            assento.setOnAction(event -> {
+                if (assento.isSelected()) {
+                    if (!assentosOcupadosIndices.contains(index)) {
+                        assentosSelecionadosIndices.add(index); // Adicionar seleção
+                        total += obterPrecoDoAssento(index); // Atualizar valor total
+                    }
+                } else {
+                    assentosSelecionadosIndices.remove((Integer) index); // Remover seleção
+                    total -= obterPrecoDoAssento(index);
+                }
+                atualizarTotalLabel();
+            });
+        }
+    }
+
+    // Encontrar índice de um assento pelo nome (ex: "A1")
+    private static int encontrarIndicePorNome(String nomeAssento) {
+        for (int i = 0; i < assentos.size(); i++) {
+            if (assentos.get(i).getText().equals(nomeAssento)) { // Comparar pelo texto visível
+                return i;
+            }
+        }
+        return -1; // Não encontrado
+    }
+
+    // Retornar preço do assento pelo índice
+    private double obterPrecoDoAssento(int index) {
+        String nomeAssento = assentos.get(index).getText();
+        if (nomeAssento.startsWith("A")) return 40.00; // Plateia A
+        if (nomeAssento.startsWith("B")) return 60.00; // Plateia B
+        if (nomeAssento.startsWith("C")) return 80.00; // Camarotes
+        if (nomeAssento.startsWith("F")) return 120.00; // Frisas
+        return 250.00; // Padrão
+    }
+
+    // Atualizar total em um rótulo (se disponível na interface)
+    private void atualizarTotalLabel() {
+        // totalLabel.setText(String.format("Total: R$ %.2f", total)); // Descomente se houver um Label na interface
+    }
+
 
     public void telaInicialTrigger() throws IOException {
         FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
@@ -65,3 +188,4 @@ public class TelaIngressoController {
         //TODO: Implementar a lógica de finalização da compra
     }
 }
+
