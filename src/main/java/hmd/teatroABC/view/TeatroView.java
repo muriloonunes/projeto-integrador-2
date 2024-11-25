@@ -1,14 +1,15 @@
 package hmd.teatroABC.view;
 
 import hmd.teatroABC.controller.TelaInicialController;
-import hmd.teatroABC.model.entities.Peca;
 import hmd.teatroABC.model.entities.Teatro;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
@@ -23,9 +24,10 @@ public class TeatroView extends Application {
     public void start(Stage stage) throws IOException {
         teatro.carregarPecas();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene scene = new Scene(fxmlLoader.load()); //950, 810
+        Scene scene = new Scene(fxmlLoader.load(), 1188, 810);
         TelaInicialController controller = fxmlLoader.getController();
 
+        stage.getIcons().add(new Image(Objects.requireNonNull(TeatroView.class.getResourceAsStream("/images/icon.png"))));
         stage.setTitle("Teatro ABC");
         stage.setScene(scene);
         stage.show();

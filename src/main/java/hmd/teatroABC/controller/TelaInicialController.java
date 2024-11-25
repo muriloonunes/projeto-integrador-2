@@ -2,6 +2,9 @@ package hmd.teatroABC.controller;
 
 import hmd.teatroABC.model.entities.Sessao;
 import hmd.teatroABC.model.entities.Teatro;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,9 +23,9 @@ import java.io.IOException;
  */
 
 public class TelaInicialController {
-    public Button botaoManha, botaoTarde, botaoNoite, imprimirBotao, estatisticasBotao;
+    public Button botaoManha, botaoTarde, botaoNoite, imprimirBotao, estatisticasBotao, temporaryButton;
 
-    public HBox botoesBox, postersBox;
+    public HBox botoesBox, postersBox, rootBox;
 
     public ImageView imagem1, imagem2, imagem3;
 
@@ -33,6 +36,26 @@ public class TelaInicialController {
         imagem1.setImage(Teatro.getPecas().get(0).getPosterImg());
         imagem2.setImage(Teatro.getPecas().get(3).getPosterImg());
         imagem3.setImage(Teatro.getPecas().get(6).getPosterImg());
+
+        DoubleProperty stageWidth = new SimpleDoubleProperty();
+        DoubleProperty stageHeight = new SimpleDoubleProperty();
+
+        imagem1.fitWidthProperty().bind(Bindings.multiply(stageWidth, 0.5));
+        imagem1.fitHeightProperty().bind(Bindings.multiply(stageHeight, 0.5));
+        imagem1.setPreserveRatio(true);
+
+        imagem2.fitWidthProperty().bind(Bindings.multiply(stageWidth, 0.5));
+        imagem2.fitHeightProperty().bind(Bindings.multiply(stageHeight, 0.5));
+        imagem2.setPreserveRatio(true);
+
+
+        imagem3.fitWidthProperty().bind(Bindings.multiply(stageWidth, 0.5));
+        imagem3.fitHeightProperty().bind(Bindings.multiply(stageHeight, 0.5));
+        imagem3.setPreserveRatio(true);
+
+        // Vincular a largura e altura do stage (Scene) à propriedade stageWidth e stageHeight
+        stageWidth.bind(rootBox.widthProperty());
+        stageHeight.bind(rootBox.heightProperty());
     }
 
     public void pecaSelecionada() {
@@ -83,7 +106,7 @@ public class TelaInicialController {
 
     public void verEstatisticasTrigger() throws IOException {
         FXMLLoader estatisticaLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/estatisticas_tela.fxml"));
-        Scene estatisticasScene = new Scene(estatisticaLoader.load(), estatisticasBotao.getScene().getWidth(), estatisticasBotao.getScene().getHeight());
+        Scene estatisticasScene = new Scene(estatisticaLoader.load(), 1189, 810);
         Stage estatisticasTelaStage = (Stage) estatisticasBotao.getScene().getWindow();
         estatisticasTelaStage.setScene(estatisticasScene);
         estatisticasTelaStage.show();
@@ -91,6 +114,15 @@ public class TelaInicialController {
 
     private void abrirImprimir() {
         //todo
+    }
+
+    public void tempFinalizarTrigger() throws IOException {
+        FXMLLoader finalizarCompraLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/finalizar_compra.fxml"));
+        Scene finalizarCompraScene = new Scene(finalizarCompraLoader.load());
+        Stage finalizarCompraStage = (Stage) temporaryButton.getScene().getWindow();
+        finalizarCompraStage.setScene(finalizarCompraScene);
+        finalizarCompraStage.show();
+        //TODO APAGAR ISSO E DELETAR O BOTAO PELO AMOR DE JESUS CRISTO
     }
 
 }
