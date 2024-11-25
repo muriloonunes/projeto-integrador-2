@@ -35,19 +35,19 @@ public class TelaIngressoController {
 
     public ToggleButton A1;
 
-    // Lista de assentos sem IDs, baseada na ordem de carregamento
+
     private static List<ToggleButton> assentos = new ArrayList<>();
-    private static List<Integer> assentosOcupadosIndices = new ArrayList<>(); // Guardar os índices ocupados
-    private static List<Integer> assentosSelecionadosIndices = new ArrayList<>(); // Índices dos assentos selecionados
-    private double total = 0.0; // Valor total das seleções
+    private static List<Integer> assentosOcupadosIndices = new ArrayList<>();
+    private static List<Integer> assentosSelecionadosIndices = new ArrayList<>();
+    private double total = 0.0;
     private static String pecaSelecionada;
     private static Sessao sessaoSelecionada;
 
     public void initialize() {
         carregarAssentosDaTela();
-        carregarAssentosOcupados(); // Ler do arquivo os índices ocupados
-        atualizarInterface(); // Atualizar estados (ocupado, disponível)
-        configurarEventosDeToggle(); // Configurar cliques nos botões
+        carregarAssentosOcupados();
+        atualizarInterface();
+        configurarEventosDeToggle();
     }
 
     public static void configurarAssentos(String pecaSelecionada, Sessao sessaoSelecionada) {
@@ -65,7 +65,7 @@ public class TelaIngressoController {
         atualizarInterface();
     }
 
-    // Carregar os ToggleButtons da interface em ordem
+
     private void carregarAssentosDaTela() {
         adicionarAssentosDoContainer(plateiaAGrid);
         adicionarAssentosDoContainer(plateiaBGrid);
@@ -81,25 +81,24 @@ public class TelaIngressoController {
         adicionarAssentosDoContainer(frisa5Box);
     }
 
-    // Adiciona ToggleButtons ao ArrayList na ordem de carregamento
+
     private void adicionarAssentosDoContainer(Node container) {
         if (container instanceof GridPane || container instanceof VBox) {
             for (Node node : ((javafx.scene.layout.Pane) container).getChildren()) {
                 if (node instanceof ToggleButton) {
-                    assentos.add((ToggleButton) node); // Adicionar na lista
+                    assentos.add((ToggleButton) node);
                 }
             }
         }
     }
 
-    // Ler os índices ocupados do arquivo
+
     private static void carregarAssentosOcupados() {
         try (BufferedReader reader = new BufferedReader(new FileReader("src/main/java/hmd/teatroABC/model/database/pecas.txt"))) {
             String linha;
             while ((linha = reader.readLine()) != null) {
                 String[] partes = linha.split(",");
                 if (partes[0].equals(pecaSelecionada) && partes[1].equals(sessaoSelecionada.name())) {
-                    // Dividir os assentos ocupados em índices e adicionar à lista
                     String[] assentosOcupadosStr = partes[3].split(";");
                     for (String assento : assentosOcupadosStr) {
                         int index = encontrarIndicePorNome(assento);
@@ -114,27 +113,27 @@ public class TelaIngressoController {
         }
     }
 
-    // Atualizar estados da interface com base nos índices ocupados
+
     private static void atualizarInterface() {
         for (int i = 0; i < assentos.size(); i++) {
             ToggleButton assento = assentos.get(i);
             if (assentosOcupadosIndices.contains(i)) {
-                assento.setDisable(true); // Ocupado
-                assento.setSelected(true); // Visualmente selecionado
+                assento.setDisable(true);
+                assento.setSelected(true);
             }
         }
     }
 
-    // Configurar eventos para selecionar/deselecionar assentos
+
     private void configurarEventosDeToggle() {
         for (int i = 0; i < assentos.size(); i++) {
-            int index = i; // Final necessário para usar no evento
+            int index = i;
             ToggleButton assento = assentos.get(index);
             assento.setOnAction(event -> {
                 if (assento.isSelected()) {
                     if (!assentosOcupadosIndices.contains(index)) {
-                        assentosSelecionadosIndices.add(index); // Adicionar seleção
-                        total += obterPrecoDoAssento(index); // Atualizar valor total
+                        assentosSelecionadosIndices.add(index);
+                        total += obterPrecoDoAssento(index);
                     }
                 } else {
                     assentosSelecionadosIndices.remove((Integer) index); // Remover seleção
@@ -145,17 +144,17 @@ public class TelaIngressoController {
         }
     }
 
-    // Encontrar índice de um assento pelo nome (ex: "A1")
+
     private static int encontrarIndicePorNome(String nomeAssento) {
         for (int i = 0; i < assentos.size(); i++) {
-            if (assentos.get(i).getText().equals(nomeAssento)) { // Comparar pelo texto visível
+            if (assentos.get(i).getText().equals(nomeAssento)) {
                 return i;
             }
         }
-        return -1; // Não encontrado
+        return -1;
     }
 
-    // Retornar preço do assento pelo índice
+
     private double obterPrecoDoAssento(int index) {
         String nomeAssento = assentos.get(index).getText();
         if (nomeAssento.startsWith("A")) return 40.00; // Plateia A
@@ -165,9 +164,9 @@ public class TelaIngressoController {
         return 250.00; // Padrão
     }
 
-    // Atualizar total em um rótulo (se disponível na interface)
+
     private void atualizarTotalLabel() {
-        // totalLabel.setText(String.format("Total: R$ %.2f", total)); // Descomente se houver um Label na interface
+        // totalLabel.setText(String.format("Total: R$ %.2f", total));
     }
 
 
