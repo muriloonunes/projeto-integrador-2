@@ -28,6 +28,8 @@ public class TelaInicialController {
 
     public ToggleButton peca1Botao, peca2Botao, peca3Botao;
 
+    Sessao sessaoSelecionada;
+
     public void initialize() {
         botoesBox.setVisible(false);
         imagem1.setImage(Teatro.getPecas().get(0).getPosterImg());
@@ -40,6 +42,7 @@ public class TelaInicialController {
     }
 
     public void comprarIngressoTrigger(ActionEvent event) throws IOException {
+
         String pecaSelecionada;
         if (peca1Botao.isSelected()) {
             pecaSelecionada = "Wicked";
@@ -48,7 +51,8 @@ public class TelaInicialController {
         } else {
             pecaSelecionada = "Auto da Compadecida";
         }
-        Sessao sessaoSelecionada;
+
+
         if (event.getSource() == botaoManha) {
             sessaoSelecionada = Sessao.MANHA;
         } else if (event.getSource() == botaoTarde) {
@@ -57,13 +61,20 @@ public class TelaInicialController {
             sessaoSelecionada = Sessao.NOITE;
         }
 
-        TelaIngressoController.configurarAssentos(pecaSelecionada, sessaoSelecionada);
+
         FXMLLoader compraSceneLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_ingressos.fxml"));
         Scene compraScene = new Scene(compraSceneLoader.load());
+
+
+        TelaIngressoController controller = compraSceneLoader.getController();
+        controller.inicializarComDados(pecaSelecionada, sessaoSelecionada);
+
+
         Stage compraStage = (Stage) peca1Botao.getScene().getWindow();
         compraStage.setScene(compraScene);
         compraStage.show();
     }
+
 
     public void imprimirIngressoTrigger() throws IOException {
         FXMLLoader digitarCpf = new FXMLLoader(getClass().getResource("/hmd/teatroABC/digitar_cpf_tela.fxml"));

@@ -34,6 +34,10 @@ public class Teatro {
         }
     }
 
+    public File getPecasFile() {
+        return pecasFile;
+    }
+
     public static List<Peca> getPecas() {
         return new ArrayList<>(pecas);
     }

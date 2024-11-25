@@ -1,7 +1,5 @@
 package hmd.teatroABC.model.objects;
 
-import hmd.teatroABC.model.entities.Ingresso;
-
 /**
  * @author Murilo Nunes <murilo_no@outlook.com>
  * @date 22/11/2024
@@ -10,40 +8,85 @@ import hmd.teatroABC.model.entities.Ingresso;
 public class Estatistica{
 
     //Ingresso ingresso = new Ingresso();
-    static void lucroPeca(){
 
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // só peguei do gepeto bem bobamente pra poder ter alguma coisa qnd tiver tudo pronto
+    //public void calcularEstatisticas() {
+    //        List<Peca> pecas = Teatro.getPecas();
+    //
+    //        int[] vendasPorPeca = new int[pecas.size()];
+    //        int[] vendasPorSessao = new int[Sessao.values().length];
+    //        double[] lucroPorPeca = new double[pecas.size()];
+    //        double[] lucroMaximoPorPeca = new double[pecas.size()];
+    //        int[] sessaoMaisLucrativaPorPeca = new int[pecas.size()];
+    //        double[] lucroMinimoPorPeca = new double[pecas.size()];
+    //        int[] sessaoMenosLucrativaPorPeca = new int[pecas.size()];
+    //
+    //        for (int i = 0; i < pecas.size(); i++) {
+    //            Peca peca = pecas.get(i);
+    //            Sessao sessao = peca.getSessao();
+    //
+    //            // Assume que a lista de assentos ocupados da peça corresponde às vendas realizadas
+    //            int vendasPorSessaoAtual = peca.getAssentos().size();
+    //            vendasPorPeca[i] += vendasPorSessaoAtual;
+    //            vendasPorSessao[sessao.ordinal()] += vendasPorSessaoAtual;
+    //
+    //            double lucroSessao = 0;
+    //            for (String assento : peca.getAssentos()) {
+    //                // Supondo que o preço seja derivado do assento (ou outra lógica)
+    //                Area area = Area.valueOf(assento);
+    //                lucroSessao += area.getPreco();
+    //            }
+    //
+    //            lucroPorPeca[i] += lucroSessao;
+    //
+    //            if (lucroSessao > lucroMaximoPorPeca[i]) {
+    //                lucroMaximoPorPeca[i] = lucroSessao;
+    //                sessaoMaisLucrativaPorPeca[i] = sessao.ordinal();
+    //            }
+    //
+    //            if (lucroSessao < lucroMinimoPorPeca[i] || lucroMinimoPorPeca[i] == 0) {
+    //                lucroMinimoPorPeca[i] = lucroSessao;
+    //                sessaoMenosLucrativaPorPeca[i] = sessao.ordinal();
+    //            }
+    //        }
+    //
+    //        int pecaMaisVendida = maisVendido(vendasPorPeca);
+    //        int pecaMenosVendida = menosVendido(vendasPorPeca);
+    //        int sessaoMaisOcupada = maisVendido(vendasPorSessao);
+    //        int sessaoMenosOcupada = menosVendido(vendasPorSessao);
+    //
+    //        double lucroMedioPorPeca1 = vendasPorPeca[0] != 0 ? lucroPorPeca[0] / vendasPorPeca[0] : 0;
+    //        double lucroMedioPorPeca2 = vendasPorPeca[1] != 0 ? lucroPorPeca[1] / vendasPorPeca[1] : 0;
+    //        double lucroMedioPorPeca3 = vendasPorPeca[2] != 0 ? lucroPorPeca[2] / vendasPorPeca[2] : 0;
+    //
+    //        // Exibição dos dados (simples, pode ser ajustado conforme a interface do projeto)
+    //        System.out.println("Peça mais vendida: " + pecaMaisVendida);
+    //        System.out.println("Peça menos vendida: " + pecaMenosVendida);
+    //        System.out.println("Sessão mais ocupada: " + sessaoMaisOcupada);
+    //        System.out.println("Sessão menos ocupada: " + sessaoMenosOcupada);
+    //        System.out.println("Lucro médio por peça: " + lucroMedioPorPeca1 + ", " + lucroMedioPorPeca2 + ", " + lucroMedioPorPeca3);
+    //    }
+    //
+    //    private int maisVendido(int[] vendas) {
+    //        int maxIndex = 0;
+    //        for (int i = 1; i < vendas.length; i++) {
+    //            if (vendas[i] > vendas[maxIndex]) {
+    //                maxIndex = i;
+    //            }
+    //        }
+    //        return maxIndex;
+    //    }
+    //
+    //    private int menosVendido(int[] vendas) {
+    //        int minIndex = 0;
+    //        for (int i = 1; i < vendas.length; i++) {
+    //            if (vendas[i] < vendas[minIndex]) {
+    //                minIndex = i;
+    //            }
+    //        }
+    //        return minIndex;
+    //    }
+    //}
 
 
 
