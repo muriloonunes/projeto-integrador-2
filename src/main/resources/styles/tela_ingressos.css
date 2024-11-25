@@ -21,8 +21,12 @@
     -fx-background-radius: 10;
 }
 
+.toggle-button:hover {
+    -fx-background-color: #bdbdbd;
+}
+
 .toggle-button:selected {
-    -fx-background-color: #a8a7a7;
+    -fx-background-color: #757575;
 }
 
 .vbox-balcao {
