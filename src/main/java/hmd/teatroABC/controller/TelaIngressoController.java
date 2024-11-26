@@ -55,11 +55,11 @@ public class TelaIngressoController {
     private static final List<String> camaroteAssentos = new ArrayList<>();
     private static final List<String> frisaAssentos = new ArrayList<>();
     private static final List<String> balcaoAssentos = new ArrayList<>();
+    private static final List<ToggleButton> botoesExistentes = new ArrayList<>();
     private double total = 0.0;
 
     public void initialize() {
-        atualizarInterface();
-        configurarEventosDeToggle();
+        continuarBotao.setDisable(true);
     }
 
     protected void chamarOutroMetodo() {
@@ -83,6 +83,7 @@ public class TelaIngressoController {
         for (Node node : container.getChildrenUnmodifiable()) {
             if (node instanceof ToggleButton button) {
                 listaAssentos.add(button.getId());
+                botoesExistentes.add(button);
                 button.setOnAction(event -> {
                     habilitarBotaoConfirmar();
                     atualizarTotalLabel();
@@ -103,40 +104,41 @@ public class TelaIngressoController {
             lugaresIndisponiveis = peca.getAssentos();
 
             for (String lugar : lugaresIndisponiveis) {
-                char localidade = lugar.charAt(0);
-                switch (localidade) {
-                    case 'A':
-                        desativarAssentos(plateiaAGrid, lugar);
-                        break;
-                    case 'B':
-                        desativarAssentos(plateiaBGrid, lugar);
-                        break;
-                    case 'F':
-                        desativarAssentos(frisa1Box, lugar);
-                        desativarAssentos(frisa2Box, lugar);
-                        desativarAssentos(frisa3Box, lugar);
-                        desativarAssentos(frisa4Box, lugar);
-                        desativarAssentos(frisa5Box, lugar);
-                        desativarAssentos(frisa6Box, lugar);
-                        break;
-                    case 'C':
-                        desativarAssentos(camarote1Grid, lugar);
-                        desativarAssentos(camarote2Grid, lugar);
-                        desativarAssentos(camarote3Grid, lugar);
-                        desativarAssentos(camarote4Grid, lugar);
-                        desativarAssentos(camarote5Grid, lugar);
-                        break;
-                    case 'N':
-                        desativarAssentos(balcaoGrid, lugar);
-                        break;
-                    default:
-                        System.out.println("Lugar inexistente");
+                if (!lugar.equals(" ")) {
+                    char localidade = lugar.charAt(0);
+                    switch (localidade) {
+                        case 'A':
+                            desativarAssentos(plateiaAGrid, lugar);
+                            break;
+                        case 'B':
+                            desativarAssentos(plateiaBGrid, lugar);
+                            break;
+                        case 'F':
+                            desativarAssentos(frisa1Box, lugar);
+                            desativarAssentos(frisa2Box, lugar);
+                            desativarAssentos(frisa3Box, lugar);
+                            desativarAssentos(frisa4Box, lugar);
+                            desativarAssentos(frisa5Box, lugar);
+                            desativarAssentos(frisa6Box, lugar);
+                            break;
+                        case 'C':
+                            desativarAssentos(camarote1Grid, lugar);
+                            desativarAssentos(camarote2Grid, lugar);
+                            desativarAssentos(camarote3Grid, lugar);
+                            desativarAssentos(camarote4Grid, lugar);
+                            desativarAssentos(camarote5Grid, lugar);
+                            break;
+                        case 'N':
+                            desativarAssentos(balcaoGrid, lugar);
+                            break;
+                        default:
+                            System.out.println("Lugar inexistente");
+                    }
                 }
             }
         } else {
             System.out.println("Nenhuma peça encontrada para a seleção do usuário.");
         }
-        atualizarInterface();
     }
 
     private static void desativarAssentos(Parent container, String lugar) {
@@ -150,49 +152,19 @@ public class TelaIngressoController {
         }
     }
 
-    private ToggleButton localizarAssentos(Parent container, String id) {
-        for (Node node : container.getChildrenUnmodifiable()) {
-            if (node instanceof ToggleButton && node.getId().equals(id)) {
-                return (ToggleButton) node;
-            }
-        }
-        return null;
-    }
-
-    private static void atualizarInterface() {
-
-    }
-
-    private void configurarEventosDeToggle() {
-//        for (int i = 0; i < assentos.size(); i++) {
-//            int index = i;
-//            ToggleButton assento = assentos.get(index);
-//            assento.setOnAction(event -> {
-//                if (assento.isSelected()) {
-//                    if (!assentosOcupadosIndices.contains(index)) {
-//                        assentosSelecionadosIndices.add(index);
-//                        total += obterPrecoDoAssento(index);
-//                    }
-//                } else {
-//                    assentosSelecionadosIndices.remove((Integer) index); // Remover seleção
-//                    total -= obterPrecoDoAssento(index);
-//                }
-//                atualizarTotalLabel();
-//            });
-//        }
-    }
-
     private void atualizarTotalLabel() {
         // totalLabel.setText(String.format("Total: R$ %.2f", total));
     }
 
     private void habilitarBotaoConfirmar() {
-//        boolean taSelecionado = plateiaAAssentos.stream().anyMatch(id -> Objects.requireNonNull(localizarAssentos(plateiaAGrid, id)).isSelected())
-//                || plateiaBAssentos.stream().anyMatch(id -> Objects.requireNonNull(localizarAssentos(plateiaBGrid, id)).isSelected())
-//                || camaroteAssentos.stream().anyMatch(id -> Objects.requireNonNull(localizarAssentos(camarote1Grid, id)).isSelected())
-//                || frisaAssentos.stream().anyMatch(id -> Objects.requireNonNull(localizarAssentos(frisa1Box, id)).isSelected())
-//                || balcaoAssentos.stream().anyMatch(id -> Objects.requireNonNull(localizarAssentos(balcaoGrid, id)).isSelected());
-//        continuarBotao.setDisable(!taSelecionado);
+        for (ToggleButton botao : botoesExistentes) {
+            if (botao.isSelected()) {
+                continuarBotao.setDisable(false);
+                return;
+            } else {
+                continuarBotao.setDisable(true);
+            }
+        }
     }
 
     public void telaInicialTrigger() throws IOException {
