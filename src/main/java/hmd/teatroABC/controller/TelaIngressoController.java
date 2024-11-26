@@ -1,5 +1,6 @@
 package hmd.teatroABC.controller;
 
+import hmd.teatroABC.model.entities.Area;
 import hmd.teatroABC.model.entities.Peca;
 import hmd.teatroABC.model.entities.Sessao;
 import hmd.teatroABC.model.entities.Teatro;
@@ -14,12 +15,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -49,7 +47,7 @@ public class TelaIngressoController {
 
     public ToggleButton A1;
 
-    private static List<ToggleButton> assentos = new ArrayList<>();
+
     private static final List<String> plateiaAAssentos = new ArrayList<>();
     private static final List<String> plateiaBAssentos = new ArrayList<>();
     private static final List<String> camaroteAssentos = new ArrayList<>();
@@ -86,7 +84,7 @@ public class TelaIngressoController {
                 botoesExistentes.add(button);
                 button.setOnAction(event -> {
                     habilitarBotaoConfirmar();
-                    atualizarTotalLabel();
+                    registrarAssentosEscolhidos();
                 });
             }
         }
@@ -152,8 +150,38 @@ public class TelaIngressoController {
         }
     }
 
-    private void atualizarTotalLabel() {
-        // totalLabel.setText(String.format("Total: R$ %.2f", total));
+    private void registrarAssentosEscolhidos() {
+        List<String> botoesClicados = new ArrayList<>();
+        for (ToggleButton toggleButton : botoesExistentes) {
+            if (toggleButton.isSelected()){
+                botoesClicados.add(toggleButton.getId());
+                atualizarTotalLabel(toggleButton.getId());
+            }
+        }
+    }
+
+    private void atualizarTotalLabel(String id) {
+        char identificadorPreco = id.charAt(0);
+        switch (identificadorPreco){
+            case 'A':
+                total += Area.PLATEIA_A.getPreco();
+                break;
+            case 'B':
+                total += Area.PLATEIA_B.getPreco();
+                break;
+            case 'F':
+                //só o preço msm
+                total += Area.FRISA1.getPreco();
+                break;
+            case 'C':
+                total += Area.CAMAROTE1.getPreco();
+                break;
+            case 'N':
+                total += Area.BALCAO_NOBRE.getPreco();
+                break;
+            default:
+                System.out.println("Lugar inexistente, preço não encontrado");
+        }
     }
 
     private void habilitarBotaoConfirmar() {
