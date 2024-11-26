@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -19,12 +20,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 21/11/2024
  * @brief Class TelaCompraController
  */
+
 public class TelaIngressoController {
     @FXML
     private Button voltarBotao, continuarBotao;
@@ -45,15 +48,16 @@ public class TelaIngressoController {
     public VBox frisa5Box;
     public VBox frisa6Box;
 
-    public ToggleButton A1;
+    private final List<String> plateiaAAssentos = new ArrayList<>();
+    private final List<String> plateiaBAssentos = new ArrayList<>();
+    private final List<String> camaroteAssentos = new ArrayList<>();
+    private final List<String> frisaAssentos = new ArrayList<>();
+    private final List<String> balcaoAssentos = new ArrayList<>();
+    private final List<ToggleButton> botoesExistentes = new ArrayList<>();
+    private List<String> botoesClicados = new ArrayList<>();
 
+    public Label labelPrecoTotal;
 
-    private static final List<String> plateiaAAssentos = new ArrayList<>();
-    private static final List<String> plateiaBAssentos = new ArrayList<>();
-    private static final List<String> camaroteAssentos = new ArrayList<>();
-    private static final List<String> frisaAssentos = new ArrayList<>();
-    private static final List<String> balcaoAssentos = new ArrayList<>();
-    private static final List<ToggleButton> botoesExistentes = new ArrayList<>();
     private double total = 0.0;
 
     public void initialize() {
@@ -78,13 +82,16 @@ public class TelaIngressoController {
     }
 
     private void registrarAssentos(Parent container, List<String> listaAssentos) {
+        AtomicBoolean clicado = new AtomicBoolean(false);
         for (Node node : container.getChildrenUnmodifiable()) {
             if (node instanceof ToggleButton button) {
                 listaAssentos.add(button.getId());
                 botoesExistentes.add(button);
                 button.setOnAction(event -> {
                     habilitarBotaoConfirmar();
-                    registrarAssentosEscolhidos();
+                    clicado.set(button.isSelected());
+                    botoesClicados.add(button.getId());
+                    atualizarTotalLabel(button.getId(), clicado.get());
                 });
             }
         }
@@ -150,38 +157,28 @@ public class TelaIngressoController {
         }
     }
 
-    private void registrarAssentosEscolhidos() {
-        List<String> botoesClicados = new ArrayList<>();
-        for (ToggleButton toggleButton : botoesExistentes) {
-            if (toggleButton.isSelected()){
-                botoesClicados.add(toggleButton.getId());
-                atualizarTotalLabel(toggleButton.getId());
-            }
+    private void atualizarTotalLabel(String id, boolean clicado) {
+        char identificadorPreco = id.charAt(0);
+        double preco = getPrecoPorIdentificador(identificadorPreco);
+
+        if (preco != -1) { // Verifica se o preço foi encontrado
+            total += clicado ? preco : -preco;
+            System.out.println(total);
+            labelPrecoTotal.setText("R$ " + total);
+        } else {
+            System.out.println("Lugar inexistente, preço não encontrado");
         }
     }
 
-    private void atualizarTotalLabel(String id) {
-        char identificadorPreco = id.charAt(0);
-        switch (identificadorPreco){
-            case 'A':
-                total += Area.PLATEIA_A.getPreco();
-                break;
-            case 'B':
-                total += Area.PLATEIA_B.getPreco();
-                break;
-            case 'F':
-                //só o preço msm
-                total += Area.FRISA1.getPreco();
-                break;
-            case 'C':
-                total += Area.CAMAROTE1.getPreco();
-                break;
-            case 'N':
-                total += Area.BALCAO_NOBRE.getPreco();
-                break;
-            default:
-                System.out.println("Lugar inexistente, preço não encontrado");
-        }
+    private double getPrecoPorIdentificador(char identificador) {
+        return switch (identificador) {
+            case 'A' -> Area.PLATEIA_A.getPreco();
+            case 'B' -> Area.PLATEIA_B.getPreco();
+            case 'F' -> Area.FRISA1.getPreco();
+            case 'C' -> Area.CAMAROTE1.getPreco();
+            case 'N' -> Area.BALCAO_NOBRE.getPreco();
+            default -> -1; // Retorna -1 se o identificador for inválido
+        };
     }
 
     private void habilitarBotaoConfirmar() {

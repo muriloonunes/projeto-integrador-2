@@ -83,5 +83,7 @@ public class FinalizarCompraController {
 
     public void finalizarCompraTrigger() {
         //TODO
+        //if()
+
     }
 }

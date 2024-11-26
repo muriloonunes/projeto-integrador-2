@@ -1,5 +1,6 @@
 .root {
-    -fx-background-color: radial-gradient(radius 105%, #0b542d, #144021, #152e17, #111c0e, #020700);
+    /*-fx-background-color: radial-gradient(radius 105%, #0b542d, #144021, #152e17, #111c0e, #020700);*/
+    -fx-background-color: #262424;
     /*-fx-background-color: linear-gradient(to right top, rgba(4, 28, 69, 1) 0%, rgba(24, 27, 36, 1) 35%, rgba(78, 4, 174, 1) 100%);*/
     /*-fx-background-color: linear-gradient(to right top, #428f83, #339aa3, #3da3c3, #65a8dd, #98aaec);*/
 }
@@ -27,7 +28,7 @@
 }
 
 .toggle-button:selected {
-    -fx-background-color: rgba(16, 119, 63, 0.74);
+    -fx-background-color: rgba(253, 243, 243, 0.74);
 }
 
 .accordion > .titled-pane > .title {
