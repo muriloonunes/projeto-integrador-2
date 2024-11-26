@@ -26,7 +26,7 @@
 }
 
 .toggle-button:selected {
-    -fx-background-color: #757575;
+    -fx-background-color: #00a208;
 }
 
 .vbox-balcao {

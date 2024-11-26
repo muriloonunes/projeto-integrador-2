@@ -3,7 +3,7 @@ Wicked,TARDE,0,B4,src/main/resources/images/wicked_poster.jpg
 Wicked,NOITE,0,C3,src/main/resources/images/wicked_poster.jpg
 Rei Leao,MANHA,0,A5;N10,src/main/resources/images/reileao_poster.jpg
 Rei Leao,TARDE,0,F2;N1;C4,src/main/resources/images/reileao_poster.jpg
-Rei Leao,NOITE,0,A10;B52;F1;N3,src/main/resources/images/reileao_poster.jpg
+Rei Leao,NOITE,0,A10;B52;F1;C5;N3,src/main/resources/images/reileao_poster.jpg
 Auto da Compadecida,MANHA,0, ,src/main/resources/images/autodacompadecida_poster.jpg
 Auto da Compadecida,TARDE,0, ,src/main/resources/images/autodacompadecida_poster.jpg
 Auto da Compadecida,NOITE,0, ,src/main/resources/images/autodacompadecida_poster.jpg

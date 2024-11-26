@@ -13,43 +13,7 @@ public class Estatistica{
     static void lucroPeca(){
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //private void estatisticasVendas(Stage primaryStage) {
+//private void estatisticasVendas(Stage primaryStage) {
         //        primaryStage.setTitle("Estatísticas de Vendas");
         //
         //        AnchorPane anchorPane = new AnchorPane();

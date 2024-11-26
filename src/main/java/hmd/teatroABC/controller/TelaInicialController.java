@@ -80,11 +80,13 @@ public class TelaInicialController {
             sessaoSelecionada = Sessao.NOITE;
         }
 
-        TelaIngressoController.configurarAssentos(pecaSelecionada, sessaoSelecionada);
         FXMLLoader compraSceneLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_ingressos.fxml"));
         Scene compraScene = new Scene(compraSceneLoader.load());
+        TelaIngressoController controller = compraSceneLoader.getController();
         Stage compraStage = (Stage) peca1Botao.getScene().getWindow();
         compraStage.setScene(compraScene);
+        controller.chamarOutroMetodo();
+        controller.configurarAssentos(pecaSelecionada, sessaoSelecionada);
         compraStage.show();
     }
 
