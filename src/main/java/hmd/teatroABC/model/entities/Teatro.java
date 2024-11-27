@@ -9,6 +9,7 @@ import java.util.List;
  * @date 22/11/2024
  * @brief Class Teatro
  */
+
 public class Teatro {
     private static List<Peca> pecas = new ArrayList<>();
     File pecasFile = new File("src/main/java/hmd/teatroABC/model/database/pecas.txt");

@@ -98,13 +98,29 @@
                <VBox spacing="10.0">
                   <children>
                      <Label text="ASSENTO(S)" textFill="WHITE" />
-                     <Label text="XX, YY, ZZ" textFill="WHITE" />
+                     <VBox>
+                        <children>
+                           <Label fx:id="plateiaAAssentosLabel" text="XX, YY, ZZ" textFill="WHITE" />
+                           <Label fx:id="plateiaBAssentosLabel" text="XX, YY, ZZ" textFill="WHITE" />
+                           <Label fx:id="camaroteAssentosLabel" text="XX, YY, ZZ" textFill="WHITE" />
+                           <Label fx:id="frisaAssentosLabel" layoutX="10.0" layoutY="47.0" text="XX, YY, ZZ" textFill="WHITE" />
+                           <Label fx:id="balcaoAssentosLabel" layoutX="10.0" layoutY="65.0" text="XX, YY, ZZ" textFill="WHITE" />
+                        </children>
+                     </VBox>
                   </children>
                </VBox>
                <VBox spacing="10.0">
                   <children>
                      <Label text="ÁREA" textFill="WHITE" />
-                     <Label text="AAAAAA" textFill="WHITE" />
+                     <VBox>
+                        <children>
+                           <Label fx:id="plateiaALabel" text="Plateia A" textFill="WHITE" />
+                           <Label fx:id="plateiaBLabel" text="Plateia B" textFill="WHITE" />
+                           <Label fx:id="camaroteLabel" layoutX="10.0" layoutY="28.0" text="Camarote" textFill="WHITE" />
+                           <Label fx:id="frisaLabel" layoutX="10.0" layoutY="47.0" text="Frisa" textFill="WHITE" />
+                           <Label fx:id="balcaoNobre" layoutX="10.0" layoutY="65.0" text="Balcao Nobre" textFill="WHITE" />
+                        </children>
+                     </VBox>
                   </children>
                </VBox>
                <VBox spacing="10.0">

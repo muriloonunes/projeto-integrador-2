@@ -1,5 +1,7 @@
 package hmd.teatroABC.controller;
 
+import hmd.teatroABC.model.entities.Ingresso;
+import hmd.teatroABC.model.entities.Pessoa;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -7,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,9 +27,14 @@ public class FinalizarCompraController {
     public ToggleGroup pagamento, querFidelidade;
     public RadioButton fidelidadeSim, fidelidadeNao;
 
+    private final TelaIngressoController ingressoController = new TelaIngressoController();
+
+    private ArrayList<String> assentosSelecionados;
+
     private final int maxLength = 2;
 
     public void initialize() {
+        assentosSelecionados = (ArrayList<String>) ingressoController.getbotoesClicados();
         vboxFidelidade.setVisible(false);
 
         List<String> estados = List.of("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG",
@@ -36,25 +44,18 @@ public class FinalizarCompraController {
 
         //https://stackoverflow.com/questions/7555564/what-is-the-recommended-way-to-make-a-numeric-textfield-in-javafx
         //impede que caracteres não numéricos sejam inseridos no campo
-        numeroField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    numeroField.setText(newValue.replaceAll("\\D", ""));
-                }
+        numeroField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                numeroField.setText(newValue.replaceAll("\\D", ""));
             }
         });
 
         //https://stackoverflow.com/questions/15159988/javafx-2-2-textfield-maxlength
         //impede que caracteres acima de 2 casas sejam inseridos no campo
-        numeroField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
-                if (numeroField.getText().length() > maxLength) {
-                    String s = numeroField.getText().substring(0, maxLength);
-                    numeroField.setText(s);
-                }
+        numeroField.textProperty().addListener((ov, oldValue, newValue) -> {
+            if (numeroField.getText().length() > maxLength) {
+                String s = numeroField.getText().substring(0, maxLength);
+                numeroField.setText(s);
             }
         });
 
@@ -77,13 +78,24 @@ public class FinalizarCompraController {
         }
     }
 
+    public void resumoDaCompra(){
+
+    }
+
     private void validarCEP(String cep) {
         //https://blog.ramongomes.com.br/validacao-cep-javascript/#:~:text=retorna%20false.-,function%20validarCEP(cep)%20%7B,-//%20Remover%20espa%C3%A7os%20em
     }
 
     public void finalizarCompraTrigger() {
         //TODO
-        //if()
+        boolean fid = fidelidadeSim.isSelected();
+
+        Long cpf = Long.parseLong(String.valueOf(cpfField.getText()));
+
+
+//        Pessoa pessoa = new Pessoa(cpf, fid, assentosSelecionados );
+
+
 
     }
 }

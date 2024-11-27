@@ -1,5 +1,5 @@
 .root {
-    -fx-background-color: radial-gradient(radius 105%, #0b542d, #144021, #152e17, #111c0e, #020700);
+    -fx-background-color: #262424;
 }
 
 .radio-button > .text {
@@ -20,15 +20,15 @@
 }
 
 .botao-finalizar {
-    -fx-background-color: #144021;
-    -fx-text-fill: white;
+    -fx-background-color: white;
+    -fx-text-fill: black;
     -fx-background-radius: 10;
 }
 
 .botao-finalizar:hover {
-    -fx-background-color: #324939;
+    -fx-background-color: #d2d1d1;
 }
 
 .botao-finalizar:pressed {
-    -fx-background-color: #4b6e56;
+    -fx-background-color: #b0b0b0;
 }

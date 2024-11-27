@@ -90,7 +90,11 @@ public class TelaIngressoController {
                 button.setOnAction(event -> {
                     habilitarBotaoConfirmar();
                     clicado.set(button.isSelected());
-                    botoesClicados.add(button.getId());
+                    if (clicado.get()) {
+                        botoesClicados.add(button.getId());
+                    } else {
+                        botoesClicados.remove(button.getId());
+                    }
                     atualizarTotalLabel(button.getId(), clicado.get());
                 });
             }
@@ -161,9 +165,8 @@ public class TelaIngressoController {
         char identificadorPreco = id.charAt(0);
         double preco = getPrecoPorIdentificador(identificadorPreco);
 
-        if (preco != -1) { // Verifica se o preço foi encontrado
+        if (preco != -1) {
             total += clicado ? preco : -preco;
-            System.out.println(total);
             labelPrecoTotal.setText("R$ " + total);
         } else {
             System.out.println("Lugar inexistente, preço não encontrado");
@@ -177,7 +180,7 @@ public class TelaIngressoController {
             case 'F' -> Area.FRISA1.getPreco();
             case 'C' -> Area.CAMAROTE1.getPreco();
             case 'N' -> Area.BALCAO_NOBRE.getPreco();
-            default -> -1; // Retorna -1 se o identificador for inválido
+            default -> -1;
         };
     }
 
@@ -206,6 +209,10 @@ public class TelaIngressoController {
         Stage finalizarCompraStage = (Stage) continuarBotao.getScene().getWindow();
         finalizarCompraStage.setScene(finalizarCompraScene);
         finalizarCompraStage.show();
+    }
+
+    public List<String> getbotoesClicados() {
+        return new ArrayList<>(botoesClicados);
     }
 }
 

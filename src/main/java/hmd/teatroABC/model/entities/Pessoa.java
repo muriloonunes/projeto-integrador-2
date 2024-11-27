@@ -1,5 +1,6 @@
 package hmd.teatroABC.model.entities;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 /**
@@ -9,17 +10,26 @@ import java.util.ArrayList;
  */
 
 public class Pessoa {
-    private Long cpf;
-    private Boolean ehFidelidade;
+    private long cpf;
+    private boolean ehFidelidade;
     private ArrayList<Ingresso> ingressos = new ArrayList<>();
+    private String nome;
+    private String telefone;
+    private String endereco;
+    private LocalDate dataNascimento;
 
-    public Pessoa(Long cpf, Boolean ehFidelidade, ArrayList<Ingresso> ingressos) {
+    public Pessoa(long cpf, boolean ehFidelidade) {
         this.cpf = cpf;
         this.ehFidelidade = ehFidelidade;
-        this.ingressos = ingressos;
     }
 
-    public Pessoa() {
+    public Pessoa(long cpf, boolean ehFidelidade, String nome, String telefone, String endereco, LocalDate dataNascimento) {
+        this.cpf = cpf;
+        this.ehFidelidade = ehFidelidade;
+        this.nome = nome;
+        this.telefone = telefone;
+        this.endereco = endereco;
+        this.dataNascimento = dataNascimento;
     }
 
     public void setCpf(Long cpf) {
@@ -29,6 +39,8 @@ public class Pessoa {
     public Long getCpf() {
         return cpf;
     }
+
+
 
     public static boolean validarCPF(long cpf) {
         String cpfString = String.format("%011d", cpf);

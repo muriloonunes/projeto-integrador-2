@@ -1,6 +1,7 @@
 package hmd.teatroABC.model.entities;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -43,11 +44,11 @@ public class Ingresso {
         this.pessoa = pessoa;
     }
 
-    public void guardarIngresso(Ingresso ingresso) throws IOException {
+    public void guardarIngresso(Pessoa pessoa, ArrayList<String> lista) throws IOException {
         File file = new File("src\\main\\java\\hmd\\teatroABC\\model\\database\\ingressoImpresso.csv");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
             //guarda pessoa na lista de ingresso
-            String[] lines = new String[]{String.valueOf(pessoa.getCpf()), String.valueOf(ingresso.getArea()), String.valueOf(ingresso.getPeca())};
+            String[] lines = new String[]{String.valueOf(pessoa.getCpf()), String.valueOf(lista)};
             for (String line : lines) {
                 bw.write(line);
                 bw.newLine();
