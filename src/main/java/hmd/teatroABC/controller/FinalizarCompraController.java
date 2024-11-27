@@ -1,9 +1,6 @@
 package hmd.teatroABC.controller;
 
-import hmd.teatroABC.model.entities.Ingresso;
 import hmd.teatroABC.model.entities.Pessoa;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.*;
@@ -28,6 +25,7 @@ public class FinalizarCompraController {
     public RadioButton fidelidadeSim, fidelidadeNao;
 
     private final TelaIngressoController ingressoController = new TelaIngressoController();
+    public Label plateiaAAssentosLabel, plateiaBAssentosLabel, frisaAssentosLabel, camaroteAssentosLabel, balcaoAssentosLabel;
 
     private ArrayList<String> assentosSelecionados;
 
@@ -35,6 +33,7 @@ public class FinalizarCompraController {
 
     public void initialize() {
         assentosSelecionados = (ArrayList<String>) ingressoController.getbotoesClicados();
+        resumoDaCompra();
         vboxFidelidade.setVisible(false);
 
         List<String> estados = List.of("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG",
@@ -78,8 +77,29 @@ public class FinalizarCompraController {
         }
     }
 
-    public void resumoDaCompra(){
-
+    public void resumoDaCompra() {
+        for (String lugares : assentosSelecionados) {
+            char localidade = lugares.charAt(0);
+            switch (localidade) {
+                case 'A':
+                    plateiaAAssentosLabel.setText(plateiaAAssentosLabel.getText() + lugares + " ");
+                    break;
+                case 'B':
+                    plateiaBAssentosLabel.setText(plateiaBAssentosLabel.getText() + lugares + " ");
+                    break;
+                case 'F':
+                    frisaAssentosLabel.setText(frisaAssentosLabel.getText() + lugares + " ");
+                    break;
+                case 'C':
+                    camaroteAssentosLabel.setText(camaroteAssentosLabel.getText() + lugares + " ");
+                    break;
+                case 'N':
+                    balcaoAssentosLabel.setText(balcaoAssentosLabel.getText() + lugares + " ");
+                    break;
+                default:
+                    System.out.println("Não é um lugar");
+            }
+        }
     }
 
     private void validarCEP(String cep) {
@@ -90,11 +110,15 @@ public class FinalizarCompraController {
         //TODO
         boolean fid = fidelidadeSim.isSelected();
 
-        Long cpf = Long.parseLong(String.valueOf(cpfField.getText()));
+        //tem q tá tudo preenchido né zé
+        //só comecin
+        long verificar = Long.parseLong(String.valueOf(cpfField.getText()));
+        if (Pessoa.validarCPF(verificar)) {
+            System.out.println("Aí faz o resto");
+        }
 
 
 //        Pessoa pessoa = new Pessoa(cpf, fid, assentosSelecionados );
-
 
 
     }
