@@ -54,10 +54,12 @@ public class TelaIngressoController {
     private final List<String> frisaAssentos = new ArrayList<>();
     private final List<String> balcaoAssentos = new ArrayList<>();
     private final List<ToggleButton> botoesExistentes = new ArrayList<>();
-    private List<String> botoesClicados = new ArrayList<>();
+    private ArrayList<String> botoesClicados = new ArrayList<>();
 
     public Label labelPrecoTotal;
 
+    private String pecaSelecionada;
+    private Sessao sessaoSelecionada;
     private double total = 0.0;
 
     public void initialize() {
@@ -102,6 +104,9 @@ public class TelaIngressoController {
     }
 
     public void configurarAssentos(String pecaSelecionada, Sessao sessaoSelecionada) {
+        this.pecaSelecionada = pecaSelecionada;
+        this.sessaoSelecionada = sessaoSelecionada;
+
         Optional<Peca> pecaEscolhida = Teatro.getPecas().stream().filter(peca -> peca.getNome().equals(pecaSelecionada) && peca.getSessao().equals(sessaoSelecionada)).findFirst();
         List<String> lugaresIndisponiveis;
 
@@ -147,6 +152,59 @@ public class TelaIngressoController {
             }
         } else {
             System.out.println("Nenhuma peça encontrada para a seleção do usuário.");
+        }
+    }
+
+    public void configurarAposVoltar(ArrayList<String> assentosSelecionados) {
+        if (assentosSelecionados != null) {
+            for (String lugar : assentosSelecionados) {
+                char localidade = lugar.charAt(0);
+                int numero = Integer.parseInt(lugar.substring(1));
+
+                Parent container = null;
+                switch (localidade) {
+                    case 'A' -> container = plateiaAGrid;
+                    case 'B' -> container = plateiaBGrid;
+                    case 'F' -> {
+                        if (numero >= 1 && numero <= 6) {
+                            container = switch (numero) {
+                                case 1 -> frisa1Box;
+                                case 2 -> frisa2Box;
+                                case 3 -> frisa3Box;
+                                case 4 -> frisa4Box;
+                                case 5 -> frisa5Box;
+                                case 6 -> frisa6Box;
+                                default -> null;
+                            };
+                        }
+                    }
+                    case 'C' -> {
+                        if (numero >= 1 && numero <= 5) {
+                            container = switch (numero) {
+                                case 1 -> camarote1Grid;
+                                case 2 -> camarote2Grid;
+                                case 3 -> camarote3Grid;
+                                case 4 -> camarote4Grid;
+                                case 5 -> camarote5Grid;
+                                default -> null;
+                            };
+                        }
+                    }
+                    case 'N' -> container = balcaoGrid;
+                }
+
+                if (container != null) {
+                    for (Node node : container.getChildrenUnmodifiable()) {
+                        if (node instanceof ToggleButton toggleButton) {
+                            if (toggleButton.getId().equals(lugar)) {
+                                toggleButton.setSelected(true);
+                                atualizarTotalLabel(lugar, true);
+                            }
+                        }
+                    }
+                }
+            }
+            continuarBotao.setDisable(false);
         }
     }
 
@@ -206,14 +264,22 @@ public class TelaIngressoController {
     public void finalizarCompraTrigger() throws IOException {
         FXMLLoader finalizarCompraLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/finalizar_compra.fxml"));
         Scene finalizarCompraScene = new Scene(finalizarCompraLoader.load());
+        FinalizarCompraController controllerCompra = finalizarCompraLoader.getController();
+        controllerCompra.setTelaIngressoController(this);
+        controllerCompra.resumoDaCompra(botoesClicados);
         Stage finalizarCompraStage = (Stage) continuarBotao.getScene().getWindow();
         finalizarCompraStage.setScene(finalizarCompraScene);
         finalizarCompraStage.show();
     }
 
-    public List<String> getbotoesClicados() {
-        return new ArrayList<>(botoesClicados);
+    public String getPecaSelecionada() {
+        return pecaSelecionada;
     }
+
+    public Sessao getSessaoSelecionada() {
+        return sessaoSelecionada;
+    }
+
 }
 
 

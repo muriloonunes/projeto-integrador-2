@@ -8,6 +8,8 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.SVGPath?>
@@ -17,16 +19,27 @@
     <padding>
         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
     </padding>
-    <Label text="FINALIZAR COMPRA" textFill="WHITE">
-        <font>
-            <Font name="System Bold" size="18.0" />
-        </font>
-    </Label>
+   <HBox alignment="TOP_CENTER" spacing="20.0">
+      <children>
+          <Button fx:id="voltarBotao" mnemonicParsing="false" onAction="#voltarTrigger" prefHeight="27.0" prefWidth="31.0" styleClass="botao-voltar">
+              <graphic>
+                  <ImageView fitHeight="17.0" fitWidth="17.0" pickOnBounds="true" preserveRatio="true">
+                      <Image url="@../../images/voltar.png" />
+                  </ImageView>
+              </graphic>
+          </Button>
+          <Label text="FINALIZAR COMPRA" textFill="WHITE">
+              <font>
+                  <Font name="System Bold" size="18.0" />
+              </font>
+          </Label>
+      </children>
+   </HBox>
     <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" VBox.vgrow="ALWAYS">
         <VBox alignment="CENTER_LEFT" HBox.hgrow="ALWAYS">
             <Label text="1 DIGITE SEUS DADOS" textFill="WHITE">
                 <font>
-                    <Font size="13.0" />
+                    <Font name="System Bold" size="14.0" />
                 </font>
             </Label>
             <VBox spacing="5.0">
@@ -90,7 +103,7 @@
         <VBox layoutX="10.0" layoutY="10.0" HBox.hgrow="ALWAYS">
             <Label text="2 RESUMO DO PEDIDO" textFill="WHITE">
                 <font>
-                    <Font size="13.0" />
+                    <Font name="System Bold" size="14.0" />
                 </font>
             </Label>
          <HBox spacing="35.0">
@@ -105,6 +118,13 @@
                            <Label fx:id="camaroteAssentosLabel" text="XX, YY, ZZ" textFill="WHITE" />
                            <Label fx:id="frisaAssentosLabel" layoutX="10.0" layoutY="47.0" text="XX, YY, ZZ" textFill="WHITE" />
                            <Label fx:id="balcaoAssentosLabel" layoutX="10.0" layoutY="65.0" text="XX, YY, ZZ" textFill="WHITE" />
+                           <Label layoutX="10.0" layoutY="83.0" text="XX, YY, ZZ" textFill="WHITE" visible="false" />
+                           <Label layoutX="10.0" layoutY="102.0" text="XX, YY, ZZ" textFill="WHITE" visible="false" />
+                           <Label layoutX="10.0" layoutY="120.0" text="XX, YY, ZZ" textFill="WHITE" visible="false" />
+                           <Label fx:id="totalLabel" layoutX="10.0" layoutY="139.0" text="TOTAL" textFill="WHITE">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font></Label>
                         </children>
                      </VBox>
                   </children>
@@ -118,7 +138,7 @@
                            <Label fx:id="plateiaBLabel" text="Plateia B" textFill="WHITE" />
                            <Label fx:id="camaroteLabel" layoutX="10.0" layoutY="28.0" text="Camarote" textFill="WHITE" />
                            <Label fx:id="frisaLabel" layoutX="10.0" layoutY="47.0" text="Frisa" textFill="WHITE" />
-                           <Label fx:id="balcaoNobre" layoutX="10.0" layoutY="65.0" text="Balcao Nobre" textFill="WHITE" />
+                           <Label fx:id="balcaoLabel" layoutX="10.0" layoutY="65.0" text="Balcao Nobre" textFill="WHITE" />
                         </children>
                      </VBox>
                   </children>
@@ -126,16 +146,49 @@
                <VBox spacing="10.0">
                   <children>
                      <Label text="VALOR" textFill="WHITE" />
-                     <Label text="R$ XX,XX" textFill="WHITE" />
+                     <VBox>
+                        <children>
+                           <Label fx:id="plateiaAValorLabel" text="R$ XX,XX" textFill="WHITE">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font></Label>
+                           <Label fx:id="plateiaBValorLabel" text="R$ XX,XX" textFill="WHITE">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font></Label>
+                           <Label fx:id="camaroteValorLabel" layoutX="10.0" layoutY="28.0" text="R$ XX,XX" textFill="WHITE">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font></Label>
+                           <Label fx:id="frisaValorLabel" layoutX="10.0" layoutY="47.0" text="R$ XX,XX" textFill="WHITE">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font></Label>
+                           <Label fx:id="balcaoValorLabel" layoutX="10.0" layoutY="65.0" text="R$ XX,XX" textFill="WHITE">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font></Label>
+                           <Label layoutX="10.0" layoutY="83.0" text="R$ XX,XX" textFill="WHITE" visible="false" />
+                           <Label layoutX="10.0" layoutY="102.0" text="R$ XX,XX" textFill="WHITE" visible="false" />
+                           <Label layoutX="10.0" layoutY="120.0" text="R$ XX,XX" textFill="WHITE" visible="false" />
+                           <Label fx:id="valorTotalLabel" layoutX="10.0" layoutY="139.0" text="R$ XX,XX" textFill="WHITE">
+                              <font>
+                                 <Font name="System Bold" size="12.0" />
+                              </font></Label>
+                        </children>
+                     </VBox>
                   </children>
                </VBox>
             </children>
+            <padding>
+               <Insets top="10.0" />
+            </padding>
          </HBox>
         </VBox>
         <VBox alignment="TOP_RIGHT" layoutX="225.0" layoutY="10.0" HBox.hgrow="ALWAYS">
             <Label text="3 FORMA DE PAGAMENTO" textFill="WHITE" VBox.vgrow="ALWAYS">
                 <font>
-                    <Font size="13.0" />
+                    <Font name="System Bold" size="14.0" />
                 </font>
             </Label>
             <VBox spacing="5.0" VBox.vgrow="SOMETIMES">
