@@ -102,7 +102,7 @@ public class TelaInicialController {
 
         String cpfDigitado = controllerCpf.pegarCpf();
         if (cpfDigitado != null) {
-            abrirImprimir();
+            abrirImprimir(cpfDigitado);
         }
     }
 
@@ -114,8 +114,16 @@ public class TelaInicialController {
         estatisticasTelaStage.show();
     }
 
-    private void abrirImprimir() {
-        //todo
+    private void abrirImprimir(String cpfDigitado) throws IOException {
+        System.out.println(cpfDigitado);
+        FXMLLoader imprimirLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/imprimir_ingresso.fxml"));
+        Scene imprimirScene = new Scene(imprimirLoader.load(), 1189, 810);
+        ImprimirIngressoController controllerImprimir = imprimirLoader.getController();
+        Stage imprimirStage = (Stage) imprimirBotao.getScene().getWindow();
+        imprimirStage.setScene(imprimirScene);
+        controllerImprimir.setCpfBuscado(cpfDigitado);
+        controllerImprimir.criarIngresso();
+        imprimirStage.show();
     }
 
     public void tempFinalizarTrigger() throws IOException {

@@ -2,17 +2,17 @@
     -fx-background-color: #262424;
 }
 
-.button {
+.botao-voltar {
     -fx-background-color: white;
     -fx-text-fill: black;
     -fx-background-radius: 10;
 }
 
-.button:hover {
+.botao-voltar:hover {
     -fx-background-color: #d2d1d1;
 }
 
-.button:pressed {
+.botao-voltar:pressed {
     -fx-background-color: #b0b0b0;
 }
 
@@ -20,10 +20,9 @@
     -fx-text-fill: white;
 }
 
-.label-erro {
-    -fx-text-fill: red;
-}
-
-.text-field {
-    -fx-background-radius: 10;
+.vbox-ingresso {
+    -fx-border-color: white;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-padding: 10;
 }

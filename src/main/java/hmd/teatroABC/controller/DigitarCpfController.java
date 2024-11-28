@@ -24,6 +24,13 @@ public class DigitarCpfController {
         okBotao.setDisable(true);
         cpfField.textProperty().addListener((observable, oldValue, newValue) -> {
             okBotao.setDisable(newValue.trim().isEmpty());
+            if (!newValue.matches("\\d*")) {
+                cpfField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+
+            if (cpfField.getText().length() > 11) {
+                cpfField.setText(cpfField.getText().substring(0, 11));
+            }
         });
     }
 
