@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static hmd.teatroABC.model.entities.Teatro.log;
+
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 24/11/2024
@@ -33,12 +35,13 @@ public class FinalizarCompraController {
     public Button voltarBotao;
 
     private ArrayList<String> assentosSelecionados;
-    private static List<String> log = new ArrayList<>();
 
     private TelaIngressoController ingressoController = new TelaIngressoController();
     public Label plateiaAAssentosLabel, plateiaBAssentosLabel, frisaAssentosLabel, camaroteAssentosLabel, balcaoAssentosLabel,
             plateiaAValorLabel, plateiaBValorLabel, camaroteValorLabel, frisaValorLabel, balcaoValorLabel, totalLabel, valorTotalLabel,
-            plateiaALabel, plateiaBLabel, camaroteLabel, frisaLabel, balcaoLabel;
+            plateiaALabel, plateiaBLabel, camaroteLabel, frisaLabel, balcaoLabel, erroLabel;
+
+    private boolean cpfValido = false;
 
     public void initialize() {
         vboxFidelidade.setVisible(false);
@@ -70,7 +73,6 @@ public class FinalizarCompraController {
         });
 
         cpfField.textProperty().addListener((observable, oldValue, newValue) -> {
-            desabilitarFinalizarCompra();
             if (!newValue.matches("\\d*")) {
                 cpfField.setText(newValue.replaceAll("[^\\d]", ""));
             }
@@ -78,13 +80,32 @@ public class FinalizarCompraController {
             if (cpfField.getText().length() > 11) {
                 cpfField.setText(cpfField.getText().substring(0, 11));
             }
+
+            if (cpfField.getText().length() == 11) {
+                cpfValido = Pessoa.validarCPF(Long.parseLong(cpfField.getText()));
+                if (!cpfValido) {
+                    erroLabel.setVisible(true);
+                    erroLabel.setText("CPF inválido");
+                } else {
+                    erroLabel.setText("");
+                    erroLabel.setVisible(false);
+                }
+            }
+            desabilitarFinalizarCompra();
         });
 
         cepField.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
-                numeroField.setText(newValue.replaceAll("\\D", ""));
+                cepField.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
+
+        telefoneField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                telefoneField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
         /*
            cepField.textProperty().addListener((observable, oldValue, newValue) -> {
             newValue = newValue.replaceAll("\\D", "");
@@ -242,7 +263,7 @@ public class FinalizarCompraController {
 
             //TODO: adicionar forma de registrar essa pessoa criada, bem como o ingresso, no arquivo pessoas.txt
 
-            log.add(LocalDateTime.now() + " -> " + pessoa.getNome() + " " + pessoa.getCpf() +  " " +
+            Teatro.log.add(LocalDateTime.now() + " -> " + pessoa.getNome() + " " + pessoa.getCpf() +  " " +
                     pessoa.isEhFidelidade() + " - " + ing.getAssento() + " " + ing.getArea() + " " + ing.getPeca());
 
             pessoa.adicionarIngresso(ing);
@@ -282,11 +303,11 @@ public class FinalizarCompraController {
     }
 
     private void desabilitarFinalizarCompra() {
-        boolean cpfPreenchido = !cpfField.getText().isEmpty();
+        boolean cpfPreenchido = cpfField.getText().length() == 11;
         boolean pagamentoSelecionado = pagamento.getSelectedToggle() != null;
 
         if (cpfPreenchido && fidelidadeNao.isSelected()) {
-            finalizarBotao.setDisable(!pagamentoSelecionado);
+            finalizarBotao.setDisable(!pagamentoSelecionado || !cpfValido);
         } else if (cpfPreenchido && fidelidadeSim.isSelected()) {
             boolean camposObrigatoriosPreenchidos = !nomeField.getText().isEmpty() &&
                     !telefoneField.getText().isEmpty() &&
@@ -298,7 +319,7 @@ public class FinalizarCompraController {
                     !cidadeField.getText().isEmpty() &&
                     estadoBox.getValue() != null &&
                     selecionarData.getValue() != null;
-            finalizarBotao.setDisable(!camposObrigatoriosPreenchidos || !pagamentoSelecionado);
+            finalizarBotao.setDisable(!camposObrigatoriosPreenchidos || !pagamentoSelecionado || !cpfValido);
         } else {
             finalizarBotao.setDisable(true);
         }

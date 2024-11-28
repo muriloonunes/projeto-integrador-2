@@ -48,6 +48,11 @@
                 </padding>
                 <Label text="Digite seu CPF:" textFill="WHITE" />
                 <TextField fx:id="cpfField" promptText="CPF" />
+            <Label fx:id="erroLabel" layoutX="10.0" layoutY="20.0" text="erro" textFill="RED" visible="false">
+               <font>
+                  <Font size="10.0" />
+               </font>
+            </Label>
                 <Label text="Deseja se tornar cliente fidelidade?" textFill="WHITE" />
                 <HBox spacing="15.0">
                     <RadioButton fx:id="fidelidadeSim" mnemonicParsing="false" onAction="#mostrarFidelidade" text="Sim">

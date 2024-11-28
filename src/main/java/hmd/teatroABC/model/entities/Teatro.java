@@ -14,6 +14,7 @@ import java.util.List;
 public class Teatro {
     private static List<Peca> pecas = new ArrayList<>();
     private static List<Pessoa> pessoas = new ArrayList<>();
+    public static List<String> log = new ArrayList<>();
     File pecasFile = new File("src/main/java/hmd/teatroABC/model/database/pecas.txt");
     File pessoasFile = new File("src/main/java/hmd/teatroABC/model/database/pessoas.txt");
 
