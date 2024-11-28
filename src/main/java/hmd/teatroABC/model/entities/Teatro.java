@@ -12,7 +12,9 @@ import java.util.List;
 
 public class Teatro {
     private static List<Peca> pecas = new ArrayList<>();
+    private static List<Pessoa> pessoas = new ArrayList<>();
     File pecasFile = new File("src/main/java/hmd/teatroABC/model/database/pecas.txt");
+    File pessoasFile = new File("src/main/java/hmd/teatroABC/model/database/pessoas.txt");
 
     public void carregarPecas() {
         try (BufferedReader br = new BufferedReader(new FileReader(pecasFile))) {
@@ -32,6 +34,20 @@ public class Teatro {
             }
         } catch (IOException e) {
             System.out.println("erro");
+        }
+    }
+
+    public void carregarPessoas() {
+        //TODO
+    }
+
+    public void adicionarPessoas(Pessoa pessoa) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(pessoasFile, true))) {
+            bw.write(pessoa.getNome() + "," + pessoa.getCpf());
+            bw.newLine();
+            pessoas.add(pessoa);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

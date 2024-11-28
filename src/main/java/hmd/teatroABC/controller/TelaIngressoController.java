@@ -280,6 +280,15 @@ public class TelaIngressoController {
         return sessaoSelecionada;
     }
 
+    public Peca encontrarPeca() {
+        for (Peca peca : Teatro.getPecas()) {
+            if (peca.getNome().equals(pecaSelecionada) && peca.getSessao().equals(sessaoSelecionada)) {
+                return peca;
+            }
+        }
+        return null;
+    }
+
 }
 
 

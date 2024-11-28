@@ -8,17 +8,17 @@ package hmd.teatroABC.model.entities;
 public enum Area {
     PLATEIA_A("Plateia A", 40.00, 25),
     PLATEIA_B("Plateia B", 60.00, 100),
-    CAMAROTE1("Camarote1", 800.00, 10),
-    CAMAROTE2("Camarote2", 800.00, 10),
-    CAMAROTE3("Camarote3", 800.00, 10),
-    CAMAROTE4("Camarote4", 800.00, 10),
-    CAMAROTE5("Camarote5", 800.00, 10),
-    FRISA1("Frisa1", 600.00, 5),
-    FRISA2("Frisa2", 600.00, 5),
-    FRISA3("Frisa3", 600.00, 5),
-    FRISA4("Frisa4", 600.00, 5),
-    FRISA5("Frisa5", 600.00, 5),
-    FRISA6("Frisa6", 600.00, 5),
+    CAMAROTE1("Camarote 1", 800.00, 10),
+    CAMAROTE2("Camarote 2", 800.00, 10),
+    CAMAROTE3("Camarote 3", 800.00, 10),
+    CAMAROTE4("Camarote 4", 800.00, 10),
+    CAMAROTE5("Camarote 5", 800.00, 10),
+    FRISA1("Frisa 1", 600.00, 5),
+    FRISA2("Frisa 2", 600.00, 5),
+    FRISA3("Frisa 3", 600.00, 5),
+    FRISA4("Frisa 4", 600.00, 5),
+    FRISA5("Frisa 5", 600.00, 5),
+    FRISA6("Frisa 6", 600.00, 5),
     BALCAO_NOBRE("Balcao Nobre", 250.00, 50);
 
     private final String nomeLocal;

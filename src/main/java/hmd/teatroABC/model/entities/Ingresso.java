@@ -12,12 +12,12 @@ import java.util.Scanner;
 public class Ingresso {
     private Area area;
     private Peca peca;
-    private Pessoa pessoa;
+    private String assento;
 
-    public Ingresso(Area area, Peca peca, Pessoa pessoa) {
+    public Ingresso(Area area, Peca peca, String assento) {
         this.area = area;
         this.peca = peca;
-        this.pessoa = pessoa;
+        this.assento = assento;
     }
 
     public Area getArea() {
@@ -36,12 +36,12 @@ public class Ingresso {
         this.peca = peca;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public String getAssento() {
+        return assento;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setAssento(String assento) {
+        this.assento = assento;
     }
 
     public void guardarIngresso(Pessoa pessoa, ArrayList<String> lista) throws IOException {

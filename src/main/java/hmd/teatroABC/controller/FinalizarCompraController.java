@@ -1,7 +1,6 @@
 package hmd.teatroABC.controller;
 
-import hmd.teatroABC.model.entities.Area;
-import hmd.teatroABC.model.entities.Pessoa;
+import hmd.teatroABC.model.entities.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -38,11 +38,9 @@ public class FinalizarCompraController {
             plateiaAValorLabel, plateiaBValorLabel, camaroteValorLabel, frisaValorLabel, balcaoValorLabel, totalLabel, valorTotalLabel,
             plateiaALabel, plateiaBLabel, camaroteLabel, frisaLabel, balcaoLabel;
 
-    private final int maxLength = 2;
-
-
     public void initialize() {
         vboxFidelidade.setVisible(false);
+        finalizarBotao.setDisable(true);
 
         plateiaAAssentosLabel.setText("");
         plateiaBAssentosLabel.setText("");
@@ -69,22 +67,32 @@ public class FinalizarCompraController {
             }
         });
 
-        //https://stackoverflow.com/questions/15159988/javafx-2-2-textfield-maxlength
-        //impede que caracteres acima de 2 casas sejam inseridos no campo
-        numeroField.textProperty().addListener((ov, oldValue, newValue) -> {
-            if (numeroField.getText().length() > maxLength) {
-                String s = numeroField.getText().substring(0, maxLength);
-                numeroField.setText(s);
+        cpfField.textProperty().addListener((observable, oldValue, newValue) -> {
+            desabilitarFinalizarCompra();
+            if (!newValue.matches("\\d*")) {
+                cpfField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+
+            if (cpfField.getText().length() > 11) {
+                cpfField.setText(cpfField.getText().substring(0, 11));
             }
         });
 
-/*        cepField.textProperty().addListener((observable, oldValue, newValue) -> {
+        cepField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                numeroField.setText(newValue.replaceAll("\\D", ""));
+            }
+        });
+        /*
+           cepField.textProperty().addListener((observable, oldValue, newValue) -> {
             newValue = newValue.replaceAll("\\D", "");
             if (newValue.length() > 5) {
                 newValue = newValue.substring(0, 5) + "-" + newValue.substring(5, Math.min(newValue.length(), 8));
             }
             cepField.setText(newValue);
-        });*/
+        });
+        */
+        criarListeners();
     }
 
     public void mostrarFidelidade() {
@@ -186,22 +194,6 @@ public class FinalizarCompraController {
         return true;
     }
 
-    public void cadastroFinal() {
-        long verificar = Long.parseLong(String.valueOf(cpfField.getText()));
-
-        boolean naoFidelidade = fidelidadeNao.isSelected();
-        boolean escolheuFidelidade = fidelidadeSim.isSelected();
-
-        if (naoFidelidade && Pessoa.validarCPF(verificar)) {
-            Pessoa pessoa = new Pessoa(verificar, false);
-        } else if (escolheuFidelidade && Pessoa.validarCPF(verificar) && validarCEP(cepField.getText())) {
-            Pessoa pessoa = new Pessoa(verificar, true, nomeField.getText(), telefoneField.getText(), ruaField.getText()
-                    + " " + numeroField.getText() + " " + complementoField.getText() + " " + cepField.getText() + " " + bairroField.getText()
-                    + " " + cidadeField.getText() + " " + estadoBox.getValue(), selecionarData.getValue());
-        }
-
-    }
-
     public void voltarTrigger() throws IOException {
         FXMLLoader compraSceneLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_ingressos.fxml"));
         Scene compraScene = new Scene(compraSceneLoader.load());
@@ -216,7 +208,6 @@ public class FinalizarCompraController {
 
     public void finalizarCompraTrigger() {
         //TODO
-
         cadastroFinal();
 //      Pessoa pessoa = new Pessoa(cpf, fid, assentosSelecionados );
 
@@ -227,7 +218,122 @@ public class FinalizarCompraController {
 
     }
 
+    public void cadastroFinal() {
+        long verificar = Long.parseLong(String.valueOf(cpfField.getText()));
+
+        boolean naoFidelidade = fidelidadeNao.isSelected();
+        boolean escolheuFidelidade = fidelidadeSim.isSelected();
+
+        if (naoFidelidade && Pessoa.validarCPF(verificar)) {
+            Pessoa pessoa = new Pessoa(verificar, false);
+            for (String assento : assentosSelecionados) {
+                char identificador = assento.charAt(0);
+                int segundoNumero = assento.charAt(1);
+                Ingresso ing = new Ingresso(getAreaPorIdentificador(identificador,segundoNumero), ingressoController.encontrarPeca(), assento);
+                ingressoController.encontrarPeca().adicionarAssento(assento);
+                //TODO: adicionar forma de escrever esse assento no arquivo "pecas.txt"
+                //TODO: adicionar forma de registrar essa pessoa criada, bem como o ingresso, no arquivo pessoas.txt
+                pessoa.adicionarIngresso(ing);
+            }
+        } else if (escolheuFidelidade && Pessoa.validarCPF(verificar) && validarCEP(cepField.getText())) {
+            Pessoa pessoa = new Pessoa(verificar, true, nomeField.getText(), telefoneField.getText(), ruaField.getText()
+                    + " " + numeroField.getText() + " " + complementoField.getText() + " " + cepField.getText() + " " + bairroField.getText()
+                    + " " + cidadeField.getText() + " " + estadoBox.getValue(), selecionarData.getValue());
+            for (String assento : assentosSelecionados) {
+                char identificador = assento.charAt(0);
+                int segundoNumero = assento.charAt(1);
+                Ingresso ing = new Ingresso(getAreaPorIdentificador(identificador,segundoNumero), ingressoController.encontrarPeca(), assento);
+                pessoa.adicionarIngresso(ing);
+            }
+        }
+
+    }
+
     public void setTelaIngressoController(TelaIngressoController controller) {
         this.ingressoController = controller;
     }
+
+    private void criarListeners() {
+        List<TextField> camposTexto = Arrays.asList(nomeField, telefoneField, ruaField, numeroField, complementoField,
+                cepField, bairroField, cidadeField);
+
+        // Adicionando o listener a todos os campos de texto
+        camposTexto.forEach(campo -> campo.textProperty().addListener((observable, oldValue, newValue) -> {
+            desabilitarFinalizarCompra();
+        }));
+
+        // Adicionando o listener para os controles de seleção
+        List<ToggleGroup> toggleGroups = Arrays.asList(querFidelidade, pagamento); // Adicione outros ToggleGroups se necessário
+
+        // Adicionando o listener aos ToggleGroups
+        toggleGroups.forEach(toggleGroup -> toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            desabilitarFinalizarCompra();
+        }));
+
+        selecionarData.valueProperty().addListener((observable, oldValue, newValue) -> {
+            desabilitarFinalizarCompra();
+        });
+
+
+    }
+
+    private void desabilitarFinalizarCompra() {
+        boolean cpfPreenchido = !cpfField.getText().isEmpty();
+        boolean pagamentoSelecionado = pagamento.getSelectedToggle() != null;
+
+        if (cpfPreenchido && fidelidadeNao.isSelected()) {
+            finalizarBotao.setDisable(!pagamentoSelecionado);
+        } else if (cpfPreenchido && fidelidadeSim.isSelected()) {
+            boolean camposObrigatoriosPreenchidos = !nomeField.getText().isEmpty() &&
+                    !telefoneField.getText().isEmpty() &&
+                    !ruaField.getText().isEmpty() &&
+                    !numeroField.getText().isEmpty() &&
+                    !complementoField.getText().isEmpty() &&
+                    !cepField.getText().isEmpty() &&
+                    !bairroField.getText().isEmpty() &&
+                    !cidadeField.getText().isEmpty() &&
+                    estadoBox.getValue() != null &&
+                    selecionarData.getValue() != null;
+            finalizarBotao.setDisable(!camposObrigatoriosPreenchidos || !pagamentoSelecionado);
+        } else {
+            finalizarBotao.setDisable(true);
+        }
+    }
+
+    private Area getAreaPorIdentificador(char identificador, int segundoNumero) {
+        Area area = null;
+        switch (identificador) {
+            case 'A' -> area = Area.PLATEIA_A;
+            case 'B' -> area = Area.PLATEIA_B;
+            case 'F' -> {
+                if (segundoNumero >= 1 && segundoNumero <= 6) {
+                    area = switch (segundoNumero) {
+                        case 1 -> Area.FRISA1;
+                        case 2 -> Area.FRISA2;
+                        case 3 -> Area.FRISA3;
+                        case 4 -> Area.FRISA4;
+                        case 5 -> Area.FRISA5;
+                        case 6 -> Area.FRISA6;
+                        default -> null;
+                    };
+                }
+            }
+            case 'C' -> {
+                if (segundoNumero >= 1 && segundoNumero <= 5) {
+                    area = switch (segundoNumero) {
+                        case 1 -> Area.CAMAROTE1;
+                        case 2 -> Area.CAMAROTE2;
+                        case 3 -> Area.CAMAROTE3;
+                        case 4 -> Area.CAMAROTE4;
+                        case 5 -> Area.CAMAROTE5;
+                        default -> null;
+                    };
+                }
+            }
+            case 'N' -> area = Area.BALCAO_NOBRE;
+            default -> throw new IllegalStateException("Unexpected value: " + identificador);
+        };
+        return area;
+    }
+
 }

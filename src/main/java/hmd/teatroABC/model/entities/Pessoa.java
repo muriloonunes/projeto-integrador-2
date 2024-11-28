@@ -40,7 +40,37 @@ public class Pessoa {
         return cpf;
     }
 
+    public void setCpf(long cpf) {
+        this.cpf = cpf;
+    }
 
+    public boolean isEhFidelidade() {
+        return ehFidelidade;
+    }
+
+    public void setEhFidelidade(boolean ehFidelidade) {
+        this.ehFidelidade = ehFidelidade;
+    }
+
+    public ArrayList<Ingresso> getIngressos() {
+        return ingressos;
+    }
+
+    public void setIngressos(ArrayList<Ingresso> ingressos) {
+        this.ingressos = ingressos;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void adicionarIngresso(Ingresso ingresso) {
+        ingressos.add(ingresso);
+    }
 
     public static boolean validarCPF(long cpf) {
         String cpfString = String.format("%011d", cpf);
