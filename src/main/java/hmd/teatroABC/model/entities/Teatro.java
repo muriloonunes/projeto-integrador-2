@@ -1,6 +1,7 @@
 package hmd.teatroABC.model.entities;
 
 import java.io.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +38,36 @@ public class Teatro {
         }
     }
 
+//    public void escreverPessoaEIngresso(){
+//        try (BufferedWriter bw = new BufferedWriter(new FileWriter(, true))) {
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+
     public void carregarPessoas() {
         //TODO
+
+        try (BufferedReader br = new BufferedReader(new FileReader(pessoasFile))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] partes = line.split(",", -1);
+                long cpf = Long.parseLong(partes[0]);
+                boolean ehFidelidade = Boolean.parseBoolean(partes[1]);
+                String nome = partes[2];
+                String telefone = partes[3];
+                String endereco = partes[4];
+                LocalDate dataNascimento = LocalDate.parse(partes[5]);
+                Pessoa pessoa = new Pessoa(cpf, ehFidelidade, nome, telefone, endereco, dataNascimento);
+
+                pessoas.add(pessoa);
+
+            }
+        } catch (IOException e) {
+            System.out.println("erro");
+        }
+
     }
 
     public void adicionarPessoas(Pessoa pessoa) {

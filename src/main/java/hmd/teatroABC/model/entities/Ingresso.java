@@ -2,7 +2,6 @@ package hmd.teatroABC.model.entities;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales

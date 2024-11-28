@@ -10,6 +10,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,6 +33,7 @@ public class FinalizarCompraController {
     public Button voltarBotao;
 
     private ArrayList<String> assentosSelecionados;
+    private static List<String> log = new ArrayList<>();
 
     private TelaIngressoController ingressoController = new TelaIngressoController();
     public Label plateiaAAssentosLabel, plateiaBAssentosLabel, frisaAssentosLabel, camaroteAssentosLabel, balcaoAssentosLabel,
@@ -207,11 +209,6 @@ public class FinalizarCompraController {
     public void finalizarCompraTrigger() {
         //TODO
         cadastroFinal();
-//      Pessoa pessoa = new Pessoa(cpf, fid, assentosSelecionados );
-
-        //if(tudo clidado e preenchido, cpf correto){
-        //  habilitar finalizar compra;
-        //gerar ingresso e pessoa q tem tal ingresso;
 
 
     }
@@ -237,16 +234,27 @@ public class FinalizarCompraController {
         for (String assento : assentosSelecionados) {
             char identificador = assento.charAt(0);
             int segundoNumero = assento.charAt(1);
-            Ingresso ing = new Ingresso(getAreaPorIdentificador(identificador,segundoNumero), ingressoController.encontrarPeca(), assento);
+            Ingresso ing = new Ingresso(getAreaPorIdentificador(identificador, segundoNumero), ingressoController.encontrarPeca(), assento);
             ingressoController.encontrarPeca().adicionarAssento(assento);
             //TODO: adicionar forma de escrever esse assento no arquivo "pecas.txt"
+
+
+
             //TODO: adicionar forma de registrar essa pessoa criada, bem como o ingresso, no arquivo pessoas.txt
+
+            log.add(LocalDateTime.now() + " -> " + pessoa.getNome() + " " + pessoa.getCpf() +  " " +
+                    pessoa.isEhFidelidade() + " - " + ing.getAssento() + " " + ing.getArea() + " " + ing.getPeca());
+
             pessoa.adicionarIngresso(ing);
         }
     }
 
     public void setTelaIngressoController(TelaIngressoController controller) {
         this.ingressoController = controller;
+    }
+
+    public static List<String> getLog() {
+        return log;
     }
 
     private void criarListeners() {
@@ -328,7 +336,8 @@ public class FinalizarCompraController {
             }
             case 'N' -> area = Area.BALCAO_NOBRE;
             default -> throw new IllegalStateException("Unexpected value: " + identificador);
-        };
+        }
+        ;
         return area;
     }
 
