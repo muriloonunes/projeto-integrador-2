@@ -8,9 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import jdk.swing.interop.SwingInterOpUtils;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -63,48 +65,6 @@ public class FinalizarCompraController {
                 "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO");
         ObservableList<String> list = FXCollections.observableArrayList(estados);
         estadoBox.setItems(list);
-
-        //https://stackoverflow.com/questions/7555564/what-is-the-recommended-way-to-make-a-numeric-textfield-in-javafx
-        //impede que caracteres não numéricos sejam inseridos no campo
-        numeroField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                numeroField.setText(newValue.replaceAll("\\D", ""));
-            }
-        });
-
-        cpfField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                cpfField.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-
-            if (cpfField.getText().length() > 11) {
-                cpfField.setText(cpfField.getText().substring(0, 11));
-            }
-
-            if (cpfField.getText().length() == 11) {
-                cpfValido = Pessoa.validarCPF(Long.parseLong(cpfField.getText()));
-                if (!cpfValido) {
-                    erroLabel.setVisible(true);
-                    erroLabel.setText("CPF inválido");
-                } else {
-                    erroLabel.setText("");
-                    erroLabel.setVisible(false);
-                }
-            }
-            desabilitarFinalizarCompra();
-        });
-
-        cepField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                cepField.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
-
-        telefoneField.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (!newValue.matches("\\d*")) {
-                telefoneField.setText(newValue.replaceAll("[^\\d]", ""));
-            }
-        });
 
         /*
            cepField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -228,10 +188,9 @@ public class FinalizarCompraController {
     }
 
     public void finalizarCompraTrigger() {
-        //TODO
         cadastroFinal();
-
-
+        Teatro.escreverLog();
+        Teatro.atualizarPecas();
     }
 
     public void cadastroFinal() {
@@ -257,25 +216,18 @@ public class FinalizarCompraController {
             int segundoNumero = assento.charAt(1);
             Ingresso ing = new Ingresso(getAreaPorIdentificador(identificador, segundoNumero), ingressoController.encontrarPeca(), assento);
             ingressoController.encontrarPeca().adicionarAssento(assento);
+            ingressoController.encontrarPeca().aumentarIngressosVendidos();
+            pessoa.adicionarIngresso(ing);
+            criarLog(ing, pessoa);
             //TODO: adicionar forma de escrever esse assento no arquivo "pecas.txt"
 
 
-
             //TODO: adicionar forma de registrar essa pessoa criada, bem como o ingresso, no arquivo pessoas.txt
-
-            Teatro.log.add(LocalDateTime.now() + " -> " + pessoa.getNome() + " " + pessoa.getCpf() +  " " +
-                    pessoa.isEhFidelidade() + " - " + ing.getAssento() + " " + ing.getArea() + " " + ing.getPeca());
-
-            pessoa.adicionarIngresso(ing);
         }
     }
 
     public void setTelaIngressoController(TelaIngressoController controller) {
         this.ingressoController = controller;
-    }
-
-    public static List<String> getLog() {
-        return log;
     }
 
     private void criarListeners() {
@@ -299,7 +251,47 @@ public class FinalizarCompraController {
             desabilitarFinalizarCompra();
         });
 
+        //https://stackoverflow.com/questions/7555564/what-is-the-recommended-way-to-make-a-numeric-textfield-in-javafx
+        //impede que caracteres não numéricos sejam inseridos no campo
+        numeroField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                numeroField.setText(newValue.replaceAll("\\D", ""));
+            }
+        });
 
+        cpfField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                cpfField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+
+            if (cpfField.getText().length() > 11) {
+                cpfField.setText(cpfField.getText().substring(0, 11));
+            }
+
+            if (cpfField.getText().length() == 11) {
+                cpfValido = Pessoa.validarCPF(Long.parseLong(cpfField.getText()));
+                if (!cpfValido) {
+                    erroLabel.setVisible(true);
+                    erroLabel.setText("CPF inválido");
+                } else {
+                    erroLabel.setText("");
+                    erroLabel.setVisible(false);
+                }
+            }
+            desabilitarFinalizarCompra();
+        });
+
+        cepField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                cepField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
+
+        telefoneField.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                telefoneField.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+        });
     }
 
     private void desabilitarFinalizarCompra() {
@@ -358,8 +350,29 @@ public class FinalizarCompraController {
             case 'N' -> area = Area.BALCAO_NOBRE;
             default -> throw new IllegalStateException("Unexpected value: " + identificador);
         }
-        ;
         return area;
+    }
+
+    private void criarLog(Ingresso ing, Pessoa pessoa) {
+        String logMessage = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss")) +
+                " -> " +
+                pessoa.getCpf() +
+                " " +
+                pessoa.isEhFidelidade() +
+                " - ASSENTO: " +
+                ing.getAssento() +
+                ", AREA: " +
+                ing.getArea().getNomeLocal() +
+                ", PECA: " +
+                ing.getPeca().getNome() +
+                ", PAGAMENTO: " + getMetodoPagamento();
+
+        Teatro.log.add(logMessage);
+    }
+
+    private String getMetodoPagamento() {
+        RadioButton selectedRadioButton = (RadioButton) pagamento.getSelectedToggle();
+        return selectedRadioButton.getText();
     }
 
 }

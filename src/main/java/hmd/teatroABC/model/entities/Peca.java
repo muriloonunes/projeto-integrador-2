@@ -81,8 +81,8 @@ public class Peca {
         return ingressosVendidos;
     }
 
-    public void setIngressosVendidos(int ingressosVendidos) {
-        this.ingressosVendidos = ingressosVendidos;
+    public void aumentarIngressosVendidos() {
+        this.ingressosVendidos++;
     }
 
     @Override
@@ -90,8 +90,8 @@ public class Peca {
         return "Peca{" +
                 "sessao=" + sessao +
                 ", nome='" + nome + '\'' +
-                ", assentos=" + assentos +
                 ", ingressosVendidos=" + ingressosVendidos +
+                ", assentos=" + assentos +
                 ", poster=" + poster +
                 ", posterImg=" + posterImg +
                 '}';

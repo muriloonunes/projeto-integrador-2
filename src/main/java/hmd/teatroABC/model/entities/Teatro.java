@@ -15,8 +15,9 @@ public class Teatro {
     private static List<Peca> pecas = new ArrayList<>();
     private static List<Pessoa> pessoas = new ArrayList<>();
     public static List<String> log = new ArrayList<>();
-    File pecasFile = new File("src/main/java/hmd/teatroABC/model/database/pecas.txt");
-    File pessoasFile = new File("src/main/java/hmd/teatroABC/model/database/pessoas.txt");
+    static File pecasFile = new File("src/main/java/hmd/teatroABC/model/database/pecas.txt");
+    static File pessoasFile = new File("src/main/java/hmd/teatroABC/model/database/pessoas.txt");
+    static File logFile = new File("src/main/resources/out/log.csv");
 
     public void carregarPecas() {
         try (BufferedReader br = new BufferedReader(new FileReader(pecasFile))) {
@@ -36,6 +37,22 @@ public class Teatro {
             }
         } catch (IOException e) {
             System.out.println("erro");
+        }
+    }
+
+    public static void atualizarPecas() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(pecasFile))) {
+            for (Peca peca : pecas) {
+                String linha = peca.getNome() + "," +
+                        peca.getSessao() + "," +
+                        peca.getIngressosVendidos() + "," +
+                        String.join(";", peca.getAssentos()) + "," +
+                        peca.getPoster().getPath();
+                bw.write(linha);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -66,7 +83,7 @@ public class Teatro {
 
             }
         } catch (IOException e) {
-            System.out.println("erro");
+            throw new RuntimeException(e);
         }
 
     }
@@ -77,7 +94,18 @@ public class Teatro {
             bw.newLine();
             pessoas.add(pessoa);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static void escreverLog() {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(logFile, true))) {
+            for (String calculo : log) {
+                bw.write(calculo);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
