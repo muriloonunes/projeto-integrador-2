@@ -213,17 +213,14 @@ public class FinalizarCompraController {
     private void criarIngresso(Pessoa pessoa) {
         for (String assento : assentosSelecionados) {
             char identificador = assento.charAt(0);
-            int segundoNumero = assento.charAt(1);
+            int segundoNumero = assento.charAt(1) - '0';
             Ingresso ing = new Ingresso(getAreaPorIdentificador(identificador, segundoNumero), ingressoController.encontrarPeca(), assento);
             ingressoController.encontrarPeca().adicionarAssento(assento);
             ingressoController.encontrarPeca().aumentarIngressosVendidos();
             pessoa.adicionarIngresso(ing);
             criarLog(ing, pessoa);
-            //TODO: adicionar forma de escrever esse assento no arquivo "pecas.txt"
-
-
-            //TODO: adicionar forma de registrar essa pessoa criada, bem como o ingresso, no arquivo pessoas.txt
         }
+        Teatro.adicionarPessoa(pessoa);
     }
 
     public void setTelaIngressoController(TelaIngressoController controller) {

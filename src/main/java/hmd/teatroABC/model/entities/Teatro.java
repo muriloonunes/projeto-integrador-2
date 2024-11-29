@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Teatro {
     private static List<Peca> pecas = new ArrayList<>();
-    private static List<Pessoa> pessoas = new ArrayList<>();
+    public static List<Pessoa> pessoas = new ArrayList<>();
     public static List<String> log = new ArrayList<>();
     static File pecasFile = new File("src/main/java/hmd/teatroABC/model/database/pecas.txt");
     static File pessoasFile = new File("src/main/java/hmd/teatroABC/model/database/pessoas.txt");
@@ -56,14 +56,6 @@ public class Teatro {
         }
     }
 
-//    public void escreverPessoaEIngresso(){
-//        try (BufferedWriter bw = new BufferedWriter(new FileWriter(, true))) {
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-
     public void carregarPessoas() {
         //TODO
 
@@ -88,9 +80,21 @@ public class Teatro {
 
     }
 
-    public void adicionarPessoas(Pessoa pessoa) {
+    public static void adicionarPessoa(Pessoa pessoa) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(pessoasFile, true))) {
-            bw.write(pessoa.getNome() + "," + pessoa.getCpf());
+            StringBuilder addPessoa = new StringBuilder();
+            addPessoa.append(pessoa.getCpf()).append(",")
+                    .append(pessoa.isEhFidelidade())
+                    .append(",Ingressos:");
+            List<String> ingressos = new ArrayList<>();
+            for (Ingresso ingresso : pessoa.getIngressos()) {
+                String ingressoInfo = ingresso.getPeca().getNome() + "-" +
+                        ingresso.getPeca().getSessao() + "-" +
+                        ingresso.getAssento();
+                ingressos.add(ingressoInfo);
+            }
+            addPessoa.append(String.join(";", ingressos));
+            bw.write(addPessoa.toString());
             bw.newLine();
             pessoas.add(pessoa);
         } catch (IOException e) {

@@ -2,6 +2,7 @@ package hmd.teatroABC.model.entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
@@ -53,7 +54,7 @@ public class Pessoa {
     }
 
     public ArrayList<Ingresso> getIngressos() {
-        return ingressos;
+        return new ArrayList<>(ingressos);
     }
 
     public void setIngressos(ArrayList<Ingresso> ingressos) {
