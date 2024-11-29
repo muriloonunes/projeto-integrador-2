@@ -1,5 +1,7 @@
 package hmd.teatroABC.model.entities;
 
+import hmd.teatroABC.controller.FinalizarCompraController;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,7 +67,6 @@ public class Teatro {
                 long cpf = Long.parseLong(partes[0]);
                 boolean ehFidelidade = Boolean.parseBoolean(partes[1]);
                 Pessoa pessoa = new Pessoa(cpf, ehFidelidade);
-                pessoas.add(pessoa);
 
                 if (partes.length > 2 && partes[2].startsWith("Ingressos:")) {
                     String ingressosData = partes[2].substring(10); // Remove "Ingressos:"
@@ -77,14 +78,17 @@ public class Teatro {
                             String nomePeca = ingressoPartes[0];
                             Sessao sessao = Sessao.valueOf(ingressoPartes[1]);
                             String assento = ingressoPartes[2];
-                            Area area = Area.valueOf(ingressoPartes[3]);
+
+                            char identificador = assento.charAt(0);
+                            int segundoNumero = assento.charAt(1) - '0';
+
 
                             Peca peca = pecas.stream()
                                     .filter(p -> p.getNome().equals(nomePeca) && p.getSessao() == sessao)
                                     .findFirst()
                                     .orElse(null);
                             if (peca != null) {
-                                Ingresso ingresso = new Ingresso(area, peca, assento);
+                                Ingresso ingresso = new Ingresso(FinalizarCompraController.getAreaPorIdentificador(identificador, segundoNumero), peca, assento);
                                 pessoa.adicionarIngresso(ingresso);
                             } else {
                                 System.err.println("Peça não encontrada para ingresso: " + ingressoStr);
@@ -94,6 +98,7 @@ public class Teatro {
                 }
                 pessoas.add(pessoa);
             }
+
         } catch (IOException e) {
             throw new RuntimeException("Erro ao carregar pessoas: " + e.getMessage(), e);
         }

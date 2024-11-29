@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import jdk.swing.interop.SwingInterOpUtils;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -16,8 +15,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static hmd.teatroABC.model.entities.Teatro.log;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
@@ -314,7 +311,7 @@ public class FinalizarCompraController {
         }
     }
 
-    private Area getAreaPorIdentificador(char identificador, int segundoNumero) {
+    public static Area getAreaPorIdentificador(char identificador, int segundoNumero) {
         Area area = null;
         switch (identificador) {
             case 'A' -> area = Area.PLATEIA_A;
