@@ -1,7 +1,6 @@
 package hmd.teatroABC.model.entities;
 
 import java.io.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,19 +64,39 @@ public class Teatro {
                 String[] partes = line.split(",", -1);
                 long cpf = Long.parseLong(partes[0]);
                 boolean ehFidelidade = Boolean.parseBoolean(partes[1]);
-                String nome = partes[2];
-                String telefone = partes[3];
-                String endereco = partes[4];
-                LocalDate dataNascimento = LocalDate.parse(partes[5]);
-                Pessoa pessoa = new Pessoa(cpf, ehFidelidade, nome, telefone, endereco, dataNascimento);
-
+                Pessoa pessoa = new Pessoa(cpf, ehFidelidade);
                 pessoas.add(pessoa);
 
+                if (partes.length > 2 && partes[2].startsWith("Ingressos:")) {
+                    String ingressosData = partes[2].substring(10); // Remove "Ingressos:"
+                    if (!ingressosData.isEmpty()) {
+                        String[] ingressosArray = ingressosData.split(";");
+                        for (String ingressoStr : ingressosArray) {
+                            String[] ingressoPartes = ingressoStr.split("-");
+
+                            String nomePeca = ingressoPartes[0];
+                            Sessao sessao = Sessao.valueOf(ingressoPartes[1]);
+                            String assento = ingressoPartes[2];
+                            Area area = Area.valueOf(ingressoPartes[3]);
+
+                            Peca peca = pecas.stream()
+                                    .filter(p -> p.getNome().equals(nomePeca) && p.getSessao() == sessao)
+                                    .findFirst()
+                                    .orElse(null);
+                            if (peca != null) {
+                                Ingresso ingresso = new Ingresso(area, peca, assento);
+                                pessoa.adicionarIngresso(ingresso);
+                            } else {
+                                System.err.println("Peça não encontrada para ingresso: " + ingressoStr);
+                            }
+                        }
+                    }
+                }
+                pessoas.add(pessoa);
             }
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Erro ao carregar pessoas: " + e.getMessage(), e);
         }
-
     }
 
     public static void adicionarPessoa(Pessoa pessoa) {
