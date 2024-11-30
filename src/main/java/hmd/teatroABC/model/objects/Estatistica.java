@@ -34,6 +34,7 @@ public class Estatistica {
         lucroMedioWicked = calcularLucroMedioPeca(lucroWicked, vendasWicked);
         lucroMedioReiLeao = calcularLucroMedioPeca(lucroReiLeao, vendasReiLeao);
         lucroMedioAuto = calcularLucroMedioPeca(lucroAuto, vendasAuto);
+        calcularSessoesMaisMenosPorPeca();
     }
 
     private void calcularVendas() {
@@ -138,6 +139,77 @@ public class Estatistica {
         }
         return sessaoMenosOcupada;
     }
+
+    public String calcularSessaoMaisLucrativaPorPeca(Peca peca) {
+        double lucroManha = 0, lucroTarde = 0, lucroNoite = 0;
+
+        for (String assento : peca.getAssentos()) {
+            char identificador = assento.charAt(0);
+            double preco = TelaIngressoController.getPrecoPorIdentificador(identificador);
+
+            String sessao = peca.getSessao().getNome();
+            switch (sessao) {
+                case "Manha":
+                    lucroManha += preco;
+                    break;
+                case "Tarde":
+                    lucroTarde += preco;
+                    break;
+                case "Noite":
+                    lucroNoite += preco;
+                    break;
+            }
+        }
+
+        if (lucroManha >= lucroTarde && lucroManha >= lucroNoite) {
+            return "Manha";
+        } else if (lucroTarde >= lucroManha && lucroTarde >= lucroNoite) {
+            return "Tarde";
+        } else {
+            return "Noite";
+        }
+    }
+
+    public String calcularSessaoMenosLucrativaPorPeca(Peca peca) {
+        double lucroManha = 0, lucroTarde = 0, lucroNoite = 0;
+
+        for (String assento : peca.getAssentos()) {
+            char identificador = assento.charAt(0);
+            double preco = TelaIngressoController.getPrecoPorIdentificador(identificador);
+
+            String sessao = peca.getSessao().getNome();
+            switch (sessao) {
+                case "Manha":
+                    lucroManha += preco;
+                    break;
+                case "Tarde":
+                    lucroTarde += preco;
+                    break;
+                case "Noite":
+                    lucroNoite += preco;
+                    break;
+            }
+        }
+
+        if (lucroManha <= lucroTarde && lucroManha <= lucroNoite) {
+            return "Manha";
+        } else if (lucroTarde <= lucroManha && lucroTarde <= lucroNoite) {
+            return "Tarde";
+        } else {
+            return "Noite";
+        }
+    }
+
+    public void calcularSessoesMaisMenosPorPeca() {
+        for (Peca peca : pecasEstatisticas) {
+            String maisLucrativa = calcularSessaoMaisLucrativaPorPeca(peca);
+            String menosLucrativa = calcularSessaoMenosLucrativaPorPeca(peca);
+            System.out.println("Peça: " + peca.getNome());
+            System.out.println("Sessão mais lucrativa: " + maisLucrativa);
+            System.out.println("Sessão menos lucrativa: " + menosLucrativa);
+        }
+    }
+
 
     public double calcularLucroMedioPeca(double lucro, int quantidadeVendas) {
         return lucro / quantidadeVendas;
