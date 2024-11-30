@@ -1,5 +1,7 @@
 package hmd.teatroABC.controller;
 
+import hmd.teatroABC.model.entities.Peca;
+import hmd.teatroABC.model.entities.Teatro;
 import hmd.teatroABC.model.objects.Estatistica;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,9 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
@@ -54,5 +57,40 @@ public class TelaEstatisticasController {
     @FXML
     private void exportarCsv() {
         //TODO
+
+        File estatisticaExportada = new File("src/main/resources/out/estatisticas.csv");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(estatisticaExportada))) {
+            bw.write("Estatística,Valor");
+            bw.newLine();
+            bw.write("Total de Vendas," + estatisticas.calcularTotalVendas());
+            bw.newLine();
+            bw.write("Peça Mais Vendida," + estatisticas.calcularPecaMaisVendida());
+            bw.newLine();
+            bw.write("Peça Menos Vendida," + estatisticas.calcularPecaMenosVendida());
+            bw.newLine();
+            bw.write("Sessão Mais Ocupada," + estatisticas.calcularSessaoMaisOcupada());
+            bw.newLine();
+            bw.write("Sessão Menos Ocupada," + estatisticas.calcularSessaoMenosOcupada());
+            bw.newLine();
+            bw.write("Lucro Médio (Wicked)," + estatisticas.getLucroMedioWicked());
+            bw.newLine();
+            bw.write("Lucro Médio (Rei Leão)," + estatisticas.getLucroMedioReiLeao());
+            bw.newLine();
+            bw.write("Lucro Médio (Auto da Compadecida)," + estatisticas.getLucroMedioAuto());
+            bw.newLine();
+
+            for (Peca peca : Teatro.getPecas()) {
+                String maisLucrativa = estatisticas.calcularSessaoMaisLucrativaPorPeca(peca);
+                String menosLucrativa = estatisticas.calcularSessaoMenosLucrativaPorPeca(peca);
+
+                bw.write("Peça: " + peca.getNome() + " - Sessão Mais Lucrativa," + maisLucrativa);
+                bw.newLine();
+                bw.write("Peça: " + peca.getNome() + " - Sessão Menos Lucrativa," + menosLucrativa);
+                bw.newLine();
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
