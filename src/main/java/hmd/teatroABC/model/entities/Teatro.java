@@ -5,6 +5,7 @@ import hmd.teatroABC.controller.FinalizarCompraController;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
@@ -58,18 +59,16 @@ public class Teatro {
     }
 
     public void carregarPessoas() {
-        //TODO
-
         try (BufferedReader br = new BufferedReader(new FileReader(pessoasFile))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] partes = line.split(",", -1);
-                long cpf = Long.parseLong(partes[0]);
+                String cpf = partes[0];
                 boolean ehFidelidade = Boolean.parseBoolean(partes[1]);
                 Pessoa pessoa = new Pessoa(cpf, ehFidelidade);
 
                 if (partes.length > 2 && partes[2].startsWith("Ingressos:")) {
-                    String ingressosData = partes[2].substring(10); // Remove "Ingressos:"
+                    String ingressosData = partes[2].substring(10);
                     if (!ingressosData.isEmpty()) {
                         String[] ingressosArray = ingressosData.split(";");
                         for (String ingressoStr : ingressosArray) {
@@ -124,6 +123,12 @@ public class Teatro {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static List<Pessoa> buscarPessoaPorCpf(String cpf) {
+        return pessoas.stream()
+                .filter(pessoa -> pessoa.getCpf().equals(cpf))
+                .collect(Collectors.toList());
     }
 
     public static void escreverLog() {

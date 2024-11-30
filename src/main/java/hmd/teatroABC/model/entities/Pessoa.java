@@ -11,7 +11,7 @@ import java.util.Collections;
  */
 
 public class Pessoa {
-    private long cpf;
+    private String cpf;
     private boolean ehFidelidade;
     private ArrayList<Ingresso> ingressos = new ArrayList<>();
     private String nome;
@@ -19,12 +19,12 @@ public class Pessoa {
     private String endereco;
     private LocalDate dataNascimento;
 
-    public Pessoa(long cpf, boolean ehFidelidade) {
+    public Pessoa(String cpf, boolean ehFidelidade) {
         this.cpf = cpf;
         this.ehFidelidade = ehFidelidade;
     }
 
-    public Pessoa(long cpf, boolean ehFidelidade, String nome, String telefone, String endereco, LocalDate dataNascimento) {
+    public Pessoa(String cpf, boolean ehFidelidade, String nome, String telefone, String endereco, LocalDate dataNascimento) {
         this.cpf = cpf;
         this.ehFidelidade = ehFidelidade;
         this.nome = nome;
@@ -33,15 +33,11 @@ public class Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
-    public void setCpf(Long cpf) {
-        this.cpf = cpf;
-    }
-
-    public Long getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(long cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 

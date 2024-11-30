@@ -5,6 +5,7 @@ package hmd.teatroABC.model.entities;
  * @date 21/11/2024
  * @brief Enum Sessao
  */
+
 public enum Sessao {
     MANHA("Manha"),
     TARDE("Tarde"),

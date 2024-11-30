@@ -7,10 +7,11 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * @author Murilo Nunes <murilo_no@outlook.com>
+ * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 22/11/2024
  * @brief Class DigitarCpfController
  */
+
 public class DigitarCpfController {
     public Label erroLabel;
 

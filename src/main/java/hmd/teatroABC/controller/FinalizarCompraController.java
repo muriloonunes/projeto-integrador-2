@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -184,27 +185,38 @@ public class FinalizarCompraController {
         compraStage.show();
     }
 
-    public void finalizarCompraTrigger() {
-        cadastroFinal();
+    public void finalizarCompraTrigger() throws IOException {
+        Pessoa pessoaCriada = cadastroFinal();
+        criarIngresso(pessoaCriada);
+        Teatro.adicionarPessoa(pessoaCriada);
         Teatro.escreverLog();
         Teatro.atualizarPecas();
+        FXMLLoader compraFinalizada = new FXMLLoader(getClass().getResource("/hmd/teatroABC/compra_finalizada_tela.fxml"));
+        Scene compraFinalizadaScene = new Scene(compraFinalizada.load());
+        CompraFinalizadaController controller = compraFinalizada.getController();
+        controller.setStageAnterior((Stage) finalizarBotao.getScene().getWindow());
+        controller.setCpfDigitado(cpfField.getText());
+        Stage compraFinalizadaStage = new Stage();
+        compraFinalizadaStage.initOwner(finalizarBotao.getScene().getWindow());
+        compraFinalizadaStage.initModality(Modality.WINDOW_MODAL);
+        compraFinalizadaStage.setScene(compraFinalizadaScene);
+        compraFinalizadaStage.showAndWait();
     }
 
-    public void cadastroFinal() {
-        long verificar = Long.parseLong(String.valueOf(cpfField.getText()));
+    public Pessoa cadastroFinal() {
+        String cpf = cpfField.getText();
 
         boolean naoFidelidade = fidelidadeNao.isSelected();
         boolean escolheuFidelidade = fidelidadeSim.isSelected();
 
-        if (naoFidelidade && Pessoa.validarCPF(verificar)) {
-            Pessoa pessoa = new Pessoa(verificar, false);
-            criarIngresso(pessoa);
-        } else if (escolheuFidelidade && Pessoa.validarCPF(verificar) && validarCEP(cepField.getText())) {
-            Pessoa pessoa = new Pessoa(verificar, true, nomeField.getText(), telefoneField.getText(), ruaField.getText()
+        if (naoFidelidade && Pessoa.validarCPF(Long.parseLong(cpf))) {
+            return new Pessoa(cpf, false);
+        } else if (escolheuFidelidade && Pessoa.validarCPF(Long.parseLong(cpf)) && validarCEP(cepField.getText())) {
+            return new Pessoa(cpf, true, nomeField.getText(), telefoneField.getText(), ruaField.getText()
                     + " " + numeroField.getText() + " " + complementoField.getText() + " " + cepField.getText() + " " + bairroField.getText()
                     + " " + cidadeField.getText() + " " + estadoBox.getValue(), selecionarData.getValue());
-            criarIngresso(pessoa);
         }
+        return null;
     }
 
     private void criarIngresso(Pessoa pessoa) {
@@ -217,7 +229,6 @@ public class FinalizarCompraController {
             pessoa.adicionarIngresso(ing);
             criarLog(ing, pessoa);
         }
-        Teatro.adicionarPessoa(pessoa);
     }
 
     public void setTelaIngressoController(TelaIngressoController controller) {

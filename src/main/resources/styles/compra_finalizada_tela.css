@@ -1,0 +1,21 @@
+.root {
+    -fx-background-color: #262424;
+}
+
+.button {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-background-radius: 10;
+}
+
+.button:hover {
+    -fx-background-color: #d2d1d1;
+}
+
+.button:pressed {
+    -fx-background-color: #b0b0b0;
+}
+
+.label {
+    -fx-text-fill: white;
+}

@@ -3,10 +3,11 @@ package hmd.teatroABC.model.objects;
 import hmd.teatroABC.model.entities.Ingresso;
 
 /**
- * @author Murilo Nunes <murilo_no@outlook.com>
+ * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 22/11/2024
  * @brief Class Estatistica
  */
+
 public class Estatistica{
 
     //Ingresso ingresso = new Ingresso();

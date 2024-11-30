@@ -99,7 +99,6 @@
                     <VBox spacing="5.0">
                         <Button fx:id="imprimirBotao" mnemonicParsing="false" onAction="#imprimirIngressoTrigger" text="Imprimir Ingresso" />
                         <Button fx:id="estatisticasBotao" layoutX="21.0" layoutY="21.0" mnemonicParsing="false" onAction="#verEstatisticasTrigger" text="Estatísticas" />
-                     <Button fx:id="temporaryButton" layoutX="21.0" layoutY="21.0" mnemonicParsing="false" onAction="#tempFinalizarTrigger" prefWidth="104.0" text="Finalizar compra" textOverrun="CLIP" />
                     </VBox>
                 </TitledPane>
             </panes>

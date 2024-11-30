@@ -112,9 +112,6 @@ public class TelaIngressoController {
 
         if (pecaEscolhida.isPresent()) {
             Peca peca = pecaEscolhida.get();
-            System.out.println("Peça encontrada: " + peca.getNome());
-            System.out.println("Sessão: " + peca.getSessao());
-            System.out.println("Assentos Ocupados: " + String.join(", ", peca.getAssentos()));
             lugaresIndisponiveis = peca.getAssentos();
 
             for (String lugar : lugaresIndisponiveis) {

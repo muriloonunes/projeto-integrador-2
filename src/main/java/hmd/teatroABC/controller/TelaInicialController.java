@@ -115,7 +115,6 @@ public class TelaInicialController {
     }
 
     private void abrirImprimir(String cpfDigitado) throws IOException {
-        System.out.println(cpfDigitado);
         FXMLLoader imprimirLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/imprimir_ingresso.fxml"));
         Scene imprimirScene = new Scene(imprimirLoader.load(), 1189, 810);
         ImprimirIngressoController controllerImprimir = imprimirLoader.getController();
@@ -125,14 +124,4 @@ public class TelaInicialController {
         controllerImprimir.criarIngresso();
         imprimirStage.show();
     }
-
-    public void tempFinalizarTrigger() throws IOException {
-        FXMLLoader finalizarCompraLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/finalizar_compra.fxml"));
-        Scene finalizarCompraScene = new Scene(finalizarCompraLoader.load());
-        Stage finalizarCompraStage = (Stage) temporaryButton.getScene().getWindow();
-        finalizarCompraStage.setScene(finalizarCompraScene);
-        finalizarCompraStage.show();
-        //TODO APAGAR ISSO E DELETAR O BOTAO PELO AMOR DE JESUS CRISTO
-    }
-
 }
