@@ -36,6 +36,7 @@ public class ImprimirIngressoController {
         List<Pessoa> pessoas = Teatro.buscarPessoaPorCpf(cpfBuscado);
         if (pessoas.isEmpty()) {
             exibindoLabel.setText("Nenhum ingresso encontrado para o CPF " + cpfBuscado);
+            exibindoLabel.setStyle("-fx-text-fill: red");
         } else {
             for (Pessoa pessoa : pessoas) {
                 for (Ingresso ingresso : pessoa.getIngressos()) {
@@ -46,10 +47,11 @@ public class ImprimirIngressoController {
                     Label pecaLabel = new Label("Peca: " + ingresso.getPeca().getNome());
                     Label sessaoLabel = new Label("Sessão: " + ingresso.getPeca().getSessao());
                     Label assentoLabel = new Label("Assento: " + ingresso.getAssento());
+                    Label precoLabel = new Label("Preço: R$" + ingresso.getPreco());
                     Button exportarBotao = new Button("Exportar ingresso");
                     exportarBotao.setOnAction(_ -> exportarCsv(ingresso));
 
-                    ingressoContainer.getChildren().addAll(cpfLabel, pecaLabel, sessaoLabel, assentoLabel, exportarBotao);
+                    ingressoContainer.getChildren().addAll(cpfLabel, pecaLabel, sessaoLabel, assentoLabel,precoLabel, exportarBotao);
                     vboxContainer.getChildren().add(ingressoContainer);
                 }
             }
@@ -76,6 +78,8 @@ public class ImprimirIngressoController {
             bw.write("Sessão: " + ingresso.getPeca().getSessao());
             bw.newLine();
             bw.write("Assento: " + ingresso.getAssento());
+            bw.newLine();
+            bw.write("Preço: R$" + ingresso.getPreco());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

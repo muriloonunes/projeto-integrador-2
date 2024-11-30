@@ -10,11 +10,13 @@ public class Ingresso {
     private Area area;
     private Peca peca;
     private String assento;
+    private double preco;
 
-    public Ingresso(Area area, Peca peca, String assento) {
+    public Ingresso(Area area, Peca peca, String assento, double preco) {
         this.area = area;
         this.peca = peca;
         this.assento = assento;
+        this.preco = preco;
     }
 
     public Area getArea() {
@@ -31,6 +33,10 @@ public class Ingresso {
 
     public void setAssento(String assento) {
         this.assento = assento;
+    }
+
+    public double getPreco() {
+        return preco;
     }
 
     @Override

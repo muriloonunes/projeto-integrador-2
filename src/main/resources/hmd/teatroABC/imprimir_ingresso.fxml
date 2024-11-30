@@ -30,7 +30,10 @@
             </Label>
         </children>
     </HBox>
-   <Label fx:id="exibindoLabel" text="Exibindo ingressos encontrados para o CPF" textFill="WHITE" />
+   <Label fx:id="exibindoLabel" text="Exibindo ingressos encontrados para o CPF" textFill="WHITE">
+      <font>
+         <Font size="14.0" />
+      </font></Label>
    <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
       <content>
          <VBox fx:id="vboxContainer" spacing="10.0" />

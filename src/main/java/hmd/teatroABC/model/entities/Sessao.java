@@ -13,6 +13,10 @@ public enum Sessao {
 
     private final String nome;
 
+    public String getNome() {
+        return nome;
+    }
+
     Sessao(String nome) {
         this.nome = nome;
     }

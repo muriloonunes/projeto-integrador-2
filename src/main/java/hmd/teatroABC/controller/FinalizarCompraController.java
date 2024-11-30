@@ -206,7 +206,8 @@ public class FinalizarCompraController {
         for (String assento : assentosSelecionados) {
             char identificador = assento.charAt(0);
             int segundoNumero = assento.charAt(1) - '0';
-            Ingresso ing = new Ingresso(getAreaPorIdentificador(identificador, segundoNumero), ingressoController.encontrarPeca(), assento);
+            double preco = TelaIngressoController.getPrecoPorIdentificador(identificador);
+            Ingresso ing = new Ingresso(getAreaPorIdentificador(identificador, segundoNumero), ingressoController.encontrarPeca(), assento, preco);
             ingressoController.encontrarPeca().adicionarAssento(assento);
             ingressoController.encontrarPeca().aumentarIngressosVendidos();
             pessoa.adicionarIngresso(ing);

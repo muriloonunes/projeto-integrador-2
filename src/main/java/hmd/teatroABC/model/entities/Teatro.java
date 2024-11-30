@@ -35,6 +35,7 @@ public class Teatro {
                 File poster = new File(partes[4]);
                 Peca peca = new Peca(poster, turno, nome);
                 peca.adicionarAssentos(assentosOcupados);
+                peca.setIngressosVendidos(ingressosVendidos);
                 pecas.add(peca);
             }
         } catch (IOException e) {
@@ -77,6 +78,7 @@ public class Teatro {
                             String nomePeca = ingressoPartes[0];
                             Sessao sessao = Sessao.valueOf(ingressoPartes[1]);
                             String assento = ingressoPartes[2];
+                            double preco = Double.parseDouble(ingressoPartes[3]);
 
                             char identificador = assento.charAt(0);
                             int segundoNumero = assento.charAt(1) - '0';
@@ -87,7 +89,7 @@ public class Teatro {
                                     .findFirst()
                                     .orElse(null);
                             if (peca != null) {
-                                Ingresso ingresso = new Ingresso(FinalizarCompraController.getAreaPorIdentificador(identificador, segundoNumero), peca, assento);
+                                Ingresso ingresso = new Ingresso(FinalizarCompraController.getAreaPorIdentificador(identificador, segundoNumero), peca, assento, preco);
                                 pessoa.adicionarIngresso(ingresso);
                             } else {
                                 System.err.println("Peça não encontrada para ingresso: " + ingressoStr);
@@ -113,7 +115,8 @@ public class Teatro {
             for (Ingresso ingresso : pessoa.getIngressos()) {
                 String ingressoInfo = ingresso.getPeca().getNome() + "-" +
                         ingresso.getPeca().getSessao() + "-" +
-                        ingresso.getAssento();
+                        ingresso.getAssento() + "-" +
+                        ingresso.getPreco();
                 ingressos.add(ingressoInfo);
             }
             addPessoa.append(String.join(";", ingressos));

@@ -81,6 +81,10 @@ public class Peca {
         return ingressosVendidos;
     }
 
+    public void setIngressosVendidos(int ingressosVendidos) {
+        this.ingressosVendidos = ingressosVendidos;
+    }
+
     public void aumentarIngressosVendidos() {
         this.ingressosVendidos++;
     }
