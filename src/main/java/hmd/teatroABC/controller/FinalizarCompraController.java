@@ -94,8 +94,8 @@ public class FinalizarCompraController {
         double totalFrisa = 0.0;
         double totalCamarote = 0.0;
         double totalBalcao = 0.0;
-        boolean temPlateiaB = false;
         boolean temPlateiaA = false;
+        boolean temPlateiaB = false;
         boolean temFrisa = false;
         boolean temCamarote = false;
         boolean temBalcao = false;
@@ -137,40 +137,23 @@ public class FinalizarCompraController {
                     System.out.println("Lugar ou valor não encontrados");
             }
         }
-        if (!temPlateiaA) {
-            plateiaAAssentosLabel.setManaged(false);
-            plateiaAValorLabel.setManaged(false);
-            plateiaALabel.setManaged(false);
-        }
-        if (!temPlateiaB) {
-            plateiaBAssentosLabel.setManaged(false);
-            plateiaBValorLabel.setManaged(false);
-            plateiaBLabel.setManaged(false);
 
-        }
-        if (!temFrisa) {
-            frisaAssentosLabel.setManaged(false);
-            frisaValorLabel.setManaged(false);
-            frisaLabel.setManaged(false);
-        }
-        if (!temCamarote) {
-            camaroteAssentosLabel.setManaged(false);
-            camaroteValorLabel.setManaged(false);
-            camaroteLabel.setManaged(false);
-        }
-        if (!temBalcao) {
-            balcaoAssentosLabel.setManaged(false);
-            balcaoValorLabel.setManaged(false);
-            balcaoLabel.setManaged(false);
-        }
+        ocultarLabels(temPlateiaA, plateiaAAssentosLabel, plateiaAValorLabel, plateiaALabel);
+        ocultarLabels(temPlateiaB, plateiaBAssentosLabel, plateiaBValorLabel, plateiaBLabel);
+        ocultarLabels(temFrisa, frisaAssentosLabel, frisaValorLabel, frisaLabel);
+        ocultarLabels(temCamarote, camaroteAssentosLabel, camaroteValorLabel, camaroteLabel);
+        ocultarLabels(temBalcao, balcaoAssentosLabel, balcaoValorLabel, balcaoLabel);
 
         double total = totalPlateiaA + totalPlateiaB + totalFrisa + totalCamarote + totalBalcao;
-        valorTotalLabel.setText(String.valueOf(total));
+        valorTotalLabel.setText(String.format("%.2f", total));
     }
 
-    private boolean validarCEP(String cep) {
-        //https://blog.ramongomes.com.br/validacao-cep-javascript/#:~:text=retorna%20false.-,function%20validarCEP(cep)%20%7B,-//%20Remover%20espa%C3%A7os%20em
-        return true;
+    private void ocultarLabels(boolean condicao, Label... labels) {
+        if (!condicao) {
+            for (Label label : labels) {
+                label.setManaged(false);
+            }
+        }
     }
 
     public void voltarTrigger() throws IOException {
@@ -211,7 +194,7 @@ public class FinalizarCompraController {
 
         if (naoFidelidade && Pessoa.validarCPF(Long.parseLong(cpf))) {
             return new Pessoa(cpf, false);
-        } else if (escolheuFidelidade && Pessoa.validarCPF(Long.parseLong(cpf)) && validarCEP(cepField.getText())) {
+        } else if (escolheuFidelidade && Pessoa.validarCPF(Long.parseLong(cpf))) {
             return new Pessoa(cpf, true, nomeField.getText(), telefoneField.getText(), ruaField.getText()
                     + " " + numeroField.getText() + " " + complementoField.getText() + " " + cepField.getText() + " " + bairroField.getText()
                     + " " + cidadeField.getText() + " " + estadoBox.getValue(), selecionarData.getValue());

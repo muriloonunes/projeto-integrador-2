@@ -20,6 +20,7 @@
 .toggle-button {
     -fx-background-color: white;
     -fx-background-radius: 10;
+    -fx-text-fill: black;
 }
 
 .toggle-button:hover {
@@ -28,6 +29,7 @@
 
 .toggle-button:selected {
     -fx-background-color: #830808;
+    -fx-text-fill: white;
 }
 
 .vbox-balcao {

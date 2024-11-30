@@ -47,7 +47,7 @@ public class ImprimirIngressoController {
                     Label sessaoLabel = new Label("Sessão: " + ingresso.getPeca().getSessao());
                     Label assentoLabel = new Label("Assento: " + ingresso.getAssento());
                     Button exportarBotao = new Button("Exportar ingresso");
-                    exportarBotao.setOnAction(event -> exportarCsv(ingresso));
+                    exportarBotao.setOnAction(_ -> exportarCsv(ingresso));
 
                     ingressoContainer.getChildren().addAll(cpfLabel, pecaLabel, sessaoLabel, assentoLabel, exportarBotao);
                     vboxContainer.getChildren().add(ingressoContainer);
@@ -58,7 +58,7 @@ public class ImprimirIngressoController {
 
     public void voltarTrigger() throws IOException {
         FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 810);
+        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 770);
         Stage telaInicialStage = (Stage) voltarBotao.getScene().getWindow();
         telaInicialStage.setScene(telaInicialScene);
         telaInicialStage.show();
@@ -79,10 +79,6 @@ public class ImprimirIngressoController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public String getCpfBuscado() {
-        return cpfBuscado;
     }
 
     public void setCpfBuscado(String cpfBuscado) {

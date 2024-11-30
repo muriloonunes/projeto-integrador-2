@@ -64,6 +64,7 @@ public class TelaIngressoController {
 
     public void initialize() {
         continuarBotao.setDisable(true);
+        labelPrecoTotal.setText("R$ 0.0");
     }
 
     protected void chamarOutroMetodo() {
@@ -89,7 +90,8 @@ public class TelaIngressoController {
             if (node instanceof ToggleButton button) {
                 listaAssentos.add(button.getId());
                 botoesExistentes.add(button);
-                button.setOnAction(event -> {
+                button.setText(button.getId());
+                button.setOnAction(_ -> {
                     habilitarBotaoConfirmar();
                     clicado.set(button.isSelected());
                     if (clicado.get()) {
@@ -285,7 +287,6 @@ public class TelaIngressoController {
         }
         return null;
     }
-
 }
 
 

@@ -1,8 +1,5 @@
 package hmd.teatroABC.model.entities;
 
-import java.io.*;
-import java.util.ArrayList;
-
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 21/11/2024
@@ -24,16 +21,8 @@ public class Ingresso {
         return area;
     }
 
-    public void setArea(Area area) {
-        this.area = area;
-    }
-
     public Peca getPeca() {
         return peca;
-    }
-
-    public void setPeca(Peca peca) {
-        this.peca = peca;
     }
 
     public String getAssento() {

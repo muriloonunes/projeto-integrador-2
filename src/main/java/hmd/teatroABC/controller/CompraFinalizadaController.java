@@ -23,7 +23,7 @@ public class CompraFinalizadaController {
         stageCompraFinalizada.close();
 
         FXMLLoader imprimirLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/imprimir_ingresso.fxml"));
-        Scene imprimirScene = new Scene(imprimirLoader.load(), 1189, 810);
+        Scene imprimirScene = new Scene(imprimirLoader.load(), 1189, 770);
         ImprimirIngressoController controllerImprimir = imprimirLoader.getController();
         stageAnterior.setScene(imprimirScene);
         controllerImprimir.setCpfBuscado(cpfDigitado);
@@ -36,7 +36,7 @@ public class CompraFinalizadaController {
         stageCompraFinalizada.close();
 
         FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 810);
+        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 770);
         stageAnterior.setScene(telaInicialScene);
         stageAnterior.show();
     }

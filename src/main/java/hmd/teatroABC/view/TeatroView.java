@@ -1,6 +1,5 @@
 package hmd.teatroABC.view;
 
-import hmd.teatroABC.controller.TelaInicialController;
 import hmd.teatroABC.model.entities.Teatro;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -25,8 +24,7 @@ public class TeatroView extends Application {
         teatro.carregarPecas();
         teatro.carregarPessoas();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1188, 810);
-        TelaInicialController controller = fxmlLoader.getController();
+        Scene scene = new Scene(fxmlLoader.load(), 1188, 770);
 
         stage.getIcons().add(new Image(Objects.requireNonNull(TeatroView.class.getResourceAsStream("/images/icon.png"))));
         stage.setTitle("Teatro ABC");

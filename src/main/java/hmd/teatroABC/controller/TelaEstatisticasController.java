@@ -23,7 +23,7 @@ public class TelaEstatisticasController {
 
     public void telaInicialTrigger() throws IOException {
         FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 810);
+        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 770);
         Stage telaInicialStage = (Stage) voltarBotao.getScene().getWindow();
         telaInicialStage.setScene(telaInicialScene);
         telaInicialStage.show();

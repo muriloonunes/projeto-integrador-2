@@ -23,7 +23,7 @@ import java.io.IOException;
  */
 
 public class TelaInicialController {
-    public Button botaoManha, botaoTarde, botaoNoite, imprimirBotao, estatisticasBotao, temporaryButton;
+    public Button botaoManha, botaoTarde, botaoNoite, imprimirBotao, estatisticasBotao;
 
     public HBox botoesBox, postersBox, rootBox;
 
@@ -108,7 +108,7 @@ public class TelaInicialController {
 
     public void verEstatisticasTrigger() throws IOException {
         FXMLLoader estatisticaLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/estatisticas_tela.fxml"));
-        Scene estatisticasScene = new Scene(estatisticaLoader.load(), 1189, 810);
+        Scene estatisticasScene = new Scene(estatisticaLoader.load(), 1189, 770);
         Stage estatisticasTelaStage = (Stage) estatisticasBotao.getScene().getWindow();
         estatisticasTelaStage.setScene(estatisticasScene);
         estatisticasTelaStage.show();
@@ -116,7 +116,7 @@ public class TelaInicialController {
 
     private void abrirImprimir(String cpfDigitado) throws IOException {
         FXMLLoader imprimirLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/imprimir_ingresso.fxml"));
-        Scene imprimirScene = new Scene(imprimirLoader.load(), 1189, 810);
+        Scene imprimirScene = new Scene(imprimirLoader.load(), 1189, 770);
         ImprimirIngressoController controllerImprimir = imprimirLoader.getController();
         Stage imprimirStage = (Stage) imprimirBotao.getScene().getWindow();
         imprimirStage.setScene(imprimirScene);
