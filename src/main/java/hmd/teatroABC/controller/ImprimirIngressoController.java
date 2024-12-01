@@ -5,6 +5,7 @@ import hmd.teatroABC.model.entities.Pessoa;
 import hmd.teatroABC.model.entities.Teatro;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -83,6 +84,20 @@ public class ImprimirIngressoController {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Sucesso");
+        alert.setHeaderText(null);
+        alert.setContentText("Ingresso exportado com sucesso!");
+
+        Scene cenaAlerta = alert.getDialogPane().getScene();
+        cenaAlerta.getRoot().setStyle("-fx-background-color: #262424;");
+        Label contentLabel = (Label) alert.getDialogPane().lookup(".content");
+        if (contentLabel != null) {
+            contentLabel.setStyle("-fx-text-fill: white;");
+        }
+
+        alert.showAndWait();
     }
 
     public void setCpfBuscado(String cpfBuscado) {

@@ -6,7 +6,7 @@
 
     <groupId>HMD</groupId>
     <artifactId>TEATRO_ABC</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>Projeto Integrador</name>
 
     <properties>

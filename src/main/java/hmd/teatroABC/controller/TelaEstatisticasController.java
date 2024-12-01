@@ -1,7 +1,5 @@
 package hmd.teatroABC.controller;
 
-import hmd.teatroABC.model.entities.Peca;
-import hmd.teatroABC.model.entities.Teatro;
 import hmd.teatroABC.model.objects.Estatistica;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -39,11 +37,12 @@ public class TelaEstatisticasController {
         lucroMedioLabel1.setText(lucroMedioLabel1.getText() + estatisticas.getLucroMedioWicked());
         lucroMedioLabel2.setText(lucroMedioLabel2.getText() + estatisticas.getLucroMedioReiLeao());
         lucroMedioLabel3.setText(lucroMedioLabel3.getText() + estatisticas.getLucroMedioAuto());
-//        System.out.println(estatisticas.calcularTotalVendas());
-//        System.out.println(estatisticas.calcularPecaMaisVendida());
-//        System.out.println(estatisticas.calcularPecaMenosVendida());
-//        System.out.println(estatisticas.calcularSessaoMaisOcupada());
-//        System.out.println(estatisticas.calcularSessaoMenosOcupada());
+        sessaoMais1Label.setText(sessaoMais1Label.getText() + estatisticas.getSessaoMaisLucrativaWicked());
+        sessaoMenos1Label.setText(sessaoMenos1Label.getText() + estatisticas.getSessaoMenosLucrativaWicked());
+        sessaoMais2Label.setText(sessaoMais2Label.getText() + estatisticas.getSessaoMaisLucrativaReiLeao());
+        sessaoMenos2Label.setText(sessaoMenos2Label.getText() + estatisticas.getSessaoMenosLucrativaReiLeao());
+        sessaoMais3Label.setText(sessaoMais3Label.getText() + estatisticas.getSessaoMaisLucrativaAuto());
+        sessaoMenos3Label.setText(sessaoMenos3Label.getText() + estatisticas.getSessaoMenosLucrativaAuto());
     }
 
     public void telaInicialTrigger() throws IOException {
@@ -56,8 +55,6 @@ public class TelaEstatisticasController {
 
     @FXML
     private void exportarCsv() {
-        //TODO
-
         File estatisticaExportada = new File("src/main/resources/out/estatisticas.csv");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(estatisticaExportada))) {
             bw.write("Estatística,Valor");
@@ -78,17 +75,17 @@ public class TelaEstatisticasController {
             bw.newLine();
             bw.write("Lucro Médio (Auto da Compadecida)," + estatisticas.getLucroMedioAuto());
             bw.newLine();
-
-            for (Peca peca : Teatro.getPecas()) {
-                String maisLucrativa = estatisticas.calcularSessaoMaisLucrativaPorPeca(peca);
-                String menosLucrativa = estatisticas.calcularSessaoMenosLucrativaPorPeca(peca);
-
-                bw.write("Peça: " + peca.getNome() + " - Sessão Mais Lucrativa," + maisLucrativa);
-                bw.newLine();
-                bw.write("Peça: " + peca.getNome() + " - Sessão Menos Lucrativa," + menosLucrativa);
-                bw.newLine();
-            }
-
+            bw.write("Sessão Mais Vendida (Wicked)," + estatisticas.getSessaoMaisLucrativaWicked());
+            bw.newLine();
+            bw.write("Sessão Menos Vendida (Wicked)," + estatisticas.getSessaoMenosLucrativaWicked());
+            bw.newLine();
+            bw.write("Sessão Mais Vendida (Rei Leão)," + estatisticas.getSessaoMaisLucrativaReiLeao());
+            bw.newLine();
+            bw.write("Sessão Menos Vendida (Rei Leão)," + estatisticas.getSessaoMenosLucrativaReiLeao());
+            bw.newLine();
+            bw.write("Sessão Mais Vendida (Auto da Compadecida)," + estatisticas.getSessaoMaisLucrativaAuto());
+            bw.newLine();
+            bw.write("Sessão Menos Vendida (Auto da Compadecida)," + estatisticas.getSessaoMenosLucrativaAuto());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
