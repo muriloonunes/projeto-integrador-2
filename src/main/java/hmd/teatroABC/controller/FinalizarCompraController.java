@@ -1,6 +1,7 @@
 package hmd.teatroABC.controller;
 
 import hmd.teatroABC.model.entities.*;
+import hmd.teatroABC.util.FXMLLoaderUtil;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
@@ -157,8 +158,8 @@ public class FinalizarCompraController {
     }
 
     public void voltarTrigger() throws IOException {
-        FXMLLoader compraSceneLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_ingressos.fxml"));
-        Scene compraScene = new Scene(compraSceneLoader.load());
+        FXMLLoader compraSceneLoader = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/tela_ingressos.fxml");
+        Scene compraScene = new Scene(compraSceneLoader.getRoot());
         TelaIngressoController controller = compraSceneLoader.getController();
         controller.chamarOutroMetodo();
         controller.configurarAposVoltar(assentosSelecionados);
@@ -174,8 +175,8 @@ public class FinalizarCompraController {
         Teatro.adicionarPessoa(pessoaCriada);
         Teatro.escreverLog();
         Teatro.atualizarPecas();
-        FXMLLoader compraFinalizada = new FXMLLoader(getClass().getResource("/hmd/teatroABC/compra_finalizada_tela.fxml"));
-        Scene compraFinalizadaScene = new Scene(compraFinalizada.load());
+        FXMLLoader compraFinalizada = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/compra_finalizada_tela.fxml");
+        Scene compraFinalizadaScene = new Scene(compraFinalizada.getRoot());
         CompraFinalizadaController controller = compraFinalizada.getController();
         controller.setStageAnterior((Stage) finalizarBotao.getScene().getWindow());
         controller.setCpfDigitado(cpfField.getText());

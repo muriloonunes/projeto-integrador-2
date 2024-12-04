@@ -4,6 +4,7 @@ import hmd.teatroABC.model.entities.Area;
 import hmd.teatroABC.model.entities.Peca;
 import hmd.teatroABC.model.entities.Sessao;
 import hmd.teatroABC.model.entities.Teatro;
+import hmd.teatroABC.util.FXMLLoaderUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -253,16 +254,16 @@ public class TelaIngressoController {
     }
 
     public void telaInicialTrigger() throws IOException {
-        FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 770);
+        FXMLLoader telaInicialLoader = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/tela_inicial.fxml");
+        Scene telaInicialScene = new Scene(telaInicialLoader.getRoot(), 1189, 770);
         Stage telaInicialStage = (Stage) voltarBotao.getScene().getWindow();
         telaInicialStage.setScene(telaInicialScene);
         telaInicialStage.show();
     }
 
     public void finalizarCompraTrigger() throws IOException {
-        FXMLLoader finalizarCompraLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/finalizar_compra.fxml"));
-        Scene finalizarCompraScene = new Scene(finalizarCompraLoader.load());
+        FXMLLoader finalizarCompraLoader = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/finalizar_compra.fxml");
+        Scene finalizarCompraScene = new Scene(finalizarCompraLoader.getRoot());
         FinalizarCompraController controllerCompra = finalizarCompraLoader.getController();
         controllerCompra.setTelaIngressoController(this);
         controllerCompra.resumoDaCompra(botoesClicados);

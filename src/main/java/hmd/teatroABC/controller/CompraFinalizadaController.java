@@ -1,5 +1,6 @@
 package hmd.teatroABC.controller;
 
+import hmd.teatroABC.util.FXMLLoaderUtil;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,8 +23,8 @@ public class CompraFinalizadaController {
         Stage stageCompraFinalizada = (Stage) okBotao.getScene().getWindow();
         stageCompraFinalizada.close();
 
-        FXMLLoader imprimirLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/imprimir_ingresso.fxml"));
-        Scene imprimirScene = new Scene(imprimirLoader.load(), 1189, 770);
+        FXMLLoader imprimirLoader = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/imprimir_ingresso.fxml");
+        Scene imprimirScene = new Scene(imprimirLoader.getRoot(), 1189, 770);
         ImprimirIngressoController controllerImprimir = imprimirLoader.getController();
         stageAnterior.setScene(imprimirScene);
         controllerImprimir.setCpfBuscado(cpfDigitado);
@@ -35,8 +36,8 @@ public class CompraFinalizadaController {
         Stage stageCompraFinalizada = (Stage) naoBotao.getScene().getWindow();
         stageCompraFinalizada.close();
 
-        FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 770);
+        FXMLLoader telaInicialLoader = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/tela_inicial.fxml");
+        Scene telaInicialScene = new Scene(telaInicialLoader.getRoot(), 1189, 770);
         stageAnterior.setScene(telaInicialScene);
         stageAnterior.show();
     }

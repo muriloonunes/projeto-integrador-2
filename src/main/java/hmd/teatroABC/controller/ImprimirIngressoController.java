@@ -3,6 +3,7 @@ package hmd.teatroABC.controller;
 import hmd.teatroABC.model.entities.Ingresso;
 import hmd.teatroABC.model.entities.Pessoa;
 import hmd.teatroABC.model.entities.Teatro;
+import hmd.teatroABC.util.FXMLLoaderUtil;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -60,8 +61,8 @@ public class ImprimirIngressoController {
     }
 
     public void voltarTrigger() throws IOException {
-        FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 770);
+        FXMLLoader telaInicialLoader = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/tela_inicial.fxml");
+        Scene telaInicialScene = new Scene(telaInicialLoader.getRoot(), 1189, 770);
         Stage telaInicialStage = (Stage) voltarBotao.getScene().getWindow();
         telaInicialStage.setScene(telaInicialScene);
         telaInicialStage.show();

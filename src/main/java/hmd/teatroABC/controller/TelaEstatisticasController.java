@@ -1,6 +1,7 @@
 package hmd.teatroABC.controller;
 
 import hmd.teatroABC.model.objects.Estatistica;
+import hmd.teatroABC.util.FXMLLoaderUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -46,8 +47,8 @@ public class TelaEstatisticasController {
     }
 
     public void telaInicialTrigger() throws IOException {
-        FXMLLoader telaInicialLoader = new FXMLLoader(getClass().getResource("/hmd/teatroABC/tela_inicial.fxml"));
-        Scene telaInicialScene = new Scene(telaInicialLoader.load(), 1189, 770);
+        FXMLLoader telaInicialLoader = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/tela_inicial.fxml");
+        Scene telaInicialScene = new Scene(telaInicialLoader.getRoot(), 1189, 770);
         Stage telaInicialStage = (Stage) voltarBotao.getScene().getWindow();
         telaInicialStage.setScene(telaInicialScene);
         telaInicialStage.show();
