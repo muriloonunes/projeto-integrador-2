@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
+import static hmd.teatroABC.util.FXMLLoaderUtil.BUNDLE;
+
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 19/11/2024
@@ -28,7 +30,7 @@ public class TeatroView extends Application {
         Scene scene = new Scene(fxmlLoader.getRoot(), 1188, 770);
 
         stage.getIcons().add(new Image(Objects.requireNonNull(TeatroView.class.getResourceAsStream("/images/icon.png"))));
-        stage.setTitle("Teatro ABC");
+        stage.setTitle(BUNDLE.getString("stage_titulo"));
         stage.setScene(scene);
         stage.show();
     }

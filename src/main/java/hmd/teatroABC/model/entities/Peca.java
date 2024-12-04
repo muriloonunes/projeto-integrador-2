@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import static hmd.teatroABC.util.FXMLLoaderUtil.BUNDLE;
+
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 19/11/2024
@@ -33,16 +35,8 @@ public class Peca {
         return poster;
     }
 
-    public void setPoster(File poster) {
-        this.poster = poster;
-    }
-
     public Image getPosterImg() {
         return posterImg;
-    }
-
-    public void setPosterImg(Image posterImg) {
-        this.posterImg = posterImg;
     }
 
     public void configurarPoster() {
@@ -53,16 +47,8 @@ public class Peca {
         return sessao;
     }
 
-    public void setSessao(Sessao sessao) {
-        this.sessao = sessao;
-    }
-
     public String getNome() {
         return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public void adicionarAssento(String assento) {
@@ -99,5 +85,9 @@ public class Peca {
                 ", poster=" + poster +
                 ", posterImg=" + posterImg +
                 '}';
+    }
+
+    public static String traduzirNome(String nomeOriginal) {
+        return BUNDLE.containsKey(nomeOriginal) ? BUNDLE.getString(nomeOriginal) : nomeOriginal;
     }
 }

@@ -9,13 +9,13 @@
 
 <VBox alignment="CENTER" spacing="10.0" stylesheets="@../../styles/digitar_cpf_tela.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hmd.teatroABC.controller.DigitarCpfController">
    <children>
-      <Label text="Digite seu CPF:" />
+      <Label text="%digite_cpf" />
          <TextField fx:id="cpfField" styleClass="text-field" />
       <Label fx:id="erroLabel" styleClass="label-erro" text="erro" visible="false" />
       <HBox alignment="CENTER" spacing="10.0">
          <children>
           <Button fx:id="okBotao" defaultButton="true" mnemonicParsing="false" onAction="#botaoOkClicado" text="OK" />
-            <Button fx:id="cancelarBotao" cancelButton="true" mnemonicParsing="false" onAction="#botaoCancelarClicado" text="Cancelar" />
+            <Button fx:id="cancelarBotao" cancelButton="true" mnemonicParsing="false" onAction="#botaoCancelarClicado" text="%cancelar" />
          </children>
       </HBox>
    </children>

@@ -1,6 +1,7 @@
 package hmd.teatroABC.controller;
 
 import hmd.teatroABC.model.entities.Ingresso;
+import hmd.teatroABC.model.entities.Peca;
 import hmd.teatroABC.model.entities.Pessoa;
 import hmd.teatroABC.model.entities.Teatro;
 import hmd.teatroABC.util.FXMLLoaderUtil;
@@ -17,6 +18,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+
+import static hmd.teatroABC.util.FXMLLoaderUtil.BUNDLE;
 
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
@@ -37,7 +40,7 @@ public class ImprimirIngressoController {
     public void criarIngresso() {
         List<Pessoa> pessoas = Teatro.buscarPessoaPorCpf(cpfBuscado);
         if (pessoas.isEmpty()) {
-            exibindoLabel.setText("Nenhum ingresso encontrado para o CPF " + cpfBuscado);
+            exibindoLabel.setText(BUNDLE.getString("nenhum_ingresso") + " " + cpfBuscado);
             exibindoLabel.setStyle("-fx-text-fill: red");
         } else {
             for (Pessoa pessoa : pessoas) {
@@ -45,15 +48,15 @@ public class ImprimirIngressoController {
                     VBox ingressoContainer = new VBox(5);
                     ingressoContainer.getStyleClass().clear();
                     ingressoContainer.getStyleClass().add("vbox-ingresso");
-                    Label cpfLabel = new Label("CPF do titular: " + cpfBuscado);
-                    Label pecaLabel = new Label("Peca: " + ingresso.getPeca().getNome());
-                    Label sessaoLabel = new Label("Sessão: " + ingresso.getPeca().getSessao());
-                    Label assentoLabel = new Label("Assento: " + ingresso.getAssento());
-                    Label precoLabel = new Label("Preço: R$" + ingresso.getPreco());
-                    Button exportarBotao = new Button("Exportar ingresso");
+                    Label cpfLabel = new Label(BUNDLE.getString("titular_cpf") + " " + cpfBuscado);
+                    Label pecaLabel = new Label(BUNDLE.getString("peca") + " " + Peca.traduzirNome(ingresso.getPeca().getNome()));
+                    Label sessaoLabel = new Label(BUNDLE.getString("sessao") + " " + ingresso.getPeca().getSessao().getNomeTraduzido());
+                    Label assentoLabel = new Label(BUNDLE.getString("assento") + " " + ingresso.getAssento());
+                    Label precoLabel = new Label(BUNDLE.getString("preco") + " " + ingresso.getPreco());
+                    Button exportarBotao = new Button(BUNDLE.getString("exportar_ingresso"));
                     exportarBotao.setOnAction(_ -> exportarCsv(ingresso));
 
-                    ingressoContainer.getChildren().addAll(cpfLabel, pecaLabel, sessaoLabel, assentoLabel,precoLabel, exportarBotao);
+                    ingressoContainer.getChildren().addAll(cpfLabel, pecaLabel, sessaoLabel, assentoLabel, precoLabel, exportarBotao);
                     vboxContainer.getChildren().add(ingressoContainer);
                 }
             }
@@ -71,25 +74,25 @@ public class ImprimirIngressoController {
     private void exportarCsv(Ingresso ingresso) {
         File ingressoExportado = new File("src/main/resources/out/ingresso.csv");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(ingressoExportado))) {
-            bw.write("INGRESSO");
+            bw.write(BUNDLE.getString("ingresso"));
             bw.newLine();
-            bw.write("CPF do titular: " + cpfBuscado);
+            bw.write(BUNDLE.getString("titular_cpf") + " " + cpfBuscado);
             bw.newLine();
-            bw.write("Peca: " + ingresso.getPeca().getNome());
+            bw.write(BUNDLE.getString("peca") + " " + Peca.traduzirNome(ingresso.getPeca().getNome()));
             bw.newLine();
-            bw.write("Sessão: " + ingresso.getPeca().getSessao());
+            bw.write(BUNDLE.getString("sessao") + " " + ingresso.getPeca().getSessao().getNomeTraduzido());
             bw.newLine();
-            bw.write("Assento: " + ingresso.getAssento());
+            bw.write(BUNDLE.getString("assento") + " " + ingresso.getAssento());
             bw.newLine();
-            bw.write("Preço: R$" + ingresso.getPreco());
+            bw.write(BUNDLE.getString("preco") + " " + ingresso.getPreco());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
 
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Sucesso");
+        alert.setTitle(BUNDLE.getString("sucesso_alerta"));
         alert.setHeaderText(null);
-        alert.setContentText("Ingresso exportado com sucesso!");
+        alert.setContentText(BUNDLE.getString("sucesso_ingresso"));
 
         Scene cenaAlerta = alert.getDialogPane().getScene();
         cenaAlerta.getRoot().setStyle("-fx-background-color: #262424;");

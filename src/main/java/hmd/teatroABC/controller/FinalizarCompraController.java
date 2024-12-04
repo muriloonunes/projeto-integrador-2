@@ -158,7 +158,7 @@ public class FinalizarCompraController {
     }
 
     public void voltarTrigger() throws IOException {
-        FXMLLoader compraSceneLoader = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/tela_ingressos.fxml");
+        FXMLLoader compraSceneLoader = FXMLLoaderUtil.loadFXML("/hmd/teatroABC/tela_selecionar_assentos.fxml");
         Scene compraScene = new Scene(compraSceneLoader.getRoot());
         TelaIngressoController controller = compraSceneLoader.getController();
         controller.chamarOutroMetodo();

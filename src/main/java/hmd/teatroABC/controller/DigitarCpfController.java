@@ -6,6 +6,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import static hmd.teatroABC.util.FXMLLoaderUtil.BUNDLE;
+
 /**
  * @author Davy Lopes, Murilo Nunes, Hartur Sales
  * @date 22/11/2024
@@ -38,7 +40,7 @@ public class DigitarCpfController {
     public void botaoOkClicado() {
         if (!verificarCpf(cpfField.getText())) {
             erroLabel.setVisible(true);
-            erroLabel.setText("CPF inválido");
+            erroLabel.setText(BUNDLE.getString("cpf_invalido"));
             return;
         }
         okClicado = true;
